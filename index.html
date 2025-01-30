@@ -3,87 +3,86 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEDPOLE</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* General Styles */
+        /* Custom Styles */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #fcfafa;
         }
 
-        /* Centered Content Section */
         .center-section {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f8f9fa;
+            background: #000000;
         }
 
-        .card {
-            width: 90%;
-            max-width: 350px;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            background: linear-gradient(135deg, #ffffff, #e8f0ff);
+        .container-custom {
+            background: #242836;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .card h2 {
-            font-size: 1.5rem;
+        .app-name {
+            font-size: 20px;
+            color: #4a90e2;
             font-weight: bold;
-            color: #0f0101;
-        }
-
-        .form-label {
-            font-weight: 700;
-            color: #495057;
+            margin-bottom: 10px;
         }
 
         .form-control {
-            border-radius: 20px;
-            border: 1px solid #02080e;
+            background: #2e3446;
+            border: none;
+            color: white;
+            border-radius: 8px;
             padding: 10px;
+        }
+
+        .form-control::placeholder {
+            color: #b0b3c4;
         }
 
         .btn-primary {
-            width: 100%;
-            border-radius: 15px;
-            max-width: 400px;
-            margin: 10px auto;
-            background-color: #007bff;
+            background: #4a90e2;
             border: none;
+            border-radius: 8px;
             padding: 10px;
-            align-items: center;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background: #357abd;
+        }
+
+        .form-label {
+            color: #b0b3c4;
+            font-weight: bold;
         }
 
         .toggle-link {
+            color: #4a90e2;
             cursor: pointer;
-            color: #000000;
-        
+            text-decoration: none;
         }
 
-        .avatar {
-            width: 190px;
-            height: 80px;
-            border-radius: 60%;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px auto;
+        .toggle-link:hover {
+            text-decoration: underline;
         }
 
-        .avatar img {
-            width: 60%;
+        /* White text for "Create New Account" and "Login" */
+        .auth-title {
+            color: white;
         }
 
-        /* Welcome Message */
         #welcome {
             height: 100vh;
             display: flex;
@@ -95,7 +94,6 @@
             display: none;
         }
 
-        /* App Content */
         #appContent {
             display: none;
         }
@@ -109,7 +107,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Camera styles */
         #camera {
             height: 100vh;
             display: flex;
@@ -117,14 +114,19 @@
             align-items: center;
             background-color: black;
             display: none;
+            flex-direction: column;
         }
 
-        video {
+        #camera video {
             width: 100%;
+            max-width: 500px;
             height: auto;
         }
 
-        /* Chat styles */
+        #camera button {
+            margin: 10px;
+        }
+
         #chat {
             height: 100vh;
             display: flex;
@@ -137,6 +139,7 @@
         #chat-messages {
             overflow-y: auto;
             height: 80%;
+            padding: 20px;
         }
 
         .chat-message {
@@ -146,7 +149,6 @@
             border-radius: 5px;
         }
 
-        /* Video Section */
         #video-section {
             display: flex;
             justify-content: center;
@@ -156,7 +158,7 @@
             display: none;
         }
 
-        video {
+        #video-section video {
             max-width: 100%;
             max-height: 80%;
         }
@@ -167,23 +169,6 @@
             width: 150px;
             align-items: center;
         }
-
-        /* Password input with icon */
-        .password-container {
-            position: relative;
-        }
-
-        .password-container input {
-            padding-right: 40px;
-        }
-
-        .password-container i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(20%);
-            cursor: pointer;
-        }
     </style>
 </head>
 
@@ -191,31 +176,47 @@
 
     <!-- Login/Sign-Up Section -->
     <div id="auth-section" class="center-section">
-        <div class="card p-3">
-            <h2 id="auth-title" class="text-center mb-3">TEDPOLE</h2><background-color: #black;>
+        <div class="container-custom" id="signup-container">
+            <div class="app-name">TEDPOLE</div>
+            <h2 class="mb-3 auth-title">Create New Account</h2>
             <form id="auth-form">
-                <div class="avatar">
-                    <img src="c:\Users\karth\Downloads\icon.png" alt="Avatar">
-                </div>
-                
-                <div id="username-field" class="mb-3">
-                    <label for="auth-name" class="form-label">User Name</label>
-                    <input type="text" class="form-control" id="auth-name" placeholder="Enter your name" required>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" required>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" required>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="auth-email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="auth-email" placeholder="Enter your email" required>
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
                 </div>
-                <div class="mb-3 password-container">
-                    <label for="auth-password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="auth-password" placeholder="Enter your password" required>
-                    <i class="bi bi-eye" id="toggle-password"></i>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter your password" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="auth-button">Sign Up</button>
+                <button type="submit" class="btn btn-primary w-100">Create Account</button>
             </form>
-            <div class="text-center mt-3">
-                <span id="toggle-auth" class="toggle-link">Already have an account? Log In</span>
-            </div>
+            <p class="mt-3">Already a Member? <a href="#" class="toggle-link" onclick="toggleForm('login')">Log In</a></p>
+        </div>
+        <div class="container-custom" id="login-container" style="display: none;">
+            <div class="app-name">TEDPOLE</div>
+            <h2 class="mb-3 auth-title">Log In</h2>
+            <form id="auth-form">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Log In</button>
+            </form>
+            <p class="mt-3">New here? <a href="#" class="toggle-link" onclick="toggleForm('signup')">Create an Account</a></p>
         </div>
     </div>
 
@@ -288,7 +289,10 @@
         <!-- Camera Section -->
         <section id="camera">
             <h2 class="text-center text-white">Camera Feature</h2>
-            <video autoplay></video>
+            <video id="camera-preview" autoplay></video>
+            <button id="capture-photo" class="btn btn-primary">Capture Photo</button>
+            <button id="record-video" class="btn btn-danger">Record Video</button>
+            <button id="stop-video" class="btn btn-secondary" style="display: none;">Stop Recording</button>
             <a href="#features" class="btn btn-secondary btn-return" onclick="closeCamera()">Return</a>
         </section>
 
@@ -312,6 +316,7 @@
         <!-- Footer -->
         <footer class="py-4">
             <div class="container text-center">
+                <p>&copy; 2023 TEDPOLE. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -323,25 +328,23 @@
         const authSection = document.getElementById('auth-section');
         const welcome = document.getElementById('welcome');
         const appContent = document.getElementById('appContent');
-        const toggleAuth = document.getElementById('toggle-auth');
-        const authTitle = document.getElementById('auth-title');
-        const authButton = document.getElementById('auth-button');
-        const usernameField = document.getElementById('username-field');
-        const cameraSection = document.getElementById('camera');
-        const chatSection = document.getElementById('chat');
-        const videoSection = document.getElementById('video-section');
-        const featuresSection = document.getElementById('features');
+        const signupContainer = document.getElementById('signup-container');
+        const loginContainer = document.getElementById('login-container');
+        const cameraPreview = document.getElementById('camera-preview');
+        const capturePhotoButton = document.getElementById('capture-photo');
+        const recordVideoButton = document.getElementById('record-video');
+        const stopVideoButton = document.getElementById('stop-video');
+        let mediaStream;
+        let mediaRecorder;
+        let recordedChunks = [];
 
-        let isLogin = false;
+        // Toggle between Sign Up and Login forms
+        function toggleForm(form) {
+            signupContainer.style.display = form === 'login' ? 'none' : 'block';
+            loginContainer.style.display = form === 'login' ? 'block' : 'none';
+        }
 
-        toggleAuth.addEventListener('click', () => {
-            isLogin = !isLogin;
-            authTitle.textContent = isLogin ? 'Log In to TEDPOLE' : 'Sign Up to TEDPOLE';
-            authButton.textContent = isLogin ? 'Log In' : 'Sign Up';
-            usernameField.style.display = isLogin ? 'none' : 'block';
-            toggleAuth.textContent = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In";
-        });
-
+        // Handle form submission
         authForm.addEventListener('submit', (e) => {
             e.preventDefault();
             authSection.style.display = 'none';
@@ -353,41 +356,93 @@
             }, 2000);
         });
 
-        document.getElementById('toggle-password').addEventListener('click', function () {
-            const passwordField = document.getElementById('auth-password');
-            const type = passwordField.type === 'password' ? 'text' : 'password';
-            passwordField.type = type;
-            this.classList.toggle('bi-eye-slash');
+        // Open Camera
+        async function openCamera() {
+            document.getElementById('features').style.display = 'none';
+            document.getElementById('camera').style.display = 'flex';
+
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                cameraPreview.srcObject = mediaStream;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        // Capture Photo
+        capturePhotoButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = cameraPreview.videoWidth;
+            canvas.height = cameraPreview.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(cameraPreview, 0, 0, canvas.width, canvas.height);
+            const imageUrl = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'photo.png';
+            link.click();
         });
 
-        function openCamera() {
-            featuresSection.style.display = 'none';
-            cameraSection.style.display = 'flex';
-        }
+        // Record Video
+        recordVideoButton.addEventListener('click', () => {
+            recordedChunks = [];
+            mediaRecorder = new MediaRecorder(mediaStream, { mimeType: 'video/webm' });
+            mediaRecorder.ondataavailable = (event) => {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                }
+            };
+            mediaRecorder.onstop = () => {
+                const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                const videoUrl = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = videoUrl;
+                link.download = 'video.webm';
+                link.click();
+            };
+            mediaRecorder.start();
+            recordVideoButton.style.display = 'none';
+            stopVideoButton.style.display = 'block';
+        });
 
+        // Stop Recording
+        stopVideoButton.addEventListener('click', () => {
+            mediaRecorder.stop();
+            recordVideoButton.style.display = 'block';
+            stopVideoButton.style.display = 'none';
+        });
+
+        // Close Camera
         function closeCamera() {
-            cameraSection.style.display = 'none';
-            featuresSection.style.display = 'block';
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+            }
+            document.getElementById('camera').style.display = 'none';
+            document.getElementById('features').style.display = 'block';
         }
 
+        // Open Chat
         function openChat() {
-            featuresSection.style.display = 'none';
-            chatSection.style.display = 'flex';
+            document.getElementById('features').style.display = 'none';
+            document.getElementById('chat').style.display = 'flex';
         }
 
+        // Close Chat
         function closeChat() {
-            chatSection.style.display = 'none';
-            featuresSection.style.display = 'block';
+            document.getElementById('chat').style.display = 'none';
+            document.getElementById('features').style.display = 'block';
         }
 
+        // Open Video
         function openVideo() {
-            featuresSection.style.display = 'none';
-            videoSection.style.display = 'flex';
+            document.getElementById('features').style.display = 'none';
+            document.getElementById('video-section').style.display = 'flex';
         }
 
+        // Close Video
         function closeVideo() {
-            videoSection.style.display = 'none';
-            featuresSection.style.display = 'block';
+            document.getElementById('video-section').style.display = 'none';
+            document.getElementById('features').style.display = 'block';
         }
     </script>
 </body>
