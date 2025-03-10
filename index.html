@@ -721,6 +721,26 @@
     <section id="chat">
       <div id="chat-list-view">
         <h5 class="mb-3">Chats</h5>
+        <div class="add-friend-section">
+          <button id="add-friend-btn" class="btn btn-primary" onclick="showAddFriends()">
+            <i class="bi bi-person-plus"></i>
+          </button>
+          <div id="contacts-list" style="display: none;">
+            <h5>Invite Friends</h5>
+            <div class="contact-item">
+              <span>John Doe</span>
+              <button class="connect-button" onclick="sendInvitation(this, 'John Doe')">Connect</button>
+            </div>
+            <div class="contact-item">
+              <span>Jane Smith</span>
+              <button class="connect-button" onclick="sendInvitation(this, 'Jane Smith')">Connect</button>
+            </div>
+            <div class="contact-item">
+              <span>Mike Johnson</span>
+              <button class="connect-button" onclick="sendInvitation(this, 'Mike Johnson')">Connect</button>
+            </div>
+          </div>
+        </div>
         <div class="chat-list-item" onclick="openChatDetail('Kushal')">
           <strong>Kushal</strong><br>
           <small>Last message snippet...</small>
