@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <title>TEDPOLE - Mobile Chat</title>
@@ -19,40 +19,15 @@
       transition: background-color 0.5s ease, color 0.5s ease;
     }
     /* Theme Styles */
-    body.light {
-      background-color: #fcfafa;
-      color: #000000;
-    }
-    body.dark {
-      background-color: #121212;
-      color: #ffffff;
-    }
-    body.blue {
-      background-color: #e3f2fd;
-      color: #0d47a1;
-    }
-    body.dark .center-section {
-      background: #333;
-    }
-    body.dark .container-custom {
-      background: rgba(255,255,255,0.1);
-    }
-    body.dark .form-control {
-      background: #444;
-      color: #fff;
-    }
-    body.dark .app-name {
-      color: #ffffff;
-    }
-    body.dark .chat-list-item {
-      background: #222;
-      border-color: #444;
-    }
-    body.dark #chat-detail-top-bar,
-    body.dark #chat-input-area {
-      background: #222;
-      border-color: #444;
-    }
+    body.light { background-color: #fcfafa; color: #000000; }
+    body.dark { background-color: #121212; color: #ffffff; }
+    body.blue { background-color: #e3f2fd; color: #0d47a1; }
+    body.dark .center-section { background: #333; }
+    body.dark .container-custom { background: rgba(255,255,255,0.1); }
+    body.dark .form-control { background: #444; color: #fff; }
+    body.dark .app-name { color: #ffffff; }
+    body.dark .chat-list-item { background: #222; border-color: #444; }
+    body.dark #chat-detail-top-bar, body.dark #chat-input-area { background: #222; border-color: #444; }
     /* Authentication Section */
     .center-section {
       min-height: 100vh;
@@ -89,12 +64,8 @@
       border: none;
       transition: box-shadow 0.3s ease;
     }
-    .name-row .form-control::placeholder {
-      color: #b0b3c4;
-    }
-    .name-row .form-control:focus {
-      box-shadow: 0 0 5px 2px rgba(74,144,226,0.6);
-    }
+    .name-row .form-control::placeholder { color: #b0b3c4; }
+    .name-row .form-control:focus { box-shadow: 0 0 5px 2px rgba(74,144,226,0.6); }
     .form-control {
       background: #2e3446;
       border: none;
@@ -103,12 +74,8 @@
       padding: 12px 45px;
       transition: box-shadow 0.3s ease;
     }
-    .form-control:focus {
-      box-shadow: 0 0 5px 2px rgba(74,144,226,0.6);
-    }
-    .form-control::placeholder {
-      color: #b0b3c4;
-    }
+    .form-control:focus { box-shadow: 0 0 5px 2px rgba(74,144,226,0.6); }
+    .form-control::placeholder { color: #b0b3c4; }
     .btn-primary {
       background: #4a90e2;
       border: none;
@@ -117,22 +84,10 @@
       font-weight: bold;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    .btn-primary:hover {
-      background: #357abd;
-      transform: scale(1.03);
-    }
-    .toggle-link {
-      color: #4a90e2;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
-    }
-    .toggle-link:hover {
-      color: #357abd;
-    }
-    .password-container {
-      position: relative;
-    }
+    .btn-primary:hover { background: #357abd; transform: scale(1.03); }
+    .toggle-link { color: #4a90e2; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+    .toggle-link:hover { color: #357abd; }
+    .password-container { position: relative; }
     .password-container .bi {
       position: absolute;
       right: 15px;
@@ -148,23 +103,10 @@
       transform: translateY(-50%);
       color: #b0b3c4;
     }
-    .code-timer {
-      color: #ff4d4d;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-    .code-input-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      animation: fadeIn 0.5s;
-    }
+    .code-timer { color: #ff4d4d; font-weight: bold; margin-left: 10px; }
+    .code-input-container { display: flex; align-items: center; gap: 10px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.5s; }
     /* Welcome Message */
     #welcome {
       min-height: 100vh;
@@ -177,30 +119,15 @@
       display: none;
       padding: 15px;
     }
-    #appContent {
-      display: none;
-    }
+    #appContent { display: none; }
     /* Navbar */
-    .navbar {
-      background-color: #0400ff !important;
-    }
-    .navbar-brand, .nav-link {
-      color: #ffffff !important;
-    }
-    .nav-link:hover {
-      color: #4a90e2 !important;
-    }
+    .navbar { background-color: #0400ff !important; }
+    .navbar-brand, .nav-link { color: #ffffff !important; }
+    .nav-link:hover { color: #4a90e2 !important; }
     /* Features Section */
-    #features {
-      padding: 60px 0;
-    }
-    .feature-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
+    #features { padding: 60px 0; }
+    .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
     /* Camera Section */
     #camera {
       background: #000;
@@ -210,228 +137,62 @@
       display: none;
       animation: fadeIn 0.5s;
     }
-    #camera-preview {
-      width: 100%;
-      max-width: 600px;
-      margin: 20px auto;
-      display: block;
-      border: 5px solid #fff;
-      border-radius: 8px;
-    }
-    .capture-button {
-      font-size: 24px;
-      cursor: pointer;
-      text-align: center;
-      margin: 20px auto;
-      transition: transform 0.2s ease;
-    }
-    .capture-button:hover {
-      transform: scale(1.1);
-    }
-    .return-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .return-button:hover {
-      color: #ccc;
-      transform: rotate(-10deg);
-    }
+    #camera-preview { width: 100%; max-width: 600px; margin: 20px auto; display: block; border: 5px solid #fff; border-radius: 8px; }
+    .capture-button { font-size: 24px; cursor: pointer; text-align: center; margin: 20px auto; transition: transform 0.2s ease; }
+    .capture-button:hover { transform: scale(1.1); }
+    .return-button { position: absolute; top: 20px; left: 20px; font-size: 2rem; color: #fff; cursor: pointer; transition: transform 0.3s ease, color 0.3s ease; }
+    .return-button:hover { color: #ccc; transform: rotate(-10deg); }
     /* Chat Section */
-    #chat {
-      min-height: 100vh;
-      background: #f8f9fa;
-      color: #000;
-      display: none;
-      animation: fadeIn 0.5s;
-      position: relative;
-      overflow: hidden;
-    }
-    #chat-list-view {
-      padding: 10px;
-      overflow-y: auto;
-      height: calc(100vh - 60px);
-    }
-    .chat-list-item {
-      background: #fff;
-      padding: 10px;
-      margin-bottom: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .chat-list-item:hover {
-      background: #f0f0f0;
-    }
-    #chat-detail-view {
-      display: none;
-      height: 100vh;
-      position: relative;
-    }
-    #chat-detail-top-bar {
-      background: #fff;
-      border-bottom: 1px solid #ccc;
-      padding: 5px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #chat-detail-left {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    #back-icon {
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-left: 5px;
-    }
-    #opponent-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    #opponent-name {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-left: 5px;
-    }
-    #chat-detail-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-    }
-    #voice-call, #video-call, #more-options {
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    #moreOptionsMenu {
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      display: none;
-      z-index: 999;
-    }
-    #moreOptionsMenu ul {
-      list-style: none;
-      margin: 0;
-      padding: 5px;
-    }
-    #moreOptionsMenu li {
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    #moreOptionsMenu li:hover {
-      background: #eee;
-    }
-    #detail-chat-messages-container {
-      background-size: cover;
-      height: calc(100vh - 130px);
-      overflow-y: auto;
-      padding: 10px;
-    }
-    #no-messages-placeholder {
-      text-align: center;
-      margin-top: 50px;
-      color: #777;
-    }
-    #no-messages-placeholder img {
-      max-width: 150px;
-      border-radius: 10px;
-      opacity: 0.8;
-    }
-    #chat-messages {
-      margin-top: 10px;
-    }
-    .chat-message {
-      background: #4a90e2;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin-bottom: 5px;
-      max-width: 70%;
-      word-wrap: break-word;
-    }
-    .file-message {
-      background: #333;
-      color: #ffffff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin-bottom: 5px;
-      max-width: 70%;
-      word-wrap: break-word;
-    }
-    #chat-input-area {
-      background: #fff;
-      border-top: 1px solid #ccc;
-      padding: 5px 10px;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-    }
-    #chat-input-area .input-group {
-      flex-wrap: nowrap;
-    }
-    .attach-menu {
-      position: absolute;
-      bottom: 60px;
-      right: 10px;
-      background: #ffffff;
-      border: 1px solid #000000;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgb(255, 208, 208);
-      display: none;
-      z-index: 999;
-    }
-    .attach-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 5px;
-    }
-    .attach-menu li {
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .attach-menu li:hover {
-      background: #ffffff;
-    }
+    #chat { min-height: 100vh; background: #f8f9fa; color: #000; display: none; animation: fadeIn 0.5s; position: relative; overflow: hidden; }
+    #chat-list-view { padding: 10px; overflow-y: auto; height: calc(100vh - 60px); }
+    .chat-list-item { background: #fff; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; transition: background 0.3s ease; }
+    .chat-list-item:hover { background: #f0f0f0; }
+    #chat-detail-view { display: none; height: 100vh; position: relative; }
+    #chat-detail-top-bar { background: #fff; border-bottom: 1px solid #ccc; padding: 5px 10px; display: flex; align-items: center; justify-content: space-between; }
+    #chat-detail-left { display: flex; align-items: center; gap: 5px; }
+    #back-icon { font-size: 1.5rem; cursor: pointer; margin-left: 5px; }
+    #opponent-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    #opponent-name { font-size: 1.1rem; font-weight: bold; margin-left: 5px; }
+    #chat-detail-right { display: flex; align-items: center; gap: 10px; position: relative; }
+    #voice-call, #video-call, #more-options { font-size: 1.5rem; cursor: pointer; }
+    #moreOptionsMenu { position: absolute; top: 40px; right: 0; background: #ffffff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); display: none; z-index: 999; }
+    #moreOptionsMenu ul { list-style: none; margin: 0; padding: 5px; }
+    #moreOptionsMenu li { padding: 5px 10px; cursor: pointer; transition: background 0.2s ease; }
+    #moreOptionsMenu li:hover { background: #eee; }
+    #detail-chat-messages-container { background-size: cover; height: calc(100vh - 130px); overflow-y: auto; padding: 10px; }
+    #no-messages-placeholder { text-align: center; margin-top: 50px; color: #777; }
+    #no-messages-placeholder img { max-width: 150px; border-radius: 10px; opacity: 0.8; }
+    #chat-messages { margin-top: 10px; }
+    .chat-message { background: #4a90e2; color: white; padding: 5px 10px; border-radius: 5px; margin-bottom: 5px; max-width: 70%; word-wrap: break-word; }
+    .file-message { background: #333; color: #ffffff; padding: 5px 10px; border-radius: 5px; margin-bottom: 5px; max-width: 70%; word-wrap: break-word; }
+    #chat-input-area { background: #fff; border-top: 1px solid #ccc; padding: 5px 10px; position: absolute; bottom: 0; width: 100%; }
+    #chat-input-area .input-group { flex-wrap: nowrap; }
+    .attach-menu { position: absolute; bottom: 60px; right: 10px; background: #ffffff; border: 1px solid #000000; border-radius: 8px; box-shadow: 0 2px 10px rgb(255, 208, 208); display: none; z-index: 999; }
+    .attach-menu ul { list-style: none; margin: 0; padding: 5px; }
+    .attach-menu li { padding: 5px 10px; cursor: pointer; transition: background 0.2s ease; }
+    .attach-menu li:hover { background: #eee; }
     /* Footer */
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #0400ff;
-      color: white;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0;
-    }
-    footer a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-    }
-    footer a:hover {
-      color: #4a90e2;
-    }
+    footer { position: fixed; bottom: 0; width: 100%; background: #0400ff; color: white; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; }
+    footer a { color: white; text-decoration: none; font-size: 1.5rem; }
+    footer a:hover { color: #4a90e2; }
+    /* Account Section */
+    .account-section { display: flex; align-items: center; margin-bottom: 15px; padding: 10px; background: #fff; border-radius: 5px; cursor: pointer; }
+    .account-section img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+    .account-section span { font-weight: bold; flex-grow: 1; }
+    .account-section .btn { margin-left: 10px; }
+    .contact-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+    .connect-button { background: #4a90e2; color: white; border: none; padding: 5px 10px; border-radius: 5px; }
+    .connect-button:hover { background: #357abd; }
+    /* Mobile Responsiveness */
     @media (max-width: 576px) {
+      .container-custom { padding: 20px; max-width: 90%; }
+      .btn-primary { padding: 10px; font-size: 1rem; }
       #chat-search { width: 100px; }
       #back-icon, #voice-call, #video-call, #more-options { font-size: 1.3rem; }
       #detail-chat-messages-container { height: calc(100vh - 120px); }
+      .chat-list-item { padding: 8px; }
+      .feature-card { margin-bottom: 15px; }
+      #camera-preview { max-width: 100%; }
     }
   </style>
 </head>
@@ -536,31 +297,17 @@
               <i class="bi bi-bell"></i>
               <span class="badge bg-danger" id="notification-badge" style="display: none;">0</span>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" id="notification-list">
-              <!-- Notifications will be listed here -->
-            </ul>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" id="notification-list"></ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               <i class="bi bi-person-circle"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">
-                  <i class="bi bi-person-badge"></i> My Profile (<span id="user-email"></span>)
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas">
-                  <i class="bi bi-gear"></i> Settings
-                </a>
-              </li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal"><i class="bi bi-person-badge"></i> My Profile (<span id="user-email"></span>)</a></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas"><i class="bi bi-gear"></i> Settings</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="logout()">
-                  <i class="bi bi-box-arrow-right"></i> Logout
-                </a>
-              </li>
+              <li><a class="dropdown-item" href="#" onclick="logout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -600,9 +347,7 @@
                   </button>
                 </h2>
                 <div id="blockedCollapse" class="accordion-collapse collapse" aria-labelledby="blockedHeading" data-bs-parent="#accountOptionsAccordion">
-                  <div class="accordion-body" id="blocked-contacts-list">
-                    <!-- Blocked contacts will be listed here -->
-                  </div>
+                  <div class="accordion-body" id="blocked-contacts-list"></div>
                 </div>
               </div>
               <div class="accordion-item">
@@ -721,24 +466,24 @@
     <section id="chat">
       <div id="chat-list-view">
         <h5 class="mb-3">Chats</h5>
-        <div class="add-friend-section">
-          <button id="add-friend-btn" class="btn btn-primary" onclick="showAddFriends()">
-            <i class="bi bi-person-plus"></i>
-          </button>
-          <div id="contacts-list" style="display: none;">
-            <h5>Invite Friends</h5>
-            <div class="contact-item">
-              <span>John Doe</span>
-              <button class="connect-button" onclick="sendInvitation(this, 'John Doe')">Connect</button>
-            </div>
-            <div class="contact-item">
-              <span>Jane Smith</span>
-              <button class="connect-button" onclick="sendInvitation(this, 'Jane Smith')">Connect</button>
-            </div>
-            <div class="contact-item">
-              <span>Mike Johnson</span>
-              <button class="connect-button" onclick="sendInvitation(this, 'Mike Johnson')">Connect</button>
-            </div>
+        <div class="account-section" onclick="showAddFriends()">
+          <img src="https://i.ibb.co/sPfSFCB/user-avatar.png" alt="User Avatar">
+          <span id="chat-account-name"></span>
+          <button class="btn btn-primary"><i class="bi bi-plus"></i></button>
+        </div>
+        <div id="contacts-list" style="display: none;">
+          <h5>Invite Friends</h5>
+          <div class="contact-item">
+            <span>John Doe</span>
+            <button class="connect-button" onclick="sendInvitation(this, 'John Doe')">Connect</button>
+          </div>
+          <div class="contact-item">
+            <span>Jane Smith</span>
+            <button class="connect-button" onclick="sendInvitation(this, 'Jane Smith')">Connect</button>
+          </div>
+          <div class="contact-item">
+            <span>Mike Johnson</span>
+            <button class="connect-button" onclick="sendInvitation(this, 'Mike Johnson')">Connect</button>
           </div>
         </div>
         <div class="chat-list-item" onclick="openChatDetail('Kushal')">
@@ -802,609 +547,583 @@
     </div>
     <!-- Footer -->
     <footer>
-      <a href="#" onclick="openHome()"><i class="bi bi-house-door-fill footer-icon"></i> </a>
+      <a href="#" onclick="openHome()"><i class="bi bi-house-door-fill footer-icon"></i></a>
       <a href="#" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas"><i class="bi bi-gear"></i></a>
-      <a href="#chat" onclick="openChat()"><i class="bi bi-chat-dots-fill footer-icon"></i> </a>
+      <a href="#chat" onclick="openChat()"><i class="bi bi-chat-dots-fill footer-icon"></i></a>
     </footer>
   </div>
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     /* --------------------- Global & Authentication Logic --------------------- */
-    const authSection       = document.getElementById('auth-section');
-    const signupContainer   = document.getElementById('signup-container');
-    const loginContainer    = document.getElementById('login-container');
-    const forgotContainer   = document.getElementById('forgot-container');
-    const welcome           = document.getElementById('welcome');
-    const appContent        = document.getElementById('appContent');
-    const userEmailEl       = document.getElementById('user-email');
-    const signupForm        = document.getElementById('signup-form');
-    const loginForm         = document.getElementById('login-form');
-    const forgotForm        = document.getElementById('forgot-form');
-    const firstNameInput    = document.getElementById('first-name');
-    const lastNameInput     = document.getElementById('last-name');
-    const signupEmail       = document.getElementById('signup-email');
-    const loginEmail        = document.getElementById('login-email');
-    const forgotEmail       = document.getElementById('forgot-email');
-    const signupPassword    = document.getElementById('signup-password');
-    const loginPassword     = document.getElementById('login-password');
-    const confirmPassword   = document.getElementById('confirm-password');
-    const signupCodeInput   = document.getElementById('signup-code');
-    const codeTimer         = document.getElementById('code-timer');
-    const sendCodeBtn       = document.getElementById('send-code-btn');
+    const authSection = document.getElementById('auth-section');
+    const signupContainer = document.getElementById('signup-container');
+    const loginContainer = document.getElementById('login-container');
+    const forgotContainer = document.getElementById('forgot-container');
+    const welcome = document.getElementById('welcome');
+    const appContent = document.getElementById('appContent');
+    const userEmailEl = document.getElementById('user-email');
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const forgotForm = document.getElementById('forgot-form');
+    const firstNameInput = document.getElementById('first-name');
+    const lastNameInput = document.getElementById('last-name');
+    const signupEmail = document.getElementById('signup-email');
+    const loginEmail = document.getElementById('login-email');
+    const forgotEmail = document.getElementById('forgot-email');
+    const signupPassword = document.getElementById('signup-password');
+    const loginPassword = document.getElementById('login-password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const signupCodeInput = document.getElementById('signup-code');
+    const codeTimer = document.getElementById('code-timer');
+    const sendCodeBtn = document.getElementById('send-code-btn');
     const accountFullNameEl = document.getElementById('account-full-name');
-    const accountEmailEl    = document.getElementById('account-email-display');
+    const accountEmailEl = document.getElementById('account-email-display');
+    const chatAccountName = document.getElementById('chat-account-name');
     let verificationCode, timerInterval;
     let loggedInUserEmail = localStorage.getItem('email') || '';
     let loggedInUserFirstName = localStorage.getItem('firstName') || '';
-    let loggedInUserLastName  = localStorage.getItem('lastName') || '';
+    let loggedInUserLastName = localStorage.getItem('lastName') || '';
     let blockedContacts = JSON.parse(localStorage.getItem('blockedContacts')) || [];
     let notifications = [];
     // Apply saved theme on page load
     const savedTheme = localStorage.getItem('theme') || 'light';
     changeTheme(savedTheme);
-        // Check local storage on page load
-        if (loggedInUserEmail) {
-            userEmailEl.textContent = loggedInUserEmail;
-            authSection.style.display = 'none';
-            appContent.style.display = 'block';
-            accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
-            accountEmailEl.textContent = loggedInUserEmail;
-            renderNotifications();
-          } else {
-            authSection.style.display = 'flex';
-            appContent.style.display = 'none';
-          }
-      
-          function toggleForm(form) {
-            signupContainer.classList.remove('fade-in');
-            loginContainer.classList.remove('fade-in');
-            forgotContainer.classList.remove('fade-in');
-            if (form === 'login') {
-              signupContainer.style.display = 'none';
-              forgotContainer.style.display = 'none';
-              loginContainer.style.display = 'block';
-              loginContainer.classList.add('fade-in');
-            } else if (form === 'signup') {
-              loginContainer.style.display = 'none';
-              forgotContainer.style.display = 'none';
-              signupContainer.style.display = 'block';
-              signupContainer.classList.add('fade-in');
-            } else if (form === 'forgot') {
-              loginContainer.style.display = 'none';
-              signupContainer.style.display = 'none';
-              forgotContainer.style.display = 'block';
-              forgotContainer.classList.add('fade-in');
-            }
-          }
-      
-          /* Sign Up */
-          signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!signupForm.checkValidity()) {
-              e.stopPropagation();
-              signupForm.classList.add('was-validated');
-              return;
-            }
-            const firstName = firstNameInput.value.trim();
-            const lastName  = lastNameInput.value.trim();
-            const email     = signupEmail.value.trim();
-            const password  = signupPassword.value;
-            const confirm   = confirmPassword.value;
-            const code      = signupCodeInput.value.trim();
-            if (password !== confirm) {
-              alert('Passwords do not match');
-              return;
-            }
-            if (code != verificationCode) {
-              alert('Invalid verification code');
-              return;
-            }
-            try {
-              await fetch('http://localhost:3000/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ firstName, lastName, email, password })
-              });
-              localStorage.setItem('firstName', firstName);
-              localStorage.setItem('lastName', lastName);
-              localStorage.setItem('email', email);
-            } catch (error) {
-              console.error('Signup Error:', error);
-            } finally {
-              loggedInUserFirstName = firstName;
-              loggedInUserLastName  = lastName;
-              loggedInUserEmail     = email;
-              userEmailEl.textContent = loggedInUserEmail;
-              authSection.style.display = 'none';
-              welcome.style.display = 'flex';
-              addNotification(`Welcome, ${firstName}! You have signed up successfully.`);
-              setTimeout(() => {
-                welcome.style.display = 'none';
-                appContent.style.display = 'block';
-                accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
-                accountEmailEl.textContent = loggedInUserEmail;
-              }, 2000);
-            }
-          });
-      
-          /* Login */
-          loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!loginForm.checkValidity()) {
-              e.stopPropagation();
-              loginForm.classList.add('was-validated');
-              return;
-            }
-            const email    = loginEmail.value.trim();
-            const password = loginPassword.value;
-            try {
-              const response = await fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-              });
-              const data = await response.json();
-              loggedInUserFirstName = data.firstName || 'NoFirstName';
-              loggedInUserLastName  = data.lastName  || 'NoLastName';
-              localStorage.setItem('firstName', loggedInUserFirstName);
-              localStorage.setItem('lastName', loggedInUserLastName);
-              localStorage.setItem('email', email);
-            } catch (error) {
-              console.error('Login Error:', error);
-            } finally {
-              loggedInUserEmail = email;
-              userEmailEl.textContent = loggedInUserEmail;
-              authSection.style.display = 'none';
-              welcome.style.display = 'flex';
-              addNotification(`Welcome back, ${loggedInUserFirstName}! You have logged in.`);
-              setTimeout(() => {
-                welcome.style.display = 'none';
-                appContent.style.display = 'block';
-                accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
-                accountEmailEl.textContent = loggedInUserEmail;
-              }, 2000);
-            }
-          });
-      
-          /* Forgot Password */
-          forgotForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!forgotForm.checkValidity()) {
-              e.stopPropagation();
-              forgotForm.classList.add('was-validated');
-              return;
-            }
-            const email = forgotEmail.value.trim();
-            try {
-              const response = await fetch('http://localhost:3000/forgot-password', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email })
-              });
-              const data = await response.json();
-              alert(data.message);
-              addNotification('Password reset requested.');
-              toggleForm('login');
-            } catch (error) {
-              console.error('Forgot Password Error:', error);
-              alert('Reset password request failed.');
-            }
-          });
-      
-          /* Generate & Send Code */
-          function generateCode() {
-            return Math.floor(100000 + Math.random() * 900000);
-          }
-      
-          function sendCode() {
-            const email = signupEmail.value.trim();
-            if (!email) {
-              alert('Please enter your email first.');
-              return;
-            }
-            verificationCode = generateCode();
-            alert(`Verification code sent to ${email}: ${verificationCode}`);
-            addNotification(`Verification code sent to ${email}.`);
-            startTimer();
-            sendCodeBtn.disabled = true;
-          }
-      
-          function startTimer() {
-            let timeLeft = 60;
-            codeTimer.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
-            timerInterval = setInterval(() => {
-              timeLeft--;
-              codeTimer.textContent = timeLeft >= 0 ? `00:${timeLeft < 10 ? '0' : ''}${timeLeft}` : "Time's up!";
-              if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                sendCodeBtn.disabled = false;
-              }
-            }, 1000);
-          }
-      
-          /* Password Visibility Toggles */
-          const toggleSignupPassword   = document.getElementById('toggleSignupPassword');
-          const toggleLoginPassword    = document.getElementById('toggleLoginPassword');
-          const toggleConfirmPassword  = document.getElementById('toggleConfirmPassword');
-      
-          toggleSignupPassword.addEventListener('click', () => {
-            const type = signupPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-            signupPassword.setAttribute('type', type);
-            toggleSignupPassword.classList.toggle('bi-eye-slash');
-          });
-      
-          toggleLoginPassword.addEventListener('click', () => {
-            const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-            loginPassword.setAttribute('type', type);
-            toggleLoginPassword.classList.toggle('bi-eye-slash');
-          });
-      
-          toggleConfirmPassword.addEventListener('click', () => {
-            const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-            confirmPassword.setAttribute('type', type);
-            toggleConfirmPassword.classList.toggle('bi-eye-slash');
-          });
-      
-          function focusPassword(id) {
-            document.getElementById(id).focus();
-          }
-      
-          /* Logout */
-          function logout() {
-            localStorage.removeItem('firstName');
-            localStorage.removeItem('lastName');
-            localStorage.removeItem('email');
-            loggedInUserEmail = '';
-            loggedInUserFirstName = '';
-            loggedInUserLastName = '';
-            userEmailEl.textContent = '';
-            authSection.style.display = 'flex';
-            appContent.style.display = 'none';
-            addNotification('You have logged out.');
-            alert('Logged out successfully.');
-          }
-      
-          /* Theme Switching */
-          function changeTheme(theme) {
-            document.body.className = theme;
-            localStorage.setItem('theme', theme);
-            addNotification(`Theme changed to ${theme}.`);
-          }
-      
-          /* Blocked Contacts */
-          function renderBlockedContacts() {
-            const blockedList = document.getElementById('blocked-contacts-list');
-            blockedList.innerHTML = '';
-            if (blockedContacts.length === 0) {
-              blockedList.innerHTML = '<p>No blocked contacts.</p>';
-            } else {
-              blockedContacts.forEach(contact => {
-                const p = document.createElement('p');
-                p.textContent = contact;
-                const unblockBtn = document.createElement('button');
-                unblockBtn.className = 'btn btn-sm btn-danger ms-2';
-                unblockBtn.textContent = 'Unblock';
-                unblockBtn.onclick = () => unblockContact(contact);
-                p.appendChild(unblockBtn);
-                blockedList.appendChild(p);
-              });
-            }
-          }
-      
-          function unblockContact(contact) {
-            blockedContacts = blockedContacts.filter(c => c !== contact);
-            localStorage.setItem('blockedContacts', JSON.stringify(blockedContacts));
-            renderBlockedContacts();
-            addNotification(`${contact} has been unblocked.`);
-          }
-      
-          document.getElementById('blockedCollapse').addEventListener('show.bs.collapse', renderBlockedContacts);
-      
-          /* Notification System */
-          function addNotification(message) {
-            notifications.push({ message, timestamp: new Date() });
-            renderNotifications();
-            updateNotificationBadge();
-          }
-      
-          function renderNotifications() {
-            const notificationList = document.getElementById('notification-list');
-            notificationList.innerHTML = '';
-            if (notifications.length === 0) {
-              notificationList.innerHTML = '<li><a class="dropdown-item" href="#">No notifications</a></li>';
-            } else {
-              notifications.forEach(notif => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a class="dropdown-item" href="#">${notif.message} <small>${notif.timestamp.toLocaleTimeString()}</small></a>`;
-                notificationList.appendChild(li);
-              });
-            }
-          }
-      
-          function updateNotificationBadge() {
-            const notificationBadge = document.getElementById('notification-badge');
-            const count = notifications.length;
-            notificationBadge.textContent = count;
-            notificationBadge.style.display = count > 0 ? 'inline' : 'none';
-          }
-      
-          /* Navigation */
-          function openFeatures() {
-            document.getElementById('features').style.display = 'block';
-            document.getElementById('camera').style.display   = 'none';
-            document.getElementById('chat').style.display     = 'none';
-          }
-      
-          /* --------------------- Camera Feature --------------------- */
-          const cameraPreview      = document.getElementById('camera-preview');
-          const capturePhotoButton = document.getElementById('capture-photo');
-          const recordVideoButton  = document.getElementById('record-video');
-          const stopVideoButton    = document.getElementById('stop-video');
-          const cameraFilterSelect = document.getElementById('camera-filter');
-          let camStream, camRecorder, camRecordedChunks = [];
-          let currentFacingMode = "user";
-      
-          async function openCamera() {
-            document.getElementById('features').style.display = 'none';
-            document.getElementById('chat').style.display     = 'none';
-            document.getElementById('camera').style.display   = 'block';
-            try {
-              camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: currentFacingMode }, audio: true });
-              cameraPreview.srcObject = camStream;
-              addNotification('Camera opened.');
-            } catch (error) {
-              console.error('Error accessing camera/microphone:', error);
-              alert('Cannot access camera and microphone.');
-            }
-          }
-      
-          capturePhotoButton.addEventListener('click', () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = cameraPreview.videoWidth;
-            canvas.height = cameraPreview.videoHeight;
-            const context = canvas.getContext('2d');
-            context.filter = cameraPreview.style.filter;
-            context.drawImage(cameraPreview, 0, 0, canvas.width, canvas.height);
-            const imageUrl = canvas.toDataURL('image/png');
-            const link = document.createElement('a');
-            link.href = imageUrl;
-            link.download = 'photo.png';
-            link.click();
-            addNotification('Photo captured.');
-          });
-      
-          recordVideoButton.addEventListener('click', () => {
-            camRecordedChunks = [];
-            try {
-              camRecorder = new MediaRecorder(camStream, { mimeType: 'video/webm' });
-            } catch (e) {
-              console.error('MediaRecorder not supported', e);
-              alert('Video recording is not supported in this browser.');
-              return;
-            }
-            camRecorder.ondataavailable = (event) => {
-              if (event.data.size > 0) camRecordedChunks.push(event.data);
-            };
-            camRecorder.onstop = () => {
-              const blob = new Blob(camRecordedChunks, { type: 'video/webm' });
-              const videoUrl = URL.createObjectURL(blob);
-              const link = document.createElement('a');
-              link.href = videoUrl;
-              link.download = 'video.webm';
-              link.click();
-              addNotification('Video recording stopped and downloaded.');
-            };
-            camRecorder.start();
-            recordVideoButton.style.display = 'none';
-            stopVideoButton.style.display = 'block';
-            addNotification('Video recording started.');
-          });
-      
-          stopVideoButton.addEventListener('click', () => {
-            if (camRecorder && camRecorder.state !== 'inactive') {
-              camRecorder.stop();
-            }
-            recordVideoButton.style.display = 'block';
-            stopVideoButton.style.display = 'none';
-          });
-      
-          function closeCamera() {
-            if (camStream) {
-              camStream.getTracks().forEach(track => track.stop());
-            }
-            document.getElementById('camera').style.display   = 'none';
-            document.getElementById('features').style.display = 'block';
-            addNotification('Camera closed.');
-          }
-      
-          function updateCameraFilter() {
-            const filterValue = cameraFilterSelect.value;
-            cameraPreview.style.filter = filterValue;
-            addNotification('Camera filter updated.');
-          }
-      
-          async function switchCamera() {
-            currentFacingMode = currentFacingMode === "user" ? "environment" : "user";
-            if (camStream) {
-              camStream.getTracks().forEach(track => track.stop());
-            }
-            try {
-              camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: currentFacingMode }, audio: true });
-              cameraPreview.srcObject = camStream;
-              addNotification('Camera switched.');
-            } catch (error) {
-              console.error('Error switching camera:', error);
-              alert('Unable to switch camera.');
-            }
-          }
-      
-          /* --------------------- Chat Section --------------------- */
-          const chatListView   = document.getElementById('chat-list-view');
-          const chatDetailView = document.getElementById('chat-detail-view');
-          let chatList = [
-            { name: "Kushal" },
-            { name: "Alice" }
-          ];
-      
-          function renderChatList() {
-            chatListView.innerHTML = "<h5 class='mb-3'>Chats</h5>";
-            chatList.forEach(chat => {
-              let div = document.createElement('div');
-              div.className = 'chat-list-item';
-              div.innerHTML = `<strong>${chat.name}</strong><br><small>Last message snippet...</small>`;
-              div.onclick = () => openChatDetail(chat.name);
-              chatListView.appendChild(div);
-            });
-          }
-      
-          function openChat() {
-            document.getElementById('features').style.display = 'none';
-            document.getElementById('camera').style.display   = 'none';
-            document.getElementById('chat').style.display     = 'block';
-            chatListView.style.display                        = 'block';
-            chatDetailView.style.display                      = 'none';
-            renderChatList();
-            addNotification('Chat section opened.');
-          }
-      
-          function closeChat() {
-            document.getElementById('chat').style.display     = 'none';
-            document.getElementById('features').style.display = 'block';
-            addNotification('Chat section closed.');
-          }
-      
-          function openChatDetail(contactName) {
-            document.getElementById('opponent-name').textContent = contactName;
-            chatListView.style.display = 'none';
-            chatDetailView.style.display = 'block';
-            document.getElementById('chat-messages').innerHTML = "";
-            document.getElementById('no-messages-placeholder').style.display = 'block';
-            addNotification(`Opened chat with ${contactName}.`);
-          }
-      
-          function closeChatDetail() {
-            chatDetailView.style.display = 'none';
-            chatListView.style.display   = 'block';
-            addNotification('Closed chat detail view.');
-          }
-      
-          // More Options
-          function toggleMoreOptions() {
-            const moreOptionsMenu = document.getElementById('moreOptionsMenu');
-            moreOptionsMenu.style.display = (moreOptionsMenu.style.display === 'none' || moreOptionsMenu.style.display === '') ? 'block' : 'none';
-          }
-      
-          function viewProfile() {
-            const opponentName = document.getElementById('opponent-name').textContent;
-            alert(`View profile of ${opponentName}`);
-            addNotification(`Viewed profile of ${opponentName}.`);
-            toggleMoreOptions();
-          }
-      
-          function muteNotifications() {
-            const opponentName = document.getElementById('opponent-name').textContent;
-            alert(`Notifications muted for ${opponentName}'s chat.`);
-            addNotification(`Muted notifications for ${opponentName}'s chat.`);
-            toggleMoreOptions();
-          }
-      
-          function clearChat() {
-            if (confirm("Clear all messages?")) {
-              document.getElementById('chat-messages').innerHTML = "";
-              document.getElementById('no-messages-placeholder').style.display = 'block';
-              addNotification('Chat cleared.');
-            }
-            toggleMoreOptions();
-          }
-      
-          function blockUser() {
-            const blockModal = new bootstrap.Modal(document.getElementById('blockUserModal'));
-            blockModal.show();
-            toggleMoreOptions();
-          }
-      
-          function blockUserForDuration(duration) {
-            const opponentName = document.getElementById('opponent-name').textContent;
-            if (!blockedContacts.includes(opponentName)) {
-              blockedContacts.push(opponentName);
-              localStorage.setItem('blockedContacts', JSON.stringify(blockedContacts));
-            }
-            alert(`Blocked ${opponentName} for ${duration}.`);
-            addNotification(`Blocked ${opponentName} for ${duration}.`);
-            const blockModal = bootstrap.Modal.getInstance(document.getElementById('blockUserModal'));
-            blockModal.hide();
-          }
-      
-          // Sending Messages with Timestamp
-          const chatMessages      = document.getElementById('chat-messages');
-          const chatInputDetail   = document.getElementById('chat-input-detail');
-          const sendChatDetailBtn = document.getElementById('send-chat-detail-btn');
-      
-          sendChatDetailBtn.addEventListener('click', sendChatDetailMessage);
-          chatInputDetail.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendChatDetailMessage();
-          });
-      
-          function sendChatDetailMessage() {
-            const message = chatInputDetail.value.trim();
-            if (!message) return;
-            chatInputDetail.value = "";
-            const fullName = `${loggedInUserFirstName} ${loggedInUserLastName}`;
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const messageElement = document.createElement('div');
-            messageElement.className = 'chat-message';
-            messageElement.innerHTML = `<strong>${fullName || 'You'}</strong>: ${message} <small>${timestamp}</small>`;
-            chatMessages.appendChild(messageElement);
-            document.getElementById('no-messages-placeholder').style.display = 'none';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            const opponentName = document.getElementById('opponent-name').textContent;
-            addNotification(`You sent a message to ${opponentName}: "${message}"`);
-          }
-      
-          // Attachment Menu
-          const attachMenu = document.getElementById('attachMenu');
-      
-          function toggleAttachMenu() {
-            attachMenu.style.display = (attachMenu.style.display === 'none' || attachMenu.style.display === '') ? 'block' : 'none';
-          }
-      
-          function attachFile(type) {
-            alert(`Attach a ${type}. (File picker would open here.)`);
-            addNotification(`Attached a ${type}.`);
-            attachMenu.style.display = 'none';
-          }
-      
-          // Voice and Video Call Permissions
-          document.getElementById('voice-call').addEventListener('click', async () => {
-            try {
-              await navigator.mediaDevices.getUserMedia({ audio: true });
-              alert('Microphone access granted. You can now make a voice call.');
-              addNotification('Started a voice call.');
-            } catch (error) {
-              console.error('Error accessing microphone:', error);
-              alert('Microphone access denied.');
-            }
-          });
-      
-          document.getElementById('video-call').addEventListener('click', async () => {
-            try {
-              await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
-              alert('Camera and microphone access granted. You can now make a video call.');
-              addNotification('Started a video call.');
-            } catch (error) {
-              console.error('Error accessing camera and microphone:', error);
-              alert('Camera and/or microphone access denied.');
-            }
-          });
-      
-          // Footer Actions
-          function openHome() {
-            document.getElementById('features').style.display = 'block';
-            document.getElementById('camera').style.display   = 'none';
-            document.getElementById('chat').style.display     = 'none';
-            addNotification('Navigated to Home.');
-          }
-        </script>
-      </body>
-      </html>
+    // Check local storage on page load
+    if (loggedInUserEmail) {
+      userEmailEl.textContent = loggedInUserEmail;
+      authSection.style.display = 'none';
+      appContent.style.display = 'block';
+      accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+      accountEmailEl.textContent = loggedInUserEmail;
+      chatAccountName.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+      renderNotifications();
+    } else {
+      authSection.style.display = 'flex';
+      appContent.style.display = 'none';
+    }
+    function toggleForm(form) {
+      signupContainer.classList.remove('fade-in');
+      loginContainer.classList.remove('fade-in');
+      forgotContainer.classList.remove('fade-in');
+      if (form === 'login') {
+        signupContainer.style.display = 'none';
+        forgotContainer.style.display = 'none';
+        loginContainer.style.display = 'block';
+        loginContainer.classList.add('fade-in');
+      } else if (form === 'signup') {
+        loginContainer.style.display = 'none';
+        forgotContainer.style.display = 'none';
+        signupContainer.style.display = 'block';
+        signupContainer.classList.add('fade-in');
+      } else if (form === 'forgot') {
+        loginContainer.style.display = 'none';
+        signupContainer.style.display = 'none';
+        forgotContainer.style.display = 'block';
+        forgotContainer.classList.add('fade-in');
+      }
+    }
+    /* Sign Up */
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!signupForm.checkValidity()) {
+        e.stopPropagation();
+        signupForm.classList.add('was-validated');
+        return;
+      }
+      const firstName = firstNameInput.value.trim();
+      const lastName = lastNameInput.value.trim();
+      const email = signupEmail.value.trim();
+      const password = signupPassword.value;
+      const confirm = confirmPassword.value;
+      const code = signupCodeInput.value.trim();
+      if (password !== confirm) {
+        alert('Passwords do not match');
+        return;
+      }
+      if (code != verificationCode) {
+        alert('Invalid verification code');
+        return;
+      }
+      try {
+        await fetch('http://localhost:3000/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ firstName, lastName, email, password })
+        });
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastName', lastName);
+        localStorage.setItem('email', email);
+      } catch (error) {
+        console.error('Signup Error:', error);
+      } finally {
+        loggedInUserFirstName = firstName;
+        loggedInUserLastName = lastName;
+        loggedInUserEmail = email;
+        userEmailEl.textContent = loggedInUserEmail;
+        chatAccountName.textContent = `${firstName} ${lastName}`;
+        authSection.style.display = 'none';
+        welcome.style.display = 'flex';
+        addNotification(`Welcome, ${firstName}! You have signed up successfully.`);
+        setTimeout(() => {
+          welcome.style.display = 'none';
+          appContent.style.display = 'block';
+          accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+          accountEmailEl.textContent = loggedInUserEmail;
+        }, 2000);
+      }
+    });
+    /* Login */
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!loginForm.checkValidity()) {
+        e.stopPropagation();
+        loginForm.classList.add('was-validated');
+        return;
+      }
+      const email = loginEmail.value.trim();
+      const password = loginPassword.value;
+      try {
+        const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await response.json();
+        loggedInUserFirstName = data.firstName || 'NoFirstName';
+        loggedInUserLastName = data.lastName || 'NoLastName';
+        localStorage.setItem('firstName', loggedInUserFirstName);
+        localStorage.setItem('lastName', loggedInUserLastName);
+        localStorage.setItem('email', email);
+      } catch (error) {
+        console.error('Login Error:', error);
+      } finally {
+        loggedInUserEmail = email;
+        userEmailEl.textContent = loggedInUserEmail;
+        chatAccountName.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+        authSection.style.display = 'none';
+        welcome.style.display = 'flex';
+        addNotification(`Welcome back, ${loggedInUserFirstName}! You have logged in.`);
+        setTimeout(() => {
+          welcome.style.display = 'none';
+          appContent.style.display = 'block';
+          accountFullNameEl.textContent = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+          accountEmailEl.textContent = loggedInUserEmail;
+        }, 2000);
+      }
+    });
+    /* Forgot Password */
+    forgotForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!forgotForm.checkValidity()) {
+        e.stopPropagation();
+        forgotForm.classList.add('was-validated');
+        return;
+      }
+      const email = forgotEmail.value.trim();
+      try {
+        const response = await fetch('http://localhost:3000/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await response.json();
+        alert(data.message);
+        addNotification('Password reset requested.');
+        toggleForm('login');
+      } catch (error) {
+        console.error('Forgot Password Error:', error);
+        alert('Reset password request failed.');
+      }
+    });
+    /* Generate & Send Code */
+    function generateCode() {
+      return Math.floor(100000 + Math.random() * 900000);
+    }
+    function sendCode() {
+      const email = signupEmail.value.trim();
+      if (!email) {
+        alert('Please enter your email first.');
+        return;
+      }
+      verificationCode = generateCode();
+      alert(`Verification code sent to ${email}: ${verificationCode}`);
+      addNotification(`Verification code sent to ${email}.`);
+      startTimer();
+      sendCodeBtn.disabled = true;
+    }
+    function startTimer() {
+      let timeLeft = 60;
+      codeTimer.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        codeTimer.textContent = timeLeft >= 0 ? `00:${timeLeft < 10 ? '0' : ''}${timeLeft}` : "Time's up!";
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          sendCodeBtn.disabled = false;
+        }
+      }, 1000);
+    }
+    /* Password Visibility Toggles */
+    const toggleSignupPassword = document.getElementById('toggleSignupPassword');
+    const toggleLoginPassword = document.getElementById('toggleLoginPassword');
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    toggleSignupPassword.addEventListener('click', () => {
+      const type = signupPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      signupPassword.setAttribute('type', type);
+      toggleSignupPassword.classList.toggle('bi-eye-slash');
+    });
+    toggleLoginPassword.addEventListener('click', () => {
+      const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      loginPassword.setAttribute('type', type);
+      toggleLoginPassword.classList.toggle('bi-eye-slash');
+    });
+    toggleConfirmPassword.addEventListener('click', () => {
+      const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      confirmPassword.setAttribute('type', type);
+      toggleConfirmPassword.classList.toggle('bi-eye-slash');
+    });
+    function focusPassword(id) {
+      document.getElementById(id).focus();
+    }
+    /* Logout */
+    function logout() {
+      localStorage.removeItem('firstName');
+      localStorage.removeItem('lastName');
+      localStorage.removeItem('email');
+      loggedInUserEmail = '';
+      loggedInUserFirstName = '';
+      loggedInUserLastName = '';
+      userEmailEl.textContent = '';
+      chatAccountName.textContent = '';
+      authSection.style.display = 'flex';
+      appContent.style.display = 'none';
+      addNotification('You have logged out.');
+      alert('Logged out successfully.');
+    }
+    /* Theme Switching */
+    function changeTheme(theme) {
+      document.body.className = theme;
+      localStorage.setItem('theme', theme);
+      addNotification(`Theme changed to ${theme}.`);
+    }
+    /* Blocked Contacts */
+    function renderBlockedContacts() {
+      const blockedList = document.getElementById('blocked-contacts-list');
+      blockedList.innerHTML = '';
+      if (blockedContacts.length === 0) {
+        blockedList.innerHTML = '<p>No blocked contacts.</p>';
+      } else {
+        blockedContacts.forEach(contact => {
+          const p = document.createElement('p');
+          p.textContent = contact;
+          const unblockBtn = document.createElement('button');
+          unblockBtn.className = 'btn btn-sm btn-danger ms-2';
+          unblockBtn.textContent = 'Unblock';
+          unblockBtn.onclick = () => unblockContact(contact);
+          p.appendChild(unblockBtn);
+          blockedList.appendChild(p);
+        });
+      }
+    }
+    function unblockContact(contact) {
+      blockedContacts = blockedContacts.filter(c => c !== contact);
+      localStorage.setItem('blockedContacts', JSON.stringify(blockedContacts));
+      renderBlockedContacts();
+      addNotification(`${contact} has been unblocked.`);
+    }
+    document.getElementById('blockedCollapse').addEventListener('show.bs.collapse', renderBlockedContacts);
+    /* Notification System */
+    function addNotification(message) {
+      notifications.push({ message, timestamp: new Date() });
+      renderNotifications();
+      updateNotificationBadge();
+    }
+    function renderNotifications() {
+      const notificationList = document.getElementById('notification-list');
+      notificationList.innerHTML = '';
+      if (notifications.length === 0) {
+        notificationList.innerHTML = '<li><a class="dropdown-item" href="#">No notifications</a></li>';
+      } else {
+        notifications.forEach(notif => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a class="dropdown-item" href="#">${notif.message} <small>${notif.timestamp.toLocaleTimeString()}</small></a>`;
+          notificationList.appendChild(li);
+        });
+      }
+    }
+    function updateNotificationBadge() {
+      const notificationBadge = document.getElementById('notification-badge');
+      const count = notifications.length;
+      notificationBadge.textContent = count;
+      notificationBadge.style.display = count > 0 ? 'inline' : 'none';
+    }
+    /* Navigation */
+    function openFeatures() {
+      document.getElementById('features').style.display = 'block';
+      document.getElementById('camera').style.display = 'none';
+      document.getElementById('chat').style.display = 'none';
+      document.querySelector('footer').style.display = 'flex';
+    }
+    /* --------------------- Camera Feature --------------------- */
+    const cameraPreview = document.getElementById('camera-preview');
+    const capturePhotoButton = document.getElementById('capture-photo');
+    const recordVideoButton = document.getElementById('record-video');
+    const stopVideoButton = document.getElementById('stop-video');
+    const cameraFilterSelect = document.getElementById('camera-filter');
+    let camStream, camRecorder, camRecordedChunks = [];
+    let currentFacingMode = "user";
+    async function openCamera() {
+      document.getElementById('features').style.display = 'none';
+      document.getElementById('chat').style.display = 'none';
+      document.getElementById('camera').style.display = 'block';
+      try {
+        camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: currentFacingMode }, audio: true });
+        cameraPreview.srcObject = camStream;
+        addNotification('Camera opened.');
+      } catch (error) {
+        console.error('Error accessing camera/microphone:', error);
+        alert('Cannot access camera and microphone.');
+      }
+    }
+    capturePhotoButton.addEventListener('click', () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = cameraPreview.videoWidth;
+      canvas.height = cameraPreview.videoHeight;
+      const context = canvas.getContext('2d');
+      context.filter = cameraPreview.style.filter;
+      context.drawImage(cameraPreview, 0, 0, canvas.width, canvas.height);
+      const imageUrl = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = 'photo.png';
+      link.click();
+      addNotification('Photo captured.');
+    });
+    recordVideoButton.addEventListener('click', () => {
+      camRecordedChunks = [];
+      try {
+        camRecorder = new MediaRecorder(camStream, { mimeType: 'video/webm' });
+      } catch (e) {
+        console.error('MediaRecorder not supported', e);
+        alert('Video recording is not supported in this browser.');
+        return;
+      }
+      camRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) camRecordedChunks.push(event.data);
+      };
+      camRecorder.onstop = () => {
+        const blob = new Blob(camRecordedChunks, { type: 'video/webm' });
+        const videoUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = videoUrl;
+        link.download = 'video.webm';
+        link.click();
+        addNotification('Video recording stopped and downloaded.');
+      };
+      camRecorder.start();
+      recordVideoButton.style.display = 'none';
+      stopVideoButton.style.display = 'block';
+      addNotification('Video recording started.');
+    });
+    stopVideoButton.addEventListener('click', () => {
+      if (camRecorder && camRecorder.state !== 'inactive') {
+        camRecorder.stop();
+      }
+      recordVideoButton.style.display = 'block';
+      stopVideoButton.style.display = 'none';
+    });
+    function closeCamera() {
+      if (camStream) {
+        camStream.getTracks().forEach(track => track.stop());
+      }
+      document.getElementById('camera').style.display = 'none';
+      document.getElementById('features').style.display = 'block';
+      addNotification('Camera closed.');
+    }
+    function updateCameraFilter() {
+      const filterValue = cameraFilterSelect.value;
+      cameraPreview.style.filter = filterValue;
+      addNotification('Camera filter updated.');
+    }
+    async function switchCamera() {
+      currentFacingMode = currentFacingMode === "user" ? "environment" : "user";
+      if (camStream) {
+        camStream.getTracks().forEach(track => track.stop());
+      }
+      try {
+        camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: currentFacingMode }, audio: true });
+        cameraPreview.srcObject = camStream;
+        addNotification('Camera switched.');
+      } catch (error) {
+        console.error('Error switching camera:', error);
+        alert('Unable to switch camera.');
+      }
+    }
+    /* --------------------- Chat Section --------------------- */
+    const chatListView = document.getElementById('chat-list-view');
+    const chatDetailView = document.getElementById('chat-detail-view');
+    let chatList = [
+      { name: "Kushal" },
+      { name: "Alice" }
+    ];
+    function renderChatList() {
+      const chatItems = chatListView.querySelectorAll('.chat-list-item');
+      chatItems.forEach(item => item.remove());
+      chatList.forEach(chat => {
+        let div = document.createElement('div');
+        div.className = 'chat-list-item';
+        div.innerHTML = `<strong>${chat.name}</strong><br><small>Last message snippet...</small>`;
+        div.onclick = () => openChatDetail(chat.name);
+        chatListView.appendChild(div);
+      });
+    }
+    function openChat() {
+      document.getElementById('features').style.display = 'none';
+      document.getElementById('camera').style.display = 'none';
+      document.getElementById('chat').style.display = 'block';
+      chatListView.style.display = 'block';
+      chatDetailView.style.display = 'none';
+      document.querySelector('footer').style.display = 'flex';
+      renderChatList();
+      addNotification('Chat section opened.');
+    }
+    function closeChat() {
+      document.getElementById('chat').style.display = 'none';
+      document.getElementById('features').style.display = 'block';
+      document.querySelector('footer').style.display = 'flex';
+      addNotification('Chat section closed.');
+    }
+    function openChatDetail(contactName) {
+      document.getElementById('opponent-name').textContent = contactName;
+      chatListView.style.display = 'none';
+      chatDetailView.style.display = 'block';
+      document.getElementById('chat-messages').innerHTML = "";
+      document.getElementById('no-messages-placeholder').style.display = 'block';
+      document.querySelector('footer').style.display = 'none';
+      addNotification(`Opened chat with ${contactName}.`);
+    }
+    function closeChatDetail() {
+      chatDetailView.style.display = 'none';
+      chatListView.style.display = 'block';
+      document.querySelector('footer').style.display = 'flex';
+      addNotification('Closed chat detail view.');
+    }
+    // More Options
+    function toggleMoreOptions() {
+      const moreOptionsMenu = document.getElementById('moreOptionsMenu');
+      moreOptionsMenu.style.display = (moreOptionsMenu.style.display === 'none' || moreOptionsMenu.style.display === '') ? 'block' : 'none';
+    }
+    function viewProfile() {
+      const opponentName = document.getElementById('opponent-name').textContent;
+      alert(`View profile of ${opponentName}`);
+      addNotification(`Viewed profile of ${opponentName}.`);
+      toggleMoreOptions();
+    }
+    function muteNotifications() {
+      const opponentName = document.getElementById('opponent-name').textContent;
+      alert(`Notifications muted for ${opponentName}'s chat.`);
+      addNotification(`Muted notifications for ${opponentName}'s chat.`);
+      toggleMoreOptions();
+    }
+    function clearChat() {
+      if (confirm("Clear all messages?")) {
+        document.getElementById('chat-messages').innerHTML = "";
+        document.getElementById('no-messages-placeholder').style.display = 'block';
+        addNotification('Chat cleared.');
+      }
+      toggleMoreOptions();
+    }
+    function blockUser() {
+      const blockModal = new bootstrap.Modal(document.getElementById('blockUserModal'));
+      blockModal.show();
+      toggleMoreOptions();
+    }
+    function blockUserForDuration(duration) {
+      const opponentName = document.getElementById('opponent-name').textContent;
+      if (!blockedContacts.includes(opponentName)) {
+        blockedContacts.push(opponentName);
+        localStorage.setItem('blockedContacts', JSON.stringify(blockedContacts));
+      }
+      alert(`Blocked ${opponentName} for ${duration}.`);
+      addNotification(`Blocked ${opponentName} for ${duration}.`);
+      const blockModal = bootstrap.Modal.getInstance(document.getElementById('blockUserModal'));
+      blockModal.hide();
+    }
+    // Sending Messages with Timestamp
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInputDetail = document.getElementById('chat-input-detail');
+    const sendChatDetailBtn = document.getElementById('send-chat-detail-btn');
+    sendChatDetailBtn.addEventListener('click', sendChatDetailMessage);
+    chatInputDetail.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendChatDetailMessage();
+    });
+    function sendChatDetailMessage() {
+      const message = chatInputDetail.value.trim();
+      if (!message) return;
+      chatInputDetail.value = "";
+      const fullName = `${loggedInUserFirstName} ${loggedInUserLastName}`;
+      const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const messageElement = document.createElement('div');
+      messageElement.className = 'chat-message';
+      messageElement.innerHTML = `<strong>${fullName || 'You'}</strong>: ${message} <small>${timestamp}</small>`;
+      chatMessages.appendChild(messageElement);
+      document.getElementById('no-messages-placeholder').style.display = 'none';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      const opponentName = document.getElementById('opponent-name').textContent;
+      addNotification(`You sent a message to ${opponentName}: "${message}"`);
+    }
+    // Attachment Menu
+    const attachMenu = document.getElementById('attachMenu');
+    function toggleAttachMenu() {
+      attachMenu.style.display = (attachMenu.style.display === 'none' || attachMenu.style.display === '') ? 'block' : 'none';
+    }
+    function attachFile(type) {
+      alert(`Attach a ${type}. (File picker would open here.)`);
+      addNotification(`Attached a ${type}.`);
+      attachMenu.style.display = 'none';
+    }
+    // Voice and Video Call Permissions
+    document.getElementById('voice-call').addEventListener('click', async () => {
+      try {
+        await navigator.mediaDevices.getUserMedia({ audio: true });
+        alert('Microphone access granted. You can now make a voice call.');
+        addNotification('Started a voice call.');
+      } catch (error) {
+        console.error('Error accessing microphone:', error);
+        alert('Microphone access denied.');
+      }
+    });
+    document.getElementById('video-call').addEventListener('click', async () => {
+      try {
+        await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
+        alert('Camera and microphone access granted. You can now make a video call.');
+        addNotification('Started a video call.');
+      } catch (error) {
+        console.error('Error accessing camera and microphone:', error);
+        alert('Camera and/or microphone access denied.');
+      }
+    });
+    // Footer Actions
+    function openHome() {
+      document.getElementById('features').style.display = 'block';
+      document.getElementById('camera').style.display = 'none';
+      document.getElementById('chat').style.display = 'none';
+      document.querySelector('footer').style.display = 'flex';
+      addNotification('Navigated to Home.');
+    }
+    // Connect with Friends
+    function showAddFriends() {
+      const contactsList = document.getElementById('contacts-list');
+      contactsList.style.display = contactsList.style.display === 'none' ? 'block' : 'none';
+      addNotification(contactsList.style.display === 'block' ? 'Showing contacts to connect.' : 'Hiding contacts list.');
+    }
+    function sendInvitation(button, contactName) {
+      button.textContent = 'Connected';
+      button.disabled = true;
+      button.style.background = '#28a745';
+      addNotification(`Connection request sent to ${contactName}.`);
+    }
+  </script>
+</body>
+</html>
