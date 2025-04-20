@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
   <title>TEDPOLE - Premium Clothing & Accessories</title>
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -446,7 +446,7 @@
     .track-step.active span { background-color: var(--success-color); }
     .track-step.cancelled span { background-color: var(--danger-color); }
     
-    :read-only:focus {
+:read-only:focus {
       outline: none;
       border-color: #ced4da;
     }
@@ -676,97 +676,89 @@
       position: relative;
       max-width: 800px;
       margin: 0 auto;
-      padding: 10px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
     .search-container .input-group {
-      border-radius: 25px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
     }
     
-    .search-container .input-group-text {
-      background: white;
-      border: none;
-      padding: 0.375rem 0.5rem;
-    }
-    
     .search-container .form-control {
-      border: none;
-      box-shadow: none;
-      padding: 0.375rem 0.75rem;
-      font-size: 0.9rem;
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 15px;
+      font-size: 1rem;
     }
     
-    .search-container .btn-outline-secondary {
-      border: none;
-      background: white;
-      padding: 0.375rem 0.5rem;
+    .search-container .btn {
+      padding: 12px 20px;
+      border-radius: 0;
+      border-color: #ddd;
+      background-color: white;
+      color: var(--primary-color);
     }
     
-    .search-container .btn-outline-secondary:hover {
-      background: #f8f9fa;
-    }
-    
-    .search-suggestions {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border: 1px solid #ddd;
-      border-top: none;
-      border-radius: 0 0 25px 25px;
-      z-index: 1000;
-      max-height: 300px;
-      overflow-y: auto;
-      display: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .search-suggestion-item {
-      padding: 10px 15px;
-      cursor: pointer;
-      border-bottom: 1px solid #eee;
-      transition: background-color 0.2s;
-      display: flex;
-      align-items: center;
-    }
-    
-    .search-suggestion-item:hover {
+    .search-container .btn:hover {
       background-color: #f8f9fa;
     }
     
-    .search-suggestion-item img {
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-      margin-right: 10px;
-      border-radius: 5px;
+    .search-container .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
     }
     
-    .search-history {
-      margin-top: 15px;
-      padding: 10px;
+    .search-container .btn-primary:hover {
+      background-color: #1a3a6b;
+      border-color: #1a3a6b;
     }
     
-    .search-history-item {
-      display: inline-block;
-      margin-right: 8px;
-      margin-bottom: 8px;
-      padding: 5px 10px;
-      background: #f1f1f1;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.2s;
+    /* Voice Search Button Active State */
+    .search-container .btn-outline-secondary.active {
+      background-color: var(--danger-color);
+      color: white;
+      border-color: var(--danger-color);
     }
-    
-    .search-history-item:hover {
-      background: #e9ecef;
-    }
+  
+   .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .search-suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-suggestion-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .search-suggestion-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
     
     /* Draggable Filter Button */
     .draggable-filter {
@@ -1631,44 +1623,42 @@
       <div id="userLocationsContainer" class="mt-4"></div>
     </div>
   </div>
-
-  <!-- Updated Search Section -->
-  <div id="searchSection" class="section fade-in" style="position: relative;">
-    <header class="py-3 border-bottom bg-light">
-      <div class="container d-flex justify-content-between align-items-center">
-        <button class="btn" onclick="showSection('homeSection')" aria-label="Back to Home">
-          <i class="bi bi-arrow-left"></i> Home
-        </button>
-        <h1 class="h5 mb-0">Search Products</h1>
-        <div></div>
-      </div>
-    </header>
-    <div class="container mt-5 my-4">
-      <div class="search-container mb-4">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-search"></i></span>
-          <input type="text" class="form-control" placeholder="Search for shirts, pants, accessories..." 
-                 id="searchSectionInput" autocomplete="off" aria-label="Search for Products"
-                 onkeyup="handleSearchInput()">
-          <button class="btn btn-outline-secondary" type="button" id="voiceSearchButton" aria-label="Search by Voice" onclick="startVoiceSearch()">
-            <i class="bi bi-mic"></i>
-          </button>
-        </div>
-        <div id="searchSuggestions" class="search-suggestions"></div>
-      </div>
-      <div class="search-results-container">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h5 id="searchResultsCount">0 products found</h5>
-          <div id="searchActiveFilters"></div>
-        </div>
-        <div class="row" id="searchResultsContainer"></div>
-      </div>
-      <button class="draggable-filter" data-bs-toggle="modal" data-bs-target="#searchFilterModal" aria-label="Filter Search">
-        <i class="bi bi-funnel"></i>
+<!-- Updated Search Section -->
+<div id="searchSection" class="section fade-in" style="position: relative;">
+  <header class="py-3 border-bottom bg-light">
+    <div class="container d-flex justify-content-between align-items-center">
+      <button class="btn" onclick="showSection('homeSection')" aria-label="Back to Home">
+        <i class="bi bi-arrow-left"></i> Home
       </button>
+      <h1 class="h5 mb-0">Search Products</h1>
+      <div></div>
     </div>
+  </header>
+  <div class="container mt-5 my-4">
+    <div class="search-container mb-4">
+      <div class="input-group">
+        <input type="text" class="form-control" id="searchSectionInput" 
+               placeholder="Search for shirts, pants, accessories..." 
+               autocomplete="off" aria-label="Search for Products"
+               onkeyup="handleSearchInput()">
+        <button class="btn btn-outline-secondary" type="button" id="voiceSearchButton" aria-label="Search by Voice" onclick="startVoiceSearch()">
+          <i class="bi bi-mic"></i>
+        </button>
+      </div>
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+    <div class="search-results-container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 id="searchResultsCount">0 products found</h5>
+        <div id="searchActiveFilters"></div>
+      </div>
+      <div class="row" id="searchResultsContainer"></div>
+    </div>
+    <button class="draggable-filter" data-bs-toggle="modal" data-bs-target="#searchFilterModal" aria-label="Filter Search">
+      <i class="bi bi-funnel"></i>
+    </button>
   </div>
-
+</div>
   <!-- Search Filter Modal -->
   <div class="modal fade" id="searchFilterModal" tabindex="-1" aria-labelledby="searchFilterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -3013,166 +3003,165 @@ document.getElementById('trackOrderButton').addEventListener('click', async () =
             container.innerHTML += card;
           });
         }
-       // Voice search functionality
+     // Voice search functionality
+     function startVoiceSearch() {
+      // Check if the browser supports the Web Speech API
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        showNotification("Voice search is not supported in your browser.", "warning");
+        return;
+      }
+    
+      const recognition = new SpeechRecognition();
+      const voiceSearchBtn = document.getElementById("voiceSearchButton");
+    
+      // Configure recognition settings for better accuracy
+      recognition.continuous = false; // Single utterance for better control
+      recognition.interimResults = false; // Wait for final results to avoid partial matches
+      recognition.lang = "en-US"; // Default to English, can be made configurable
+      recognition.maxAlternatives = 3; // Get multiple alternatives for better matching
+    
+      // Visual feedback when voice search starts
+      recognition.onstart = function () {
+        voiceSearchBtn.classList.add("active"); // Add a visual cue (e.g., highlight button)
+        voiceSearchBtn.innerHTML = '<i class="bi bi-mic-fill"></i>'; // Change icon to indicate recording
+        showNotification("Listening... Please speak clearly.", "info", { duration: 2000 });
+      };
+    
+      // Handle the speech recognition result
+      recognition.onresult = function (event) {
+        const results = event.results[0];
+        let transcript = results[0].transcript.trim().toLowerCase();
+    
+        // Post-process the transcript to improve accuracy for e-commerce terms
+        transcript = cleanTranscript(transcript);
+    
+        // Add to search history and perform the search
+        document.getElementById("searchSectionInput").value = transcript;
+        toggleSearchBar(); // Show the search bar with the result
+        addToSearchHistory(transcript); // Assuming this function exists
+        performSearch(); // Trigger the search
+        showNotification(`Searching for: "${transcript}"`, "success");
+    
+        // Reset button state
+        resetVoiceSearchButton();
+      };
+    
+      // Handle errors gracefully
+      recognition.onerror = function (event) {
+        resetVoiceSearchButton();
+        let errorMessage = "An error occurred during voice search.";
+        switch (event.error) {
+          case "no-speech":
+            errorMessage = "No speech detected. Please try again.";
+            break;
+          case "not-allowed":
+          case "service-not-allowed":
+            errorMessage = "Microphone access denied. Please enable it in your browser settings.";
+            break;
+          case "audio-capture":
+            errorMessage = "No microphone detected. Please ensure one is connected.";
+            break;
+          default:
+            errorMessage = `Voice search error: ${event.error}`;
+        }
+        showNotification(errorMessage, "danger");
+      };
+    
+      // Reset state when recognition ends
+      recognition.onend = function () {
+        resetVoiceSearchButton();
+        showNotification("Voice search completed.", "info", { duration: 1500 });
+      };
+    
+      // Start recognition
+      try {
+        recognition.start();
+      } catch (e) {
+        resetVoiceSearchButton();
+        showNotification("Failed to start voice search. Please try again.", "danger");
+      }
+    }
+    
+    // Helper function to clean up the transcript
+    function cleanTranscript(transcript) {
+      // Remove common filler words and improve product name matching
+      const fillers = ["um", "uh", "like", "you know"];
+      let cleaned = transcript.split(" ").filter(word => !fillers.includes(word)).join(" ");
+    
+      // Map common misrecognitions or shorthand to actual product terms
+      const corrections = {
+        "t shirt": "t-shirt",
+        "jeans": "denim jeans",
+        "sun glasses": "sunglasses",
+        "watch": "wrist watch",
+        "accessory": "accessories",
+      };
+      Object.keys(corrections).forEach(mistake => {
+        if (cleaned.includes(mistake)) {
+          cleaned = cleaned.replace(mistake, corrections[mistake]);
+        }
+      });
+    
+      return cleaned;
+    }
+    
+    // Helper function to reset the voice search button
+    function resetVoiceSearchButton() {
+      const voiceSearchBtn = document.getElementById("voiceSearchButton");
+      voiceSearchBtn.classList.remove("active");
+      voiceSearchBtn.innerHTML = '<i class="bi bi-mic"></i>'; // Restore original icon
+    }
+      // Enhanced voice search for mobile
       function startVoiceSearch() {
-          // Check if the browser supports the Web Speech API
-          const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-          if (!SpeechRecognition) {
-            showNotification("Voice search is not supported in your browser.", "warning");
-            return;
-          }
-        
-          const recognition = new SpeechRecognition();
-          const voiceSearchBtn = document.getElementById("voiceSearchButton");
-        
-          // Configure recognition settings for better accuracy
-          recognition.continuous = false; // Single utterance for better control
-          recognition.interimResults = false; // Wait for final results to avoid partial matches
-          recognition.lang = "en-US"; // Default to English, can be made configurable
-          recognition.maxAlternatives = 3; // Get multiple alternatives for better matching
-        
-          // Visual feedback when voice search starts
-          recognition.onstart = function () {
-            voiceSearchBtn.classList.add("active"); // Add a visual cue (e.g., highlight button)
-            voiceSearchBtn.innerHTML = '<i class="bi bi-mic-fill"></i>'; // Change icon to indicate recording
-            showNotification("Listening... Please speak clearly.", "info", { duration: 2000 });
-          };
-        
-          // Handle the speech recognition result
-          recognition.onresult = function (event) {
-            const results = event.results[0];
-            let transcript = results[0].transcript.trim().toLowerCase();
-        
-            // Post-process the transcript to improve accuracy for e-commerce terms
-            transcript = cleanTranscript(transcript);
-        
-            // Add to search history and perform the search
-            document.getElementById("searchSectionInput").value = transcript;
-            toggleSearchBar(); // Show the search bar with the result
-            addToSearchHistory(transcript); // Assuming this function exists
-            performSearch(); // Trigger the search
-            showNotification(`Searching for: "${transcript}"`, "success");
-        
-            // Reset button state
-            resetVoiceSearchButton();
-          };
-        
-          // Handle errors gracefully
-          recognition.onerror = function (event) {
-            resetVoiceSearchButton();
-            let errorMessage = "An error occurred during voice search.";
-            switch (event.error) {
-              case "no-speech":
-                errorMessage = "No speech detected. Please try again.";
-                break;
-              case "not-allowed":
-              case "service-not-allowed":
-                errorMessage = "Microphone access denied. Please enable it in your browser settings.";
-                break;
-              case "audio-capture":
-                errorMessage = "No microphone detected. Please ensure one is connected.";
-                break;
-              default:
-                errorMessage = `Voice search error: ${event.error}`;
-            }
-            showNotification(errorMessage, "danger");
-          };
-        
-          // Reset state when recognition ends
-          recognition.onend = function () {
-            resetVoiceSearchButton();
-            showNotification("Voice search completed.", "info", { duration: 1500 });
-          };
-        
-          // Start recognition
-          try {
-            recognition.start();
-          } catch (e) {
-            resetVoiceSearchButton();
-            showNotification("Failed to start voice search. Please try again.", "danger");
-          }
+        const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!recognition) {
+          showNotification("Voice search is not supported on this device.", "warning");
+          return;
         }
-        
-        // Helper function to clean up the transcript
-        function cleanTranscript(transcript) {
-          // Remove common filler words and improve product name matching
-          const fillers = ["um", "uh", "like", "you know"];
-          let cleaned = transcript.split(" ").filter(word => !fillers.includes(word)).join(" ");
-        
-          // Map common misrecognitions or shorthand to actual product terms
-          const corrections = {
-            "t shirt": "t-shirt",
-            "jeans": "denim jeans",
-            "sun glasses": "sunglasses",
-            "watch": "wrist watch",
-            "accessory": "accessories",
-          };
-          Object.keys(corrections).forEach(mistake => {
-            if (cleaned.includes(mistake)) {
-              cleaned = cleaned.replace(mistake, corrections[mistake]);
-            }
-          });
-        
-          return cleaned;
-        }
-        
-        // Helper function to reset the voice search button
-        function resetVoiceSearchButton() {
-          const voiceSearchBtn = document.getElementById("voiceSearchButton");
+  
+        const voiceSearchBtn = document.getElementById("voiceSearchButton");
+        const recognitionInstance = new recognition();
+        recognitionInstance.continuous = false;
+        recognitionInstance.interimResults = false;
+        recognitionInstance.lang = "en-US";
+  
+        recognitionInstance.onstart = () => {
+          voiceSearchBtn.classList.add("active");
+          showNotification("Voice search started. Please speak now.", "info");
+        };
+  
+        recognitionInstance.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          document.getElementById("searchSectionInput").value = transcript;
+          toggleSearchBar();
+          addToSearchHistory(transcript);
+          performSearch();
+          showNotification(`Searching for: "${transcript}"`, "success");
+        };
+  
+        recognitionInstance.onerror = (event) => {
           voiceSearchBtn.classList.remove("active");
-          voiceSearchBtn.innerHTML = '<i class="bi bi-mic"></i>'; // Restore original icon
-        }
-          // Enhanced voice search for mobile
-          function startVoiceSearch() {
-            const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!recognition) {
-              showNotification("Voice search is not supported on this device.", "warning");
-              return;
-            }
-      
-            const voiceSearchBtn = document.getElementById("voiceSearchButton");
-            const recognitionInstance = new recognition();
-            recognitionInstance.continuous = false;
-            recognitionInstance.interimResults = false;
-            recognitionInstance.lang = "en-US";
-      
-            recognitionInstance.onstart = () => {
-              voiceSearchBtn.classList.add("active");
-              showNotification("Voice search started. Please speak now.", "info");
-            };
-      
-            recognitionInstance.onresult = (event) => {
-              const transcript = event.results[0][0].transcript;
-              document.getElementById("searchSectionInput").value = transcript;
-              toggleSearchBar();
-              addToSearchHistory(transcript);
-              performSearch();
-              showNotification(`Searching for: "${transcript}"`, "success");
-            };
-      
-            recognitionInstance.onerror = (event) => {
-              voiceSearchBtn.classList.remove("active");
-              if (event.error === "no-speech") {
-                showNotification("No speech detected. Please try again.", "warning");
-              } else if (event.error === "not-allowed" || event.error === "service-not-allowed") {
-                showNotification("Microphone access denied. Please enable it in your settings.", "danger");
-              } else {
-                showNotification(`Voice search error: ${event.error}`, "danger");
-              }
-            };
-      
-            recognitionInstance.onend = () => {
-              voiceSearchBtn.classList.remove("active");
-              showNotification("Voice search ended.", "info");
-            };
-      
-            try {
-              recognitionInstance.start();
-            } catch (e) {
-              showNotification("Error starting voice search. Please try again.", "danger");
-            }
+          if (event.error === "no-speech") {
+            showNotification("No speech detected. Please try again.", "warning");
+          } else if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+            showNotification("Microphone access denied. Please enable it in your settings.", "danger");
+          } else {
+            showNotification(`Voice search error: ${event.error}`, "danger");
           }
-       
+        };
+  
+        recognitionInstance.onend = () => {
+          voiceSearchBtn.classList.remove("active");
+          showNotification("Voice search ended.", "info");
+        };
+  
+        try {
+          recognitionInstance.start();
+        } catch (e) {
+          showNotification("Error starting voice search. Please try again.", "danger");
+        }
+      }
          // In the generateProducts function, modify the column classes:
          function generateProducts(containerId, productList) {
           const container = document.getElementById(containerId);
