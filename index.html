@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.7" />
   <title>TEDPOLE - Premium Clothing & Accessories</title>
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -14,6 +14,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <!-- html2canvas Library for Download Functionality -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   <!-- Include Socket.IO client library -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.min.js"></script>
   <style>
     /* Base theme */
     :root {
@@ -674,91 +676,93 @@
     /* Enhanced Search Section */
     .search-container {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       max-width: 800px;
       margin: 0 auto;
-    }
-    
-    .search-container .input-group {
-      border-radius: 30px;
+      padding: 10px;
+      background: white;
+      border-radius: 25px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
     }
     
-    .search-container .form-control {
-      border-left: none;
-      border-right: none;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 15px;
-      font-size: 1rem;
+    #searchBarContainer {
+      flex-grow: 1;
+      margin-left: 10px;
+      margin-right: 20px;
     }
     
-    .search-container .btn {
-      padding: 12px 20px;
-      border-radius: 0;
-      border-color: #ddd;
-      background-color: white;
-      color: var(--primary-color);
+    .search-container input {
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      padding: 5px;
+      font-size: 0.9rem;
     }
-    
-    .search-container .btn:hover {
-      background-color: #f8f9fa;
-    }
-    
-    .search-container .btn-primary {
-      background-color: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-    }
-    
-    .search-container .btn-primary:hover {
-      background-color: #1a3a6b;
-      border-color: #1a3a6b;
-    }
-    
     /* Voice Search Button Active State */
     .search-container .btn-outline-secondary.active {
       background-color: var(--danger-color);
       color: white;
       border-color: var(--danger-color);
     }
-  
-   .search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 15px 15px;
-    z-index: 1000;
-    max-height: 300px;
-    overflow-y: auto;
-    display: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  .search-suggestion-item {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-suggestion-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .search-suggestion-item img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 5px;
-  }
+    .search-suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 15px 15px;
+      z-index: 1000;
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .search-suggestion-item {
+      padding: 12px 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-suggestion-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .search-suggestion-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    
+    .search-history {
+      margin-top: 15px;
+      padding: 10px;
+    }
+    
+    .search-history-item {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      background: #f1f1f1;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    
+    .search-history-item:hover {
+      background: #e9ecef;
+    }
     
     /* Draggable Filter Button */
     .draggable-filter {
@@ -1623,42 +1627,46 @@
       <div id="userLocationsContainer" class="mt-4"></div>
     </div>
   </div>
-<!-- Updated Search Section -->
-<div id="searchSection" class="section fade-in" style="position: relative;">
-  <header class="py-3 border-bottom bg-light">
-    <div class="container d-flex justify-content-between align-items-center">
-      <button class="btn" onclick="showSection('homeSection')" aria-label="Back to Home">
-        <i class="bi bi-arrow-left"></i> Home
-      </button>
-      <h1 class="h5 mb-0">Search Products</h1>
-      <div></div>
-    </div>
-  </header>
-  <div class="container mt-5 my-4">
-    <div class="search-container mb-4">
-      <div class="input-group">
-        <input type="text" class="form-control" id="searchSectionInput" 
-               placeholder="Search for shirts, pants, accessories..." 
-               autocomplete="off" aria-label="Search for Products"
-               onkeyup="handleSearchInput()">
+
+  <!-- Updated Search Section -->
+  <div id="searchSection" class="section fade-in" style="position: relative;">
+    <header class="py-3 border-bottom bg-light">
+      <div class="container d-flex justify-content-between align-items-center">
+        <button class="btn" onclick="showSection('homeSection')" aria-label="Back to Home">
+          <i class="bi bi-arrow-left"></i> Home
+        </button>
+        <h1 class="h5 mb-0">Search Products</h1>
+        <div></div>
+      </div>
+    </header>
+    <div class="container mt-5 my-4">
+      <div class="search-container mb-4">
+        <button class="btn btn-dark" type="button" id="searchSectionButton" aria-label="Search" onclick="toggleSearchBar()">
+          <i class="bi bi-search"></i>
+        </button>
+        <div id="searchBarContainer" style="display: none; flex-grow: 1; margin-left: 10px;">
+          <input type="text" class="form-control" placeholder="Search for shirts, pants, accessories..." 
+                 id="searchSectionInput" autocomplete="off" aria-label="Search for Products"
+                 onkeyup="handleSearchInput()">
+        </div>
         <button class="btn btn-outline-secondary" type="button" id="voiceSearchButton" aria-label="Search by Voice" onclick="startVoiceSearch()">
           <i class="bi bi-mic"></i>
         </button>
+        <div id="searchSuggestions" class="search-suggestions"></div>
       </div>
-      <div id="searchSuggestions" class="search-suggestions"></div>
-    </div>
-    <div class="search-results-container">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 id="searchResultsCount">0 products found</h5>
-        <div id="searchActiveFilters"></div>
+      <div class="search-results-container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 id="searchResultsCount">0 products found</h5>
+          <div id="searchActiveFilters"></div>
+        </div>
+        <div class="row" id="searchResultsContainer"></div>
       </div>
-      <div class="row" id="searchResultsContainer"></div>
+      <button class="draggable-filter" data-bs-toggle="modal" data-bs-target="#searchFilterModal" aria-label="Filter Search">
+        <i class="bi bi-funnel"></i>
+      </button>
     </div>
-    <button class="draggable-filter" data-bs-toggle="modal" data-bs-target="#searchFilterModal" aria-label="Filter Search">
-      <i class="bi bi-funnel"></i>
-    </button>
   </div>
-</div>
+
   <!-- Search Filter Modal -->
   <div class="modal fade" id="searchFilterModal" tabindex="-1" aria-labelledby="searchFilterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -3003,165 +3011,166 @@ document.getElementById('trackOrderButton').addEventListener('click', async () =
             container.innerHTML += card;
           });
         }
-     // Voice search functionality
-     function startVoiceSearch() {
-      // Check if the browser supports the Web Speech API
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        showNotification("Voice search is not supported in your browser.", "warning");
-        return;
-      }
-    
-      const recognition = new SpeechRecognition();
-      const voiceSearchBtn = document.getElementById("voiceSearchButton");
-    
-      // Configure recognition settings for better accuracy
-      recognition.continuous = false; // Single utterance for better control
-      recognition.interimResults = false; // Wait for final results to avoid partial matches
-      recognition.lang = "en-US"; // Default to English, can be made configurable
-      recognition.maxAlternatives = 3; // Get multiple alternatives for better matching
-    
-      // Visual feedback when voice search starts
-      recognition.onstart = function () {
-        voiceSearchBtn.classList.add("active"); // Add a visual cue (e.g., highlight button)
-        voiceSearchBtn.innerHTML = '<i class="bi bi-mic-fill"></i>'; // Change icon to indicate recording
-        showNotification("Listening... Please speak clearly.", "info", { duration: 2000 });
-      };
-    
-      // Handle the speech recognition result
-      recognition.onresult = function (event) {
-        const results = event.results[0];
-        let transcript = results[0].transcript.trim().toLowerCase();
-    
-        // Post-process the transcript to improve accuracy for e-commerce terms
-        transcript = cleanTranscript(transcript);
-    
-        // Add to search history and perform the search
-        document.getElementById("searchSectionInput").value = transcript;
-        toggleSearchBar(); // Show the search bar with the result
-        addToSearchHistory(transcript); // Assuming this function exists
-        performSearch(); // Trigger the search
-        showNotification(`Searching for: "${transcript}"`, "success");
-    
-        // Reset button state
-        resetVoiceSearchButton();
-      };
-    
-      // Handle errors gracefully
-      recognition.onerror = function (event) {
-        resetVoiceSearchButton();
-        let errorMessage = "An error occurred during voice search.";
-        switch (event.error) {
-          case "no-speech":
-            errorMessage = "No speech detected. Please try again.";
-            break;
-          case "not-allowed":
-          case "service-not-allowed":
-            errorMessage = "Microphone access denied. Please enable it in your browser settings.";
-            break;
-          case "audio-capture":
-            errorMessage = "No microphone detected. Please ensure one is connected.";
-            break;
-          default:
-            errorMessage = `Voice search error: ${event.error}`;
-        }
-        showNotification(errorMessage, "danger");
-      };
-    
-      // Reset state when recognition ends
-      recognition.onend = function () {
-        resetVoiceSearchButton();
-        showNotification("Voice search completed.", "info", { duration: 1500 });
-      };
-    
-      // Start recognition
-      try {
-        recognition.start();
-      } catch (e) {
-        resetVoiceSearchButton();
-        showNotification("Failed to start voice search. Please try again.", "danger");
-      }
-    }
-    
-    // Helper function to clean up the transcript
-    function cleanTranscript(transcript) {
-      // Remove common filler words and improve product name matching
-      const fillers = ["um", "uh", "like", "you know"];
-      let cleaned = transcript.split(" ").filter(word => !fillers.includes(word)).join(" ");
-    
-      // Map common misrecognitions or shorthand to actual product terms
-      const corrections = {
-        "t shirt": "t-shirt",
-        "jeans": "denim jeans",
-        "sun glasses": "sunglasses",
-        "watch": "wrist watch",
-        "accessory": "accessories",
-      };
-      Object.keys(corrections).forEach(mistake => {
-        if (cleaned.includes(mistake)) {
-          cleaned = cleaned.replace(mistake, corrections[mistake]);
-        }
-      });
-    
-      return cleaned;
-    }
-    
-    // Helper function to reset the voice search button
-    function resetVoiceSearchButton() {
-      const voiceSearchBtn = document.getElementById("voiceSearchButton");
-      voiceSearchBtn.classList.remove("active");
-      voiceSearchBtn.innerHTML = '<i class="bi bi-mic"></i>'; // Restore original icon
-    }
-      // Enhanced voice search for mobile
+       // Voice search functionality
       function startVoiceSearch() {
-        const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!recognition) {
-          showNotification("Voice search is not supported on this device.", "warning");
-          return;
-        }
-  
-        const voiceSearchBtn = document.getElementById("voiceSearchButton");
-        const recognitionInstance = new recognition();
-        recognitionInstance.continuous = false;
-        recognitionInstance.interimResults = false;
-        recognitionInstance.lang = "en-US";
-  
-        recognitionInstance.onstart = () => {
-          voiceSearchBtn.classList.add("active");
-          showNotification("Voice search started. Please speak now.", "info");
-        };
-  
-        recognitionInstance.onresult = (event) => {
-          const transcript = event.results[0][0].transcript;
-          document.getElementById("searchSectionInput").value = transcript;
-          toggleSearchBar();
-          addToSearchHistory(transcript);
-          performSearch();
-          showNotification(`Searching for: "${transcript}"`, "success");
-        };
-  
-        recognitionInstance.onerror = (event) => {
-          voiceSearchBtn.classList.remove("active");
-          if (event.error === "no-speech") {
-            showNotification("No speech detected. Please try again.", "warning");
-          } else if (event.error === "not-allowed" || event.error === "service-not-allowed") {
-            showNotification("Microphone access denied. Please enable it in your settings.", "danger");
-          } else {
-            showNotification(`Voice search error: ${event.error}`, "danger");
+          // Check if the browser supports the Web Speech API
+          const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (!SpeechRecognition) {
+            showNotification("Voice search is not supported in your browser.", "warning");
+            return;
           }
-        };
-  
-        recognitionInstance.onend = () => {
-          voiceSearchBtn.classList.remove("active");
-          showNotification("Voice search ended.", "info");
-        };
-  
-        try {
-          recognitionInstance.start();
-        } catch (e) {
-          showNotification("Error starting voice search. Please try again.", "danger");
+        
+          const recognition = new SpeechRecognition();
+          const voiceSearchBtn = document.getElementById("voiceSearchButton");
+        
+          // Configure recognition settings for better accuracy
+          recognition.continuous = false; // Single utterance for better control
+          recognition.interimResults = false; // Wait for final results to avoid partial matches
+          recognition.lang = "en-US"; // Default to English, can be made configurable
+          recognition.maxAlternatives = 3; // Get multiple alternatives for better matching
+        
+          // Visual feedback when voice search starts
+          recognition.onstart = function () {
+            voiceSearchBtn.classList.add("active"); // Add a visual cue (e.g., highlight button)
+            voiceSearchBtn.innerHTML = '<i class="bi bi-mic-fill"></i>'; // Change icon to indicate recording
+            showNotification("Listening... Please speak clearly.", "info", { duration: 2000 });
+          };
+        
+          // Handle the speech recognition result
+          recognition.onresult = function (event) {
+            const results = event.results[0];
+            let transcript = results[0].transcript.trim().toLowerCase();
+        
+            // Post-process the transcript to improve accuracy for e-commerce terms
+            transcript = cleanTranscript(transcript);
+        
+            // Add to search history and perform the search
+            document.getElementById("searchSectionInput").value = transcript;
+            toggleSearchBar(); // Show the search bar with the result
+            addToSearchHistory(transcript); // Assuming this function exists
+            performSearch(); // Trigger the search
+            showNotification(`Searching for: "${transcript}"`, "success");
+        
+            // Reset button state
+            resetVoiceSearchButton();
+          };
+        
+          // Handle errors gracefully
+          recognition.onerror = function (event) {
+            resetVoiceSearchButton();
+            let errorMessage = "An error occurred during voice search.";
+            switch (event.error) {
+              case "no-speech":
+                errorMessage = "No speech detected. Please try again.";
+                break;
+              case "not-allowed":
+              case "service-not-allowed":
+                errorMessage = "Microphone access denied. Please enable it in your browser settings.";
+                break;
+              case "audio-capture":
+                errorMessage = "No microphone detected. Please ensure one is connected.";
+                break;
+              default:
+                errorMessage = `Voice search error: ${event.error}`;
+            }
+            showNotification(errorMessage, "danger");
+          };
+        
+          // Reset state when recognition ends
+          recognition.onend = function () {
+            resetVoiceSearchButton();
+            showNotification("Voice search completed.", "info", { duration: 1500 });
+          };
+        
+          // Start recognition
+          try {
+            recognition.start();
+          } catch (e) {
+            resetVoiceSearchButton();
+            showNotification("Failed to start voice search. Please try again.", "danger");
+          }
         }
-      }
+        
+        // Helper function to clean up the transcript
+        function cleanTranscript(transcript) {
+          // Remove common filler words and improve product name matching
+          const fillers = ["um", "uh", "like", "you know"];
+          let cleaned = transcript.split(" ").filter(word => !fillers.includes(word)).join(" ");
+        
+          // Map common misrecognitions or shorthand to actual product terms
+          const corrections = {
+            "t shirt": "t-shirt",
+            "jeans": "denim jeans",
+            "sun glasses": "sunglasses",
+            "watch": "wrist watch",
+            "accessory": "accessories",
+          };
+          Object.keys(corrections).forEach(mistake => {
+            if (cleaned.includes(mistake)) {
+              cleaned = cleaned.replace(mistake, corrections[mistake]);
+            }
+          });
+        
+          return cleaned;
+        }
+        
+        // Helper function to reset the voice search button
+        function resetVoiceSearchButton() {
+          const voiceSearchBtn = document.getElementById("voiceSearchButton");
+          voiceSearchBtn.classList.remove("active");
+          voiceSearchBtn.innerHTML = '<i class="bi bi-mic"></i>'; // Restore original icon
+        }
+          // Enhanced voice search for mobile
+          function startVoiceSearch() {
+            const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!recognition) {
+              showNotification("Voice search is not supported on this device.", "warning");
+              return;
+            }
+      
+            const voiceSearchBtn = document.getElementById("voiceSearchButton");
+            const recognitionInstance = new recognition();
+            recognitionInstance.continuous = false;
+            recognitionInstance.interimResults = false;
+            recognitionInstance.lang = "en-US";
+      
+            recognitionInstance.onstart = () => {
+              voiceSearchBtn.classList.add("active");
+              showNotification("Voice search started. Please speak now.", "info");
+            };
+      
+            recognitionInstance.onresult = (event) => {
+              const transcript = event.results[0][0].transcript;
+              document.getElementById("searchSectionInput").value = transcript;
+              toggleSearchBar();
+              addToSearchHistory(transcript);
+              performSearch();
+              showNotification(`Searching for: "${transcript}"`, "success");
+            };
+      
+            recognitionInstance.onerror = (event) => {
+              voiceSearchBtn.classList.remove("active");
+              if (event.error === "no-speech") {
+                showNotification("No speech detected. Please try again.", "warning");
+              } else if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+                showNotification("Microphone access denied. Please enable it in your settings.", "danger");
+              } else {
+                showNotification(`Voice search error: ${event.error}`, "danger");
+              }
+            };
+      
+            recognitionInstance.onend = () => {
+              voiceSearchBtn.classList.remove("active");
+              showNotification("Voice search ended.", "info");
+            };
+      
+            try {
+              recognitionInstance.start();
+            } catch (e) {
+              showNotification("Error starting voice search. Please try again.", "danger");
+            }
+          }
+       
          // In the generateProducts function, modify the column classes:
          function generateProducts(containerId, productList) {
           const container = document.getElementById(containerId);
@@ -4903,10 +4912,24 @@ document.getElementById('trackOrderButton').addEventListener('click', async () =
             displayAccessoriesActiveFilters();
           }
             // Notify owner
-            function notifyOwner(message) {
-              ownerNotifications.push({ message, date: new Date().toLocaleString() });
-              saveData();
-            }
+            async function notifyOwner(message) {
+              try {
+                  // Send notification to the backend
+                  const response = await fetch('/notify-owner', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ message }),
+                  });
+          
+                  if (!response.ok) {
+                      throw new Error('Failed to send notification to the owner');
+                  }
+          
+                  console.log('Notification sent to the owner:', message);
+              } catch (error) {
+                  console.error('Error sending notification:', error);
+              }
+          }
       
              // Update notifications
              function updateNotifications() {
@@ -4953,158 +4976,120 @@ document.getElementById('trackOrderButton').addEventListener('click', async () =
                   showNotification("All notifications cleared.", "success");
                 }
               }
-                 // Update Seller Dashboard
-                 function updateSellerDashboard() {
-                  const sellerDashboardContent = document.getElementById("sellerDashboardContent");
-                  let html = "<h2>Users</h2>";
-                  if (users.length === 0) {
-                    html += "<p>No users yet.</p>";
-                  } else {
-                    html += '<div class="list-group">';
-                    users.forEach(user => {
-                      html += `
-                        <div class="list-group-item">
-                          <strong>${user.firstName} ${user.lastName}</strong><br>
-                          <small>${user.email}</small><br>
-                          <small>Mobile: ${user.mobile || "Not provided"}</small>
-                        </div>
-                      `;
-                    });
-                    html += '</div>';
-                  }
-                  html += "<h2 class='mt-4'>Orders</h2>";
-                  if (orders.length === 0) {
-                    html += "<p>No orders yet.</p>";
-                  } else {
-                    orders.forEach((order, index) => {
-                      const productImage = order.product.images && order.product.images.length > 0 ? order.product.images[0] : 'https://via.placeholder.com/100x100?text=No+Image';
-                      html += `
-                        <div class="card mb-3 shadow-sm order-card">
-                          <div class="card-header">
-                            Order #${index + 1} - ${order.date}
-                          </div>
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                <h6>Buyer Information</h6>
-                                <p><strong>Name:</strong> ${order.buyer.firstName} ${order.buyer.lastName}</p>
-                                <p><strong>Email:</strong> ${order.buyer.email}</p>
-                                <p><strong>Mobile:</strong> ${order.mobile}</p>
-                              </div>
-                              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                <h6>Product Information</h6>
-                                <img src="${productImage}" alt="${order.product.name}" class="img-fluid mb-2" style="max-width:100px; max-height:100px;" >
-                                <p><strong>Name:</strong> ${order.product.name}</p>
-                                <p><strong>Description:</strong> ${order.product.description}</p>
-                                <p><strong>Selected Size:</strong> ${order.product.selectedSize}</p>
-                                <p><strong>Selected Color:</strong> ${order.product.selectedColor}</p>
-                                <p><strong>Price:</strong> 
-                                  ${order.product.originalPrice && order.product.originalPrice > order.product.price ? 
-                                    `<s>₹${order.product.originalPrice.toFixed(2)}</s> ` : 
-                                    ''}
-                                  ₹${order.product.price.toFixed(2)}
-                                </p>
-                                <p><strong>Category:</strong> ${order.product.category}</p>
-                              </div>
-                              <div class="col-12 col-md-4">
-                                <h6>Shipping Information</h6>
-                                <p><strong>Address:</strong> ${order.address}</p>
-                                <p><strong>Payment Method:</strong> ${order.payment}</p>
-                                <p><strong>Status:</strong> ${order.cancelled ? 'Cancelled' : 'Active'}</p>
-                                ${order.cancelled ? `<p><strong>Cancellation Reason:</strong> ${order.cancellationReason}</p>` : ''}
-                              </div>
-                            </div>
-                            <div class="qr-code-container mt-3">
-                              <h6>Order QR Code</h6>
-                              <div id="qrcode-${index}"></div>
-                            </div>
-                          </div>
-                          <div class="card-footer text-end">
-                            <button class="btn btn-primary me-2" onclick="printOrder(${index})">Print</button>
-                            <button class="btn btn-secondary" onclick="downloadOrder(${index})">Download</button>
-                          </div>
-                        </div>
-                      `;
-                    });
-                  }
-                  html += "<h2 class='mt-4'>Notifications</h2>";
-                  if (ownerNotifications.length === 0) {
-                    html += "<p>No notifications yet.</p>";
-                  } else {
-                    html += `<div class="d-flex justify-content-end mb-3">
-                               <button class="btn btn-danger btn-sm" onclick="clearOwnerNotifications()">Clear Notifications</button>
-                             </div>`;
-                    html += '<div class="list-group">';
-                    ownerNotifications.slice().reverse().forEach(notif => {
-                      html += `
-                        <div class="list-group-item">
-                          <i class="bi bi-bell-fill me-2"></i>
-                          <strong>${notif.date}</strong>: ${notif.message}
-                        </div>
-                      `;
-                    });
-                    html += '</div>';
-                  }
-                  sellerDashboardContent.innerHTML = html;
-        
-            // Generate QR codes for each order
-            orders.forEach((order, index) => {
-              const qrDiv = document.getElementById(`qrcode-${index}`);
-              if (qrDiv) {
-                new QRCode(qrDiv, {
-                  text: order.qrData,
-                  width: 128,
-                  height: 128
-                });
-              }
-            });
-          }
-        
-          // Clear owner notifications
-          function clearOwnerNotifications() {
-            if (confirm("Are you sure you want to clear all notifications?")) {
-              ownerNotifications = [];
-              saveData();
-              updateSellerDashboard();
-              showNotification("All notifications cleared.", "info");
-            }
-          }
-        
-          // Function to print order card with QR code
-          function printOrder(index) {
-            const orderCards = document.querySelectorAll('.order-card');
-            if (index < 0 || index >= orderCards.length) return;
-            const orderCard = orderCards[index];
-            
-            document.body.classList.add('print-mode');
-            orderCard.classList.add('print-selected');
-            
-            window.print();
-            
-            window.addEventListener('afterprint', function() {
-              document.body.classList.remove('print-mode');
-              orderCard.classList.remove('print-selected');
-            }, { once: true });
-          }
-        
-          // Function to download order card as PNG with QR code
-          function downloadOrder(index) {
-            const orderCards = document.querySelectorAll('.order-card');
-            if (index < 0 || index >= orderCards.length) return;
-            const orderCard = orderCards[index];
-            
-            html2canvas(orderCard).then(canvas => {
-              const link = document.createElement('a');
-              link.href = canvas.toDataURL('image/png');
-              link.download = `order_${index + 1}.png`;
-              link.click();
-            }).catch(error => {
-              console.error('Error generating image:', error);
-              showNotification('Failed to generate image for download.', 'danger');
-            });
-          }
-        // Initialize
-        loadData();
+ // Update Seller Dashboard
+ function updateSellerDashboard() {
+  const sellerDashboardContent = document.getElementById("sellerDashboardContent");
+  let html = "<h2>Users</h2>";
+  if (users.length === 0) {
+    html += "<p>No users yet.</p>";
+  } else {
+    html += '<div class="list-group">';
+    users.forEach(user => {
+      html += `
+        <div class="list-group-item">
+          <strong>${user.firstName} ${user.lastName}</strong><br>
+          <small>${user.email}</small><br>
+          <small>Mobile: ${user.mobile || "Not provided"}</small>
+        </div>
+      `;
+    });
+    html += '</div>';
+  }
+  html += "<h2 class='mt-4'>Orders</h2>";
+  if (orders.length === 0) {
+    html += "<p>No orders yet.</p>";
+  } else {
+    orders.forEach((order, index) => {
+      const productImage = order.product.images && order.product.images.length > 0 ? order.product.images[0] : 'https://via.placeholder.com/100x100?text=No+Image';
+      html += `
+        <div class="card mb-3 shadow-sm order-card">
+          <div class="card-header">
+            Order #${index + 1} - ${order.date}
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <h6>Buyer Information</h6>
+                <p><strong>Name:</strong> ${order.buyer.firstName} ${order.buyer.lastName}</p>
+                <p><strong>Email:</strong> ${order.buyer.email}</p>
+                <p><strong>Mobile:</strong> ${order.mobile}</p>
+              </div>
+              <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <h6>Product Information</h6>
+                <img src="${productImage}" alt="${order.product.name}" class="img-fluid mb-2" style="max-width:100px; max-height:100px;" >
+                <p><strong>Name:</strong> ${order.product.name}</p>
+                <p><strong>Description:</strong> ${order.product.description}</p>
+                <p><strong>Selected Size:</strong> ${order.product.selectedSize}</p>
+                <p><strong>Selected Color:</strong> ${order.product.selectedColor}</p>
+                <p><strong>Price:</strong> 
+                  ${order.product.originalPrice && order.product.originalPrice > order.product.price ? 
+                    `<s>₹${order.product.originalPrice.toFixed(2)}</s> ` : 
+                    ''}
+                  ₹${order.product.price.toFixed(2)}
+                </p>
+                <p><strong>Category:</strong> ${order.product.category}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <h6>Shipping Information</h6>
+                <p><strong>Address:</strong> ${order.address}</p>
+                <p><strong>Payment Method:</strong> ${order.payment}</p>
+                <p><strong>Status:</strong> ${order.cancelled ? 'Cancelled' : 'Active'}</p>
+                ${order.cancelled ? `<p><strong>Cancellation Reason:</strong> ${order.cancellationReason}</p>` : ''}
+              </div>
+            </div>
+            <div class="qr-code-container mt-3">
+              <h6>Order QR Code</h6>
+              <div id="qrcode-${index}"></div>
+            </div>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-primary me-2" onclick="printOrder(${index})">Print</button>
+            <button class="btn btn-secondary" onclick="downloadOrder(${index})">Download</button>
+          </div>
+        </div>
+      `;
+    });
+  }
+  html += "<h2 class='mt-4'>Notifications</h2>";
+  if (ownerNotifications.length === 0) {
+    html += "<p>No notifications yet.</p>";
+  } else {
+    html += `<div class="d-flex justify-content-end mb-3">
+               <button class="btn btn-danger btn-sm" onclick="clearOwnerNotifications()">Clear Notifications</button>
+             </div>`;
+    html += '<div class="list-group" id="ownerNotifications">';
+    ownerNotifications.slice().reverse().forEach(notif => {
+      html += `
+        <div class="list-group-item">
+          <i class="bi bi-bell-fill me-2"></i>
+          <strong>${notif.date}</strong>: ${notif.message}
+        </div>
+      `;
+    });
+    html += '</div>';
+  }
+  sellerDashboardContent.innerHTML = html;
+}
+
+// Placeholder functions (to be implemented as needed)
+function printOrder(index) {
+  console.log(`Printing order ${index + 1}`);
+  // Add print logic here
+}
+
+function downloadOrder(index) {
+  console.log(`Downloading order ${index + 1}`);
+  // Add download logic here
+}
+
+function clearOwnerNotifications() {
+  ownerNotifications = [];
+  updateSellerDashboard();
+  showNotification("Notifications cleared", "info");
+}
+
+// Initial call to render the dashboard
+updateSellerDashboard();
         // Update header profile function 
       function updateHeaderProfile() {
        const headerProfile = document.getElementById('headerProfile');
@@ -5122,5 +5107,6 @@ document.getElementById('trackOrderButton').addEventListener('click', async () =
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="server.js"></script>
       </body>
       </html>
