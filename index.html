@@ -38,7 +38,6 @@
     </div>
     <div class="splash-subtitle">with GRATITUDE</div>
   </div>
-
   <!-- Popup Message Modal -->
   <div class="modal fade" id="popupMessageModal" tabindex="-1" aria-labelledby="popupMessageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -53,18 +52,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Notifications Section -->
-  <div id="notificationsSection" class="section">
-    <header class="bg-light py-3 border-bottom">
-      <div class="container d-flex justify-content-between align-items-center">
-        <button class="btn" onclick="showSection('homeSection')"><i class="far fa-arrow-left"></i> Home</button>
-        <h1 class="h5 mb-0">Notifications</h1>
-        <button class="btn btn-sm btn-danger" onclick="clearNotifications()">Clear All</button>
-      </div>
-    </header>
-    <div class="container my-4" id="notificationsContent"></div>
   </div>
 
   <!-- Offcanvas Menu -->
@@ -108,8 +95,8 @@
           <span id="headerProfile" class="profile-name"></span>
         </h1>
         <nav class="header-nav">
-          <button class="btn text-dark" id="notificationButton" aria-label="Notifications">
-            <i class="bi bi-bell"></i>
+          <button class="btn text-dark" id="searchButton" aria-label="Search">
+            <i class="bi bi-search"></i>
           </button>
           <button class="btn text-dark" id="accountButton" aria-label="Account">
             <i class="bi bi-person"></i>
@@ -134,7 +121,7 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" onclick="showSection('shopSection')">
-              <img src="https://i.pinimg.com/474x/d0/fd/28/d0fd28fc614775339300cf6f2ab043d2.jpg" class="d-block w-100" alt="Product Highlight 1">
+              <img src="https://i.pinimg.com/474x/d0/fd/28/d0fd28fc614775339300cf6f2ab043d2.jpg" class="d-block w-100 " alt="Product Highlight 1">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Luxury in Every Stitch</h5>
                 <p>Clothing is a form of self-expression.</p>
@@ -736,45 +723,6 @@
         <div></div>
       </div>
     </header>
-    <div class="container mb-3" id="menswearFilterSection">
-      <div class="row g-2">
-        <div class="col-4">
-          <select id="menswearFilterSize" class="form-select" aria-label="Filter Men's Wear by Size">
-            <option value="">All Sizes</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="32">32</option>
-            <option value="34">34</option>
-            <option value="36">36</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <select id="menswearFilterColor" class="form-select" aria-label="Filter Men's Wear by Color">
-            <option value="">All Colors</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Black">Black</option>
-            <option value="Brown">Brown</option>
-            <option value="White">White</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <select id="menswearFilterPrice" class="form-select" aria-label="Filter Men's Wear by Price">
-            <option value="">All Prices</option>
-            <option value="100-150">₹100 - ₹150</option>
-            <option value="150-200">₹150 - ₹200</option>
-            <option value="200-250">₹200 - ₹250</option>
-          </select>
-        </div>
-      </div>
-      <div class="mt-2">
-        <button class="btn btn-primary" onclick="applyMenswearFilters()" aria-label="Apply Men's Wear Filters">Apply Filters</button>
-        <button class="btn btn-outline-danger" onclick="clearMenswearFilters()" aria-label="Clear Men's Wear Filters">Clear Filters</button>
-      </div>
-      <div class="mt-2" id="menswearActiveFilterDisplay"></div>
-    </div>
     <div class="container my-4">
       <div class="row" id="menswearContainer"></div>
     </div>
@@ -791,43 +739,7 @@
         <div></div>
       </div>
     </header>
-    <div class="container mb-3" id="accessoriesFilterSection">
-      <div class="row g-2">
-        <div class="col-4">
-          <select id="accessoriesFilterSize" class="form-select" aria-label="Filter Accessories by Size">
-            <option value="">All Sizes</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="One Size">One Size</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <select id="accessoriesFilterColor" class="form-select" aria-label="Filter Accessories by Color">
-            <option value="">All Colors</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Black">Black</option>
-            <option value="Brown">Brown</option>
-            <option value="White">White</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <select id="accessoriesFilterPrice" class="form-select" aria-label="Filter Accessories by Price">
-            <option value="">All Prices</option>
-            <option value="100-150">₹100 - ₹150</option>
-            <option value="150-200">₹150 - ₹200</option>
-            <option value="200-250">₹200 - ₹250</option>
-          </select>
-        </div>
-      </div>
-      <div class="mt-2">
-        <button class="btn btn-primary" onclick="applyAccessoriesFilters()" aria-label="Apply Accessories Filters">Apply Filters</button>
-        <button class="btn btn-outline-danger" onclick="clearAccessoriesFilters()" aria-label="Clear Accessories Filters">Clear Filters</button>
-      </div>
-      <div class="mt-2" id="accessoriesActiveFilterDisplay"></div>
-    </div>
+   
     <div class="container my-4">
       <div class="row" id="accessoriesContainer"></div>
     </div>
@@ -1156,12 +1068,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link" data-section="searchSection" onclick="showSection('searchSection'); return false;" aria-label="Search">
-            <i class="bi bi-search"></i>
-            <span class="nav-text"></span>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="#" class="nav-link" data-section="wishlistSection" onclick="showSection('wishlistSection'); return false;" aria-label="Wishlist">
             <i class="bi bi-heart"></i>
             <span class="nav-text"></span>
@@ -1288,8 +1194,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       </div>
     </div>
   </div>
-
-  <!-- View Review Modal -->
+ <!-- View Review Modal -->
   <div class="modal fade" id="viewReviewModal" tabindex="-1" aria-labelledby="viewReviewModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1313,7 +1218,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       </div>
     </div>
   </div>
-  <!-- QR Code Modal -->  
+         <!-- QR Code Modal -->  
   <div class="modal fade" id="qrCodeModal" tabindex="-1" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1365,12 +1270,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
-
-
-
-
-
-    /* Base theme */
+ /* Base theme */
     :root {
       --primary-color: #2a5298;
       --secondary-color: #ffdd57;
@@ -1516,8 +1416,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     }
     
     nav .btn i { 
-      font-size: 1.75rem;
-      color: black; /* Changed to black */
+      font-size: 1.75rem; 
       transition: color 0.3s ease; 
     }
     
@@ -1531,27 +1430,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       align-items: center; 
     }
     
-    #notificationButton { 
-      font-size: 1.75rem; 
-      position: relative;
-    }
-    
-    .notification-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: var(--danger-color);
-      color: white;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: bold;
-    }
-    
     /* Improved Icon Appearance */
     button[data-bs-target="#menuCanvas"] i {
       font-size: 2rem;
@@ -1561,6 +1439,15 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     .btn {
       border-width: 1px;
       transition: all 0.3s ease;
+    }
+    
+    nav .btn i {
+      font-size: 1.75rem;
+      color: var(--primary-color);
+    }
+    
+    nav .btn i:hover {
+      color: var(--secondary-color);
     }
     
     /* Updated Category Section Styling */
@@ -1749,7 +1636,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     
     .footer-nav .nav-link i {
       font-size: 1.8rem;
-      color: black; /* Changed to black */
+      color: var(--primary-color);
       transition: all 0.3s ease;
       margin-bottom: 3px;
     }
@@ -2761,7 +2648,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     /* Make carousel items clickable */
     .carousel-item {
       cursor: pointer;
-    } 
+    }
 
 
 
@@ -2770,11 +2657,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
-    
 
-
-
-    
      // Simple hash function for password hashing (for demonstration purposes)
     function simpleHash(password) {
       let hash = 0;
@@ -4087,7 +3970,6 @@ function generateTrackBar(order) {
   html += '</div>';
   return html;
 }
-
 // Show order detail page with track bar
 function showOrderDetailPage(orderIndex) {
   currentOrderIndex = orderIndex;
@@ -4565,7 +4447,7 @@ function generateProductImageHTML(product) {
          
              // Header button actions
              document.getElementById("accountButton").addEventListener("click", () => currentUser ? showSection("accountSection") : showSection("loginSection"));
-             document.getElementById("notificationButton").addEventListener("click", () => showSection("notificationsSection"));
+             document.getElementById("searchButton").addEventListener("click", () => showSection("searchSection"));
          
              // Enhanced search functionality
          function showSearchSuggestions() {
