@@ -780,7 +780,7 @@
     <div class="container my-4" id="ordersList"></div>
   </div>
 
-  <!-- Order Detail Section -->
+ <!-- Order Detail Section -->
   <div id="orderDetailSection" class="section fade-in">
     <header class="py-3 border-bottom bg-light">
       <div class="container d-flex justify-content-between align-items-center">
@@ -789,9 +789,19 @@
         <div></div>
       </div>
     </header>
-    <div class="container my-4" id="orderDetailPage"></div>
+    <div class="container my-4" id="orderDetailPage">
+      <!-- Example Order Detail with QR Code Button -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Order #12345</h5>
+          <p class="card-text">Status: <span id="orderStatusDetail">Processing</span></p>
+          <button class="btn btn-sm btn-outline-secondary show-qr-code" data-order-id="12345">
+            <i class="bi bi-qr-code"></i> Get QR Code
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-
    <!-- Product Detail Section -->
    <div id="productDetailSection" class="section fade-in">
     <header class="py-3 border-bottom bg-light">
@@ -1248,7 +1258,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
         <div class="modal-body">
           <div id="qrcode" class="text-center"></div>
           <p class="mt-3">Scan this QR code to access your order details.</p>
-          <button class="btn btn-primary" id="downloadQRCodeButton">Download QR Code</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1282,7 +1291,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
         link.download = "qr_code.png";
         link.click();
       });
-    });
+    });   
 
 
 
@@ -1290,10 +1299,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
-
-
-
-    
+     
  /* Base theme */
     :root {
       --primary-color: #2a5298;
@@ -2692,7 +2698,9 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
+    
 
+    
         // Simple hash function for password hashing (for demonstration purposes)
     function simpleHash(password) {
       let hash = 0;
@@ -5321,3 +5329,63 @@ document.getElementById('applyCouponButton').addEventListener('click', function 
            // Return to home section
            showSection("homeSection");
          });
+         // QR Code Generation and Download Functionality
+function generateQRCode(content) {
+  document.getElementById("qrcode").innerHTML = "";
+  
+  const qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: content,
+    width: 200,
+    height: 200,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  document.getElementById("downloadQRCodeButton").onclick = function() {
+    const canvas = document.querySelector("#qrcode canvas");
+    const dataURL = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "TEDPOLE_QRCode.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+}
+
+// Function to show QR code modal with specific content
+function showQRCodeModal(content) {
+  generateQRCode(content);
+  const qrModal = new bootstrap.Modal(document.getElementById('qrCodeModal'));
+  qrModal.show();
+}
+
+// Example usage for order QR code
+function showOrderQRCode(orderId) {
+  const orderDetailsUrl = `https://tedpole.in/order/${orderId}`;
+  showQRCodeModal(orderDetailsUrl);
+}
+
+// Event listener for QR code display
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.show-qr-code').forEach(button => {
+    button.addEventListener('click', function() {
+      const orderId = this.getAttribute('data-order-id');
+      showOrderQRCode(orderId);
+    });
+  });
+});
+
+// Reset message modal on hide
+document.getElementById("sendMessageModal")?.addEventListener("hidden.bs.modal", function () {
+  document.getElementById("messageText").value = "";
+});
+
+// Initialize QR code with default content and load data
+window.onload = function() {
+  generateQRCode("https://tedpole.in");
+  loadData();
+};
+
+          
