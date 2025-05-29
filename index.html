@@ -124,56 +124,56 @@
         <button class="btn btn-dark mt-2" id="shopNowButton" onclick="showSection('shopSection')" aria-label="Shop Now"><i class="fas fa-cart-check"></i> Shop Now</button>
       </div>
     </section>
-    <section class="product-highlight py-5">
-      <div class="container">
-        <div id="productHighlightCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active" onclick="showSection('shopSection')">
-              <img src="https://i.pinimg.com/474x/d0/fd/28/d0fd28fc614775339300cf6f2ab043d2.jpg" class="d-block w-100" alt="Product Highlight 1">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Luxury in Every Stitch</h5>
-                <p>Clothing is a form of self-expression.</p>
-              </div>
-            </div>
-            <div class="carousel-item" onclick="showSection('menswearSection')">
-              <img src="https://i.pinimg.com/474x/1e/d0/ed/1ed0ede5c364f2c8959976120f65271f.jpg" class="d-block w-100" alt="Product Highlight 2">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Trendy Men's Wear</h5>
-                <p>Explore our latest collection.</p>
-              </div>
-            </div>
-            <div class="carousel-item" onclick="showSection('accessoriesSection')">
-              <img src="https://i.pinimg.com/474x/f4/96/20/f496209cab01d85a80a84b785068c007.jpg" class="d-block w-100" alt="Product Highlight 3">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Stylish Accessories</h5>
-                <p>Complete your look.</p>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#productHighlightCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#productHighlightCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+    <section class="product-highlight">
+      <div class="full-screen-wrapper">
+       <div id="productHighlightCarousel" class="carousel slide full-screen-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#productHighlightCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" onclick="showSection('shopSection')">
+      <img src="https://i.pinimg.com/474x/d0/fd/28/d0fd28fc614775339300cf6f2ab043d2.jpg" class="d-block w-100" alt="Product Highlight 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Luxury in Every Stitch</h5>
+        <p>Clothing is a form of self-expression.</p>
+      </div>
+    </div>
+    <div class="carousel-item" onclick="showSection('menswearSection')">
+      <img src="https://i.pinimg.com/474x/1e/d0/ed/1ed0ede5c364f2c8959976120f65271f.jpg" class="d-block w-100" alt="Product Highlight 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Trendy Men's Wear</h5>
+        <p>Explore our latest collection.</p>
+      </div>
+    </div>
+    <div class="carousel-item" onclick="showSection('accessoriesSection')">
+      <img src="https://i.pinimg.com/474x/f4/96/20/f496209cab01d85a80a84b785068c007.jpg" class="d-block w-100" alt="Product Highlight 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Stylish Accessories</h5>
+        <p>Complete your look.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#productHighlightCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#productHighlightCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
       </div>
     </section>
     <!-- Updated Categories Section -->
     <section class="categories py-5 bg-light">
       <div class="container text-center">
-        <h2><i class="fas fa-columns"></i> Shop by Categories</h2>
+        <h2></i>Featured Categories</h2>
         <div class="row mt-4">
           <div class="col-6 col-md-6 mb-4">
             <div class="category-item" onclick="showSection('menswearSection')">
-              <img src="https://i.pinimg.com/474x/1e/d0/ed/1ed0ede5c364f2c8959976120f65271f.jpg" class="img-fluid" alt="MenV Men's Wear" />
+              <img src="https://i.pinimg.com/474x/1e/d0/ed/1ed0ede5c364f2c8959976120f65271f.jpg" class="img-fluid" alt=" Men's Wear" />
               <div class="category-label">MEN'S WEAR</div>
             </div>
           </div>
@@ -609,7 +609,7 @@
     </div>
   </div>
 
-  <!-- tion -->
+  <!--signup  section -->
   <div id="signupSection" class="section fade-in">
     <header class="bg-light py-3 border-bottom">
       <div class="container d-flex justify-content-between align-items-center">
@@ -727,7 +727,7 @@
       <div class="row" id="shopProductContainer"></div>
     </div>
   </div>
-     <!-- Men's Wear Section -->
+   <!-- Men's Wear Section -->
   <div id="menswearSection" class="section fade-in">
     <header class="py-3 border-bottom bg-light">
       <div class="container d-flex justify-content-between align-items-center">
@@ -802,6 +802,7 @@
       </div>
     </div>
   </div>
+
    <!-- Product Detail Section -->
    <div id="productDetailSection" class="section fade-in">
     <header class="py-3 border-bottom bg-light">
@@ -1299,8 +1300,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
-     
- /* Base theme */
+         /* Base theme */
     :root {
       --primary-color: #2a5298;
       --secondary-color: #ffdd57;
@@ -1446,8 +1446,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     }
     
     nav .btn i { 
-      font-size: 1.75rem;
-      color: black; /* Changed to black */
+      font-size: 1.75rem; 
       transition: color 0.3s ease; 
     }
     
@@ -1493,6 +1492,15 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       transition: all 0.3s ease;
     }
     
+    nav .btn i {
+      font-size: 1.75rem;
+      color: var(--primary-color);
+    }
+    
+    nav .btn i:hover {
+      color: var(--secondary-color);
+    }
+    
     /* Updated Category Section Styling */
     .categories {
       padding: 50px 0;
@@ -1529,7 +1537,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       font-weight: bold;
       text-align: right;
     }
-    
     /* Section Visibility */
     .section { 
       display: none; 
@@ -1679,7 +1686,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     
     .footer-nav .nav-link i {
       font-size: 1.8rem;
-      color: black; /* Changed to black */
+      color: var(--primary-color);
       transition: all 0.3s ease;
       margin-bottom: 3px;
     }
@@ -1743,6 +1750,13 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
         right: 35%;
         font-size: 0.6rem;
         padding: 1px 4px;
+      }
+      .category-item img {
+        height: 150px; /* Decreased height for smaller screens */
+      }
+      .category-label {
+        font-size: 1.2rem;
+        padding: 8px 15px;
       }
     }
     
@@ -2005,10 +2019,10 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       left: 0;
       right: 0;
       text-align: center;
-      color: #fff; /* Full white for better visibility */
-      font-size: 1rem; /* Slightly larger font size */
-      font-weight: bold; /* Make it bold */
-      text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add shadow for contrast */
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
     }
 
     /* Responsive adjustments for splash screen */
@@ -2029,7 +2043,7 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       }
       
       .splash-footer {
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        font-size: 0.9rem;
       }
     }
     
@@ -2357,14 +2371,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       .order-card .card-body > div {
         margin-bottom: 15px;
       }
-      .category-item img {
-        height: 200px;
-      }
-      
-      .category-label {
-        font-size: 1.2rem;
-        padding: 8px 15px;
-      }
     }
     
     .order-card-image {
@@ -2632,8 +2638,8 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
       color: white;
       text-align: center;
     }
@@ -2651,8 +2657,8 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       position: relative;
     }
     .search-bar input {
-      padding-left: 40px;
-      border-radius: 20px;
+      padding-left: 50px;
+      border-radius: 50px;
       border: 1px solid #ccc;
       background-color: #f8f9fa;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -2691,17 +2697,42 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
     /* Make carousel items clickable */
     .carousel-item {
       cursor: pointer;
-    } 
+    }
+
+    /* Full-screen carousel styles */
+    .full-screen-wrapper {
+      position: relative;
+      height: 60vh; /* Decreased height */
+      width: 100%;
+    }
+
+    .full-screen-carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .full-screen-carousel .carousel-inner,
+    .full-screen-carousel .carousel-item {
+      height: 100%;
+    }
+
+    .full-screen-carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
 
 
 
 
 
-    
 
-    
-        // Simple hash function for password hashing (for demonstration purposes)
+
+ // Simple hash function for password hashing (for demonstration purposes)
     function simpleHash(password) {
       let hash = 0;
       for (let i = 0; i < password.length; i++) {
@@ -5329,7 +5360,7 @@ document.getElementById('applyCouponButton').addEventListener('click', function 
            // Return to home section
            showSection("homeSection");
          });
-         // QR Code Generation and Download Functionality
+          // QR Code Generation and Download Functionality
 function generateQRCode(content) {
   document.getElementById("qrcode").innerHTML = "";
   
@@ -5387,5 +5418,3 @@ window.onload = function() {
   generateQRCode("https://tedpole.in");
   loadData();
 };
-
-          
