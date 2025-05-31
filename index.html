@@ -86,9 +86,6 @@
       <li class="custom-menu-item" onclick="hideMenu(); showSection('offerZoneSection');"><i class="bi bi-star me-2"></i> Offer Zone</li>
       <li class="custom-menu-item" onclick="hideMenu(); showSection('helpSection');"><i class="bi bi-question-circle me-2"></i> Help Line</li>
       <li class="custom-menu-item" onclick="hideMenu(); showSection('requestProductSection');"><i class="bi bi-chat-dots me-2"></i> Request Product</li>
-      <li class="custom-menu-item" onclick="hideMenu(); showSection('feedbackSection');">
-  <i class="bi bi-chat-square-text me-2"></i> Feedback
-</li>
     </ul>
     <div id="menuSocialSection" class="mt-3 text-center">
       <a href="https://www.instagram.com/tedpole.in" target="_blank" class="mx-2"><i class="bi bi-instagram" style="color:#E1306C;"></i></a>
@@ -313,75 +310,7 @@
       <p>For assistance, please call <strong>+91 7661838006</strong> or email us at <strong>tedpole.in@gmail.com</strong>.</p>
     </div>
   </div>
-<!-- Feedback Section -->
-<div id="feedbackSection" class="section fade-in">
-  <header class="py-3 border-bottom bg-light">
-    <div class="container d-flex justify-content-between align-items-center">
-      <button class="btn" onclick="showSection('homeSection')" aria-label="Back to Home">
-        <i class="bi bi-arrow-left"></i> Home
-      </button>
-      <h1 class="h5 mb-0">Feedback</h1>
-      <div></div>
-    </div>
-  </header>
-  <div class="container my-4">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Share Your Feedback</h5>
-        <p class="card-text">We value your opinion! Please let us know how we can improve.</p>
-        
-        <form id="feedbackForm">
-          <div class="mb-3">
-            <label for="feedbackType" class="form-label">Feedback Type</label>
-            <select class="form-select" id="feedbackType" required>
-              <option value="">Select feedback type</option>
-              <option value="suggestion">Suggestion</option>
-              <option value="complaint">Complaint</option>
-              <option value="praise">Praise</option>
-              <option value="bug">Bug Report</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-    
-          <div class="mb-3">
-            <label for="feedbackMessage" class="form-label">Your Feedback</label>
-            <textarea class="form-control" id="feedbackMessage" rows="5" placeholder="Please provide details..." required></textarea>
-          </div>
-          
-          <div class="mb-3">
-            <label for="feedbackRating" class="form-label">Overall Rating</label>
-            <div class="rating-stars mb-2" id="feedbackRatingStars">
-              <span data-value="1">☆</span>
-              <span data-value="2">☆</span>
-              <span data-value="3">☆</span>
-              <span data-value="4">☆</span>
-              <span data-value="5">☆</span>
-            </div>
-            <small class="text-muted" id="feedbackRatingText">Select rating (optional)</small>
-            <input type="hidden" id="feedbackRating" value="0">
-          </div>
-          
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="feedbackContactPermission">
-            <label class="form-check-label" for="feedbackContactPermission">You may contact me about this feedback</label>
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Submit Feedback</button>
-        </form>
-      </div>
-    </div>
-    
-    <div class="card shadow-sm mt-4">
-      <div class="card-body">
-        <h5 class="card-title">Recent Feedback Responses</h5>
-        <div class="alert alert-info">
-          <p class="mb-0">We respond to all feedback within 2 business days. Check back here for updates.</p>
-        </div>
-        <div id="feedbackResponses"></div>
-      </div>
-    </div>
-  </div>
-</div>
+
   <!-- Wishlist Section -->
   <div id="wishlistSection" class="section fade-in">
     <header class="py-3 border-bottom bg-light">
@@ -1364,13 +1293,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
         link.click();
       });
     });   
-
-
-
-
-
-
-
 
 
 
@@ -2802,39 +2724,6 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
       height: 100%;
       object-fit: cover;
     }
-    /* Feedback Section Styles */
-.rating-stars {
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.rating-stars span {
-  color: #6c757d;
-  transition: color 0.2s;
-}
-
-.rating-stars span:hover,
-.rating-stars span.active {
-  color: #ffc107;
-}
-
-.feedback-response {
-  background-color: #f8f9fa;
-}
-
-.feedback-response:hover {
-  background-color: #e9ecef;
-}
-
-#feedbackRatingStars span {
-  font-size: 1.5rem;
-  margin-right: 0.25rem;
-  cursor: pointer;
-}
-
-#feedbackRatingStars span:hover {
-  color: #ffc107;
-}
 
 
 
@@ -2842,15 +2731,16 @@ document.getElementById('trackOrderButton')?.addEventListener('click', async () 
 
 
 
-// Simple hash function for password hashing (for demonstration purposes)
-function simpleHash(password) {
-  let hash = 0;
-  for (let i = 0; i < password.length; i++) {
-    hash = (hash << 5) - hash + password.charCodeAt(i);
-    hash |= 0; // Convert to 32-bit integer
-  }
-  return hash;
-}
+
+ // Simple hash function for password hashing (for demonstration purposes)
+    function simpleHash(password) {
+      let hash = 0;
+      for (let i = 0; i < password.length; i++) {
+        hash = (hash << 5) - hash + password.charCodeAt(i);
+        hash |= 0; // Convert to 32-bit integer
+      }
+      return hash;
+    }
 
 // Global variables
 let users = [];
@@ -2869,7 +2759,6 @@ let recentSearches = [];
 let validCoupons = [];
 let searchTimeout = null;
 let currentOrdersFilter = 'all';
-let feedbackMessages = [];
 
 const locations = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
 const colorMap = { "Blue": "#0000FF", "Red": "#FF0000", "Black": "#000000", "Brown": "#8B4513", "White": "#FFFFFF" };
@@ -2888,7 +2777,6 @@ document.getElementById("searchInput").addEventListener("input", function() {
     generateProducts("shopProductContainer", filteredProducts);
   }, 300); // 300ms debounce delay
 });
-
 // Function to generate a random 8-character coupon code
 function generateCouponCode() {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -2899,7 +2787,7 @@ function generateCouponCode() {
   return code;
 }
 
-// Save data to localStorage
+// Update saveData to include validCoupons
 function saveData() {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -2909,10 +2797,9 @@ function saveData() {
   localStorage.setItem("wishlist", JSON.stringify(wishlist));
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
   localStorage.setItem("validCoupons", JSON.stringify(validCoupons));
-  localStorage.setItem("feedbackMessages", JSON.stringify(feedbackMessages));
 }
 
-// Load data from localStorage
+// Update loadData to load validCoupons
 function loadData() {
   users = JSON.parse(localStorage.getItem("users")) || [];
   cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -2922,7 +2809,6 @@ function loadData() {
   wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   currentUser = JSON.parse(localStorage.getItem("currentUser"));
   validCoupons = JSON.parse(localStorage.getItem("validCoupons")) || [];
-  feedbackMessages = JSON.parse(localStorage.getItem("feedbackMessages")) || [];
   if (currentUser && currentUser.isLoggedIn) {
     const user = users.find(u => u.email === currentUser.email);
     if (user) {
@@ -2940,7 +2826,6 @@ function loadData() {
   generateProducts("menswearContainer", products.filter(p => p.category === "Men's Wear"));
   generateProducts("accessoriesContainer", products.filter(p => p.category === "Accessories"));
 }
-
 function setCurrentOrderIndex(index) {
   currentOrderIndexForMessage = index;
 }
@@ -3127,6 +3012,44 @@ setTimeout(() => {
   }, 500);
 }, 2000);
 
+// Save data to localStorage
+function saveData() {
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("orders", JSON.stringify(orders));
+  localStorage.setItem("notifications", JSON.stringify(notifications));
+  localStorage.setItem("ownerNotifications", JSON.stringify(ownerNotifications));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+}
+
+// Load data from localStorage
+function loadData() {
+  users = JSON.parse(localStorage.getItem("users")) || [];
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  orders = JSON.parse(localStorage.getItem("orders")) || [];
+  notifications = JSON.parse(localStorage.getItem("notifications")) || [];
+  ownerNotifications = JSON.parse(localStorage.getItem("ownerNotifications")) || [];
+  wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser && currentUser.isLoggedIn) {
+    const user = users.find(u => u.email === currentUser.email);
+    if (user) {
+      currentUser = { ...user, isLoggedIn: true, lastActivity: new Date().toISOString() };
+    } else {
+      currentUser = null;
+    }
+  } else {
+    currentUser = null;
+  }
+  updateHeaderProfile();
+  updateMenuAccountDetails();
+  updateCartCountBadge();
+  generateProducts("shopProductContainer", products);
+  generateProducts("menswearContainer", products.filter(p => p.category === "Men's Wear"));
+  generateProducts("accessoriesContainer", products.filter(p => p.category === "Accessories"));
+}
+
 // Show notification function
 function showNotification(message, type = "success", options = {}) {
   const { title = type.charAt(0).toUpperCase() + type.slice(1), duration = 3000, persist = false } = options;
@@ -3167,110 +3090,6 @@ function showNotification(message, type = "success", options = {}) {
   notifications.push({ message, type, title, date: new Date().toLocaleString() });
   saveData();
 }
-
-// Feedback section functionality
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize feedback rating stars
-  const feedbackStars = document.querySelectorAll('#feedbackRatingStars span');
-  let selectedFeedbackRating = 0;
-  
-  feedbackStars.forEach(star => {
-    star.addEventListener('click', function() {
-      const value = parseInt(this.getAttribute('data-value'));
-      selectedFeedbackRating = value;
-      document.getElementById('feedbackRating').value = value;
-      
-      feedbackStars.forEach((s, i) => {
-        s.textContent = i < value ? '★' : '☆';
-      });
-      
-      const ratingTexts = ["Poor", "Fair", "Good", "Very Good", "Excellent"];
-      document.getElementById('feedbackRatingText').textContent = ratingTexts[value - 1];
-    });
-    
-    star.addEventListener('mouseover', function() {
-      const value = parseInt(this.getAttribute('data-value'));
-      feedbackStars.forEach((s, i) => {
-        s.style.color = i < value ? '#ffc107' : '#6c757d';
-      });
-    });
-    
-    star.addEventListener('mouseout', function() {
-      feedbackStars.forEach((s, i) => {
-        s.style.color = i < selectedFeedbackRating ? '#ffc107' : '#6c757d';
-      });
-    });
-  });
-  
-  // Handle feedback form submission
-  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const feedbackType = document.getElementById('feedbackType').value;
-    const feedbackSubject = document.getElementById('feedbackSubject').value;
-    const feedbackMessage = document.getElementById('feedbackMessage').value;
-    const feedbackRating = document.getElementById('feedbackRating').value;
-    const contactPermission = document.getElementById('feedbackContactPermission').checked;
-    
-    // Validate required fields
-    if (!feedbackType || !feedbackSubject || !feedbackMessage) {
-      showNotification('Please fill in all required fields', 'warning');
-      return;
-    }
-    
-    // Create feedback object
-    const feedback = {
-      type: feedbackType,
-      subject: feedbackSubject,
-      message: feedbackMessage,
-      rating: feedbackRating ? parseInt(feedbackRating) : null,
-      contactPermission: contactPermission,
-      user: currentUser ? `${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})` : "Guest",
-      date: new Date().toLocaleString()
-    };
-    
-    // Save feedback
-    feedbackMessages.push(feedback);
-    saveData();
-    
-    // Notify owner
-    notifyOwner(`New feedback received: Type - ${feedback.type}, Subject - ${feedback.subject}, From - ${feedback.user}`);
-    
-    // Show success notification
-    showNotification('Thank you for your feedback! We appreciate your input.', 'success');
-    
-    // Reset form
-    this.reset();
-    feedbackStars.forEach(star => {
-      star.textContent = '☆';
-      star.style.color = '#6c757d';
-    });
-    document.getElementById('feedbackRatingText').textContent = 'Select rating (optional)';
-    document.getElementById('feedbackRating').value = '0';
-    selectedFeedbackRating = 0;
-    
-    // Display feedback for user
-    const responseDiv = document.createElement('div');
-    responseDiv.className = 'feedback-response mb-3 p-3 border rounded';
-    responseDiv.innerHTML = `
-      <div class="d-flex justify-content-between">
-        <strong>${feedback.subject}</strong>
-        <small class="text-muted">Just now</small>
-      </div>
-      <p class="mb-1">${feedback.message}</p>
-      ${feedback.rating ? `<div class="small">Rating: ${'★'.repeat(feedback.rating)}${'☆'.repeat(5 - feedback.rating)}</div>` : ''}
-      <div class="alert alert-success mt-2 mb-0 p-2 small">
-        <i class="bi bi-check-circle-fill me-1"></i> Thank you! We've received your feedback.
-      </div>
-    `;
-    document.getElementById('feedbackResponses').prepend(responseDiv);
-    
-    // Update seller dashboard if active
-    if (document.getElementById("sellerDashboard").classList.contains("active-section")) {
-      updateSellerDashboard();
-    }
-  });
-});
 
 // Show popup message
 function showPopupMessage(message) {
@@ -3374,7 +3193,9 @@ function hideMenu() {
 
 function getProductRating(productId) {
   const productOrders = orders.filter(order => order.product.id === productId && order.rating !== null);
-  if (productOrders.length === 0) return null;
+  if (productOrders.length === 0) {
+    return null;
+  }
   const totalRating = productOrders.reduce((sum, order) => sum + order.rating, 0);
   const averageRating = totalRating / productOrders.length;
   return { average: averageRating.toFixed(1), count: productOrders.length };
@@ -3491,7 +3312,7 @@ function performSearch() {
       filteredProducts.sort((a, b) => a.price - b.price);
       break;
     case "price-high":
-      filteredProducts.sort((a, b) => b.price - b.price);
+      filteredProducts.sort((a, b) => b.price - a.price);
       break;
     case "rating":
       filteredProducts.sort((a, b) => {
@@ -3516,6 +3337,7 @@ function performSearch() {
   displaySearchResults(filteredProducts);
   updateSearchActiveFilters(query, category, priceRange, minRating, size, color, sortBy);
 }
+
 
 // Display search results
 function displaySearchResults(results) {
@@ -3904,12 +3726,14 @@ document.getElementById("buyForm").addEventListener("submit", function(e) {
     return;
   }
 
+  // Retrieve form values
   const address = document.getElementById("shippingAddress").value;
   const mobile = document.getElementById("mobileNumber").value;
   const details = document.getElementById("additionalDetails").value;
   const couponCode = document.getElementById("couponCode").value.trim();
   const product = currentProductForPurchase;
 
+  // Calculate discount if a valid coupon is applied
   let discount = 0;
   if (couponCode && validCoupons.includes(couponCode)) {
     discount = 0.20; // 20% discount
@@ -3918,6 +3742,7 @@ document.getElementById("buyForm").addEventListener("submit", function(e) {
   }
   const finalPrice = product.price * (1 - discount);
 
+  // Calculate estimated delivery date
   const daysRange = product.deliveryTime.match(/\d+-\d+/)[0];
   const maxDays = parseInt(daysRange.split("-")[1]);
   const orderDate = new Date();
@@ -3926,38 +3751,41 @@ document.getElementById("buyForm").addEventListener("submit", function(e) {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = estimatedDeliveryDate.toLocaleDateString('en-INDIA', options);
 
-  const order = {
-    product: currentProductForPurchase,
-    address,
-    mobile,
-    details,
-    payment: "Cash on Delivery",
-    date: orderDate.toLocaleString(),
-    cancelled: false,
-    cancellationReason: "",
-    trackingStatus: "Order Confirmed",
-    buyer: currentUser,
-    qrData: `Order #${orders.length + 1}\nProduct: ${currentProductForPurchase.name}\nSize: ${currentProductForPurchase.selectedSize}\nColor: ${currentProductForPurchase.selectedColor}\nAddress: ${address}\nMobile: ${mobile}\nBuyer: ${currentUser.firstName} ${currentUser.lastName}\nDate: ${orderDate.toLocaleString()}\nTotal Amount: ₹${finalPrice.toFixed(2)}`,
-    received: false,
-    receivedDate: null,
-    shipped: false,
-    shippedDate: null,
-    departed: false,
-    departedDate: null,
-    rating: null,
-    review: null,
-    totalAmount: finalPrice.toFixed(2),
-    couponUsed: couponCode || null,
-    estimatedDelivery: formattedDate 
-  };
+  // Create order object with estimatedDelivery
+ const order = {
+  product: currentProductForPurchase,
+  address,
+  mobile,
+  details,
+  payment: "Cash on Delivery",
+  date: orderDate.toLocaleString(),
+  cancelled: false,
+  cancellationReason: "",
+  trackingStatus: "Order Confirmed",
+  buyer: currentUser,
+  qrData: `Order #${orders.length + 1}\nProduct: ${currentProductForPurchase.name}\nSize: ${currentProductForPurchase.selectedSize}\nColor: ${currentProductForPurchase.selectedColor}\nAddress: ${address}\nMobile: ${mobile}\nBuyer: ${currentUser.firstName} ${currentUser.lastName}\nDate: ${orderDate.toLocaleString()}\nTotal Amount: ₹${finalPrice.toFixed(2)}` ,
+  received: false,
+  receivedDate: null,
+  shipped: false,
+  shippedDate: null,
+  departed: false,
+  departedDate: null,
+  rating: null,
+  review: null,
+  totalAmount: finalPrice.toFixed(2),
+  couponUsed: couponCode || null,
+  estimatedDelivery: formattedDate 
+};
 
   orders.push(order);
   const orderIndex = orders.length - 1;
 
+  // Generate a new coupon code
   const newCouponCode = generateCouponCode();
   validCoupons.push(newCouponCode);
   saveData();
 
+  // Display thank-you message
   showPopupMessage(`
     <h5>Thank You for Your Order!</h5>
     <img src="${currentProductForPurchase.images[0]}" alt="${currentProductForPurchase.name}" style="max-width: 100px; margin-bottom: 10px;">
@@ -4160,7 +3988,7 @@ function updateOrdersList(filter = currentOrdersFilter) {
             <div class="col-8 col-md-10">
               <h6>${order.product.name}</h6>
               <p class="mb-1">Size: ${order.product.selectedSize}, Color: ${order.product.selectedColor}</p>
-              <p class="mb-1">Qty:  DIE 1</p>
+              <p class="mb-1">Qty: 1</p>
               <p class="fw-bold">₹${order.product.price.toFixed(2)}</p>
             </div>
           </div>
@@ -4177,7 +4005,7 @@ function filterOrders(filter) {
   updateOrdersList(filter);
 }
 
-// Generate Track Bar Function
+// **Generate Track Bar Function**
 function generateTrackBar(order) {
   let steps = [];
   if (order.cancelled) {
@@ -4662,534 +4490,553 @@ function generateProductImageHTML(product) {
   return `<img id="mainProductImage" src="${defaultImage}" class="product-detail-img" alt="${product.name}" style="cursor: pointer;" onclick="showProductImagesModal(${product.id})">`;
 }
 
-// Update menu account details
-function updateMenuAccountDetails() {
-  const container = document.getElementById("menuAccountDetails");
-  if (currentUser) {
-    container.innerHTML = `<i class="bi bi-person-circle me-2"></i><h4 class="d-inline">${currentUser.firstName} ${currentUser.lastName}</h4><br><small>${currentUser.email}</small>`;
-    if (currentUser.email === "tedpole.in@gmail.com") {
-      document.getElementById("sellerDashboardMenuItem").style.display = "block";
-      document.getElementById("ownerDashboardMenuItem").style.display = "block";
-    }
-  } else {
-    container.innerHTML = `<h4>Welcome Guest</h4>`;
-    document.getElementById("sellerDashboardMenuItem").style.display = "none";
-    document.getElementById("ownerDashboardMenuItem").style.display = "none";
-  }
-}
-
-// Logout
-function logout() {
-  if (currentUser) {
-    currentUser.isLoggedIn = false;
-    currentUser.lastActivity = new Date().toISOString();
-  }
-  currentUser = null;
-  showNotification("You have been logged out.", "info");
-  saveData();
-  updateHeaderProfile();
-  updateMenuAccountDetails();
-  showSection("homeSection");
-}
-
-// Header button actions
-document.getElementById("accountButton").addEventListener("click", () => currentUser ? showSection("accountSection") : showSection("loginSection"));
-document.getElementById("notificationButton").addEventListener("click", () => showSection("notificationsSection"));
-
-// Enhanced search functionality
-function showSearchSuggestions() {
-  const input = document.getElementById("searchSectionInput").value.toLowerCase();
-  const suggestionsContainer = document.getElementById("searchSuggestions");
-  
-  if (input.length < 2) {
-    suggestionsContainer.style.display = "none";
-    return;
-  }
-  
-  const suggestions = products.filter(product => 
-    product.name.toLowerCase().includes(input) || 
-    product.description.toLowerCase().includes(input) ||
-    product.category.toLowerCase().includes(input)
-  ).slice(0, 5);
-  
-  if (suggestions.length === 0) {
-    suggestionsContainer.style.display = "none";
-    return;
-  }
-  
-  let html = '';
-  suggestions.forEach(product => {
-    html += `
-      <a href="#" class="list-group-item list-group-item-action" 
-         onclick="event.preventDefault(); document.getElementById('searchSectionInput').value='${product.name}'; suggestionsContainer.style.display='none';">
-        <div class="d-flex align-items-center">
-          <img src="${product.images[0]}" alt="${product.name}" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
-          <div>
-            <h6 class="mb-0">${product.name}</h6>
-            <small class="text-muted">${product.category}</small>
-          </div>
-        </div>
-      </a>
-    `;
-  });
-  
-  suggestionsContainer.innerHTML = html;
-  suggestionsContainer.style.display = "block";
-}
-
-function performSearch() {
-  const query = document.getElementById("searchSectionInput").value.toLowerCase();
-  const category = document.getElementById("searchCategory").value;
-  const priceRange = document.getElementById("searchPrice").value;
-  const minRating = document.getElementById("searchRating").value;
-  const sortBy = document.getElementById("searchSort").value;
-  
-  let filteredProducts = [...products];
-  
-  if (query) {
-    filteredProducts = filteredProducts.filter(p => 
-      p.name.toLowerCase().includes(query) || 
-      p.description.toLowerCase().includes(query)
-    );
-  }
-  
-  if (category) {
-    filteredProducts = filteredProducts.filter(p => p.category === category);
-  }
-  
-  if (priceRange) {
-    const [min, max] = priceRange.split("-").map(Number);
-    filteredProducts = filteredProducts.filter(p => {
-      if (max) return p.price >= min && p.price <= max;
-      return p.price >= min;
-    });
-  }
-  
-  if (minRating) {
-    filteredProducts = filteredProducts.filter(p => {
-      const ratingInfo = getProductRating(p.id);
-      return ratingInfo && ratingInfo.average >= minRating;
-    });
-  }
-  
-  switch(sortBy) {
-    case "price-low":
-      filteredProducts.sort((a, b) => a.price - b.price);
-      break;
-    case "price-high":
-      filteredProducts.sort((a, b) => b.price - a.price);
-      break;
-    case "rating":
-      filteredProducts.sort((a, b) => {
-        const ratingA = getProductRating(a.id)?.average || 0;
-        const ratingB = getProductRating(b.id)?.average || 0;
-        return ratingB - ratingA;
-      });
-      break;
-    case "newest":
-      filteredProducts.sort((a, b) => b.id - a.id);
-      break;
-    default:
-      if (query) {
-        filteredProducts.sort((a, b) => {
-          const aMatches = a.name.toLowerCase().includes(query) ? 1 : 0;
-          const bMatches = b.name.toLowerCase().includes(query) ? 1 : 0;
-          return bMatches - aMatches;
-        });
-      }
-  }
-  
-  displaySearchResults(filteredProducts);
-  updateSearchActiveFilters(query, category, priceRange, minRating);
-}
-
-function displaySearchResults(results) {
-  const container = document.getElementById("searchResultsContainer");
-  const countElement = document.getElementById("searchResultsCount");
-  
-  countElement.textContent = `${results.length} ${results.length === 1 ? 'product' : 'products'} found`;
-  
-  if (results.length === 0) {
-    container.innerHTML = `
-      <div class="col-12 text-center py-5">
-        <i class="bi bi-search" style="font-size: 3rem; color: #ccc;"></i>
-        <h4 class="mt-3">No products found</h4>
-        <p>Try adjusting your search or filters</p>
-        <button class="btn btn-primary" onclick="clearSearchFilters()">Clear all filters</button>
-      </div>
-    `;
-    return;
-  }
-  
-  container.innerHTML = "";
-  results.forEach(product => {
-    const ratingInfo = getProductRating(product.id);
-    const originalPrice = (product.price * 1.2).toFixed(2);
-    const discount = ((originalPrice - product.price) / originalPrice * 100).toFixed(0);
-    
-    const card = `
-      <div class="col-6 col-md-4 col-lg-3 mb-4">
-        <div class="card h-100 product-card" onclick="showProductDetails(${product.id})">
-          <div style="position: relative;">
-            <img src="${product.images[0]}" class="card-img-top" alt="${product.name}" style="height: 200px; object-fit: cover;">
-            ${discount > 0 ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${discount}% OFF</span>` : ''}
-            <button class="wishlist-btn position-absolute top-0 end-0 m-2" 
-                    onclick="event.stopPropagation(); addToWishlist(${product.id})">
-              <i class="bi bi-heart-fill" style="color: ${wishlist.some(p => p.id === product.id) ? 'red' : '#ccc'};"></i>
-            </button>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text text-muted" style="font-size: 0.9rem;">${product.description}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <span class="fw-bold">₹${product.price.toFixed(2)}</span>
-                ${discount > 0 ? `<small class="text-decoration-line-through text-muted ms-1">₹${originalPrice}</small>` : ''}
-              </div>
-              ${ratingInfo ? `
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-star-fill text-warning me-1"></i>
-                  <small>${ratingInfo.average}</small>
-                </div>
-              ` : ''}
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    container.innerHTML += card;
-  });
-}
-
-function updateSearchActiveFilters(query, category, priceRange, minRating) {
-  const container = document.getElementById("searchActiveFilters");
-  let html = '';
-  
-  if (query) html += `<span class="badge bg-secondary me-2">Search: ${query}</span>`;
-  if (category) html += `<span class="badge bg-primary me-2">Category: ${category}</span>`;
-  if (priceRange) {
-    const label = priceRange === "0-100" ? "Under ₹100" : 
-                 priceRange === "100-200" ? "₹100-₹200" :
-                 priceRange === "200-300" ? "₹200-₹300" : "₹300-₹500";
-    html += `<span class="badge bg-info me-2">Price: ${label}</span>`;
-  }
-  if (minRating) html += `<span class="badge bg-warning me-2">Rating: ${minRating}+</span>`;
-  
-  container.innerHTML = html;
-}
-
-function clearSearchFilters() {
-  document.getElementById("searchSectionInput").value = "";
-  document.getElementById("searchCategory").value = "";
-  document.getElementById("searchPrice").value = "";
-  document.getElementById("searchRating").value = "";
-  document.getElementById("searchSort").value = "relevance";
-  document.getElementById("searchActiveFilters").innerHTML = "";
-  displaySearchResults(products);
-  document.getElementById("searchResultsCount").textContent = `${products.length} products`;
-}
-
-// Login form submission
-document.getElementById("loginForm")?.addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-  
-  const user = users.find(u => u.email === email && u.password === password);
-  
-  if (user) {
-    currentUser = user;
-    currentUser.isLoggedIn = true;
-    currentUser.lastActivity = new Date().toISOString();
-    
-    showNotification("Login successful!", "success");
-    notifyOwner(`User logged in: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})`);
-    
-    saveData();
-    updateHeaderProfile();
-    updateMenuAccountDetails();
-    showSection("homeSection");
-  } else {
-    showNotification("Invalid email or password. Please sign up if you don't have an account.", "warning");
-  }
-});
-
-// Sign up form submission
-document.getElementById("signupForm")?.addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const firstName = document.getElementById("firstName").value;
-  const lastName = document.getElementById("lastName").value;
-  const mobile = document.getElementById("mobileNumberSignUp").value;
-  const email = document.getElementById("signupEmail").value;
-  const password = document.getElementById("signupPassword").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
-  
-  if (password !== confirmPassword) {
-    showNotification("Passwords do not match!", "warning");
-    return;
-  }
-  
-  if (users.some(u => u.email === email)) {
-    showNotification("User with this email already exists. Please log in.", "warning");
-    return;
-  }
-  
-  currentUser = { 
-    firstName, 
-    lastName, 
-    email, 
-    mobile, 
-    password, 
-    isLoggedIn: true, 
-    lastActivity: new Date().toISOString(), 
-    location: locations[Math.floor(Math.random() * locations.length)],
-    notifications: []
-  };
-  
-  users.push(currentUser);
-  
-  showNotification("Sign Up successful!", "success");
-  notifyOwner(`New user signed up: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})`);
-  
-  saveData();
-  updateHeaderProfile();
-  updateMenuAccountDetails();
-  showSection("homeSection");
-});
-
-// Contact form submission
-document.getElementById("contactForm")?.addEventListener("submit", function(e) {
-  e.preventDefault();
-  showNotification("Message was sent", "success");
-  this.reset();
-});
-
-// Apply filters for Shop section
-function applyFilters() {
-  const size = document.getElementById("filterSize").value;
-  const color = document.getElementById("filterColor").value;
-  const price = document.getElementById("filterPrice").value;
-  activeFilters = {};
-  if (size) activeFilters.size = size;
-  if (color) activeFilters.color = color;
-  if (price) activeFilters.price = price;
-  let filteredProducts = [...products];
-  if (activeFilters.size) {
-    filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(activeFilters.size.toLowerCase()));
-  }
-  if (activeFilters.color) {
-    filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(activeFilters.color.toLowerCase()));
-  }
-  if (activeFilters.price) {
-    const [min, max] = activeFilters.price.split("-").map(Number);
-    filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
-  }
-  generateProducts("shopProductContainer", filteredProducts);
-  displayActiveFilters();
-}
-
-// Display active filters for Shop section
-function displayActiveFilters() {
-  const activeFilterDisplay = document.getElementById("activeFilterDisplay");
-  let html = "";
-  if (Object.keys(activeFilters).length > 0) {
-    html += '<div class="filter-tags">';
-    if (activeFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('size')">Size: ${activeFilters.size} <i class="bi bi-x"></i></span>`;
-    if (activeFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('color')">Color: ${activeFilters.color} <i class="bi bi-x"></i></span>`;
-    if (activeFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('price')">Price: ${activeFilters.price} <i class="bi bi-x"></i></span>`;
-    html += '</div>';
-  }
-  activeFilterDisplay.innerHTML = html;
-}
-
-// Remove filter for Shop section
-function removeFilter(filterType) {
-  if (filterType === 'size') document.getElementById('filterSize').value = '';
-  else if (filterType === 'color') document.getElementById('filterColor').value = '';
-  else if (filterType === 'price') document.getElementById('filterPrice').value = '';
-  applyFilters();
-}
-
-// Clear all filters for Shop section
-function clearAllFilters() {
-  document.getElementById('filterSize').value = '';
-  document.getElementById('filterColor').value = '';
-  document.getElementById('filterPrice').value = '';
-  activeFilters = {};
-  generateProducts("shopProductContainer", products);
-  displayActiveFilters();
-}
-
-// Apply filters for Men's Wear section
-function applyMenswearFilters() {
-  const size = document.getElementById("menswearFilterSize").value;
-  const color = document.getElementById("menswearFilterColor").value;
-  const price = document.getElementById("menswearFilterPrice").value;
-  menswearActiveFilters = {};
-  if (size) menswearActiveFilters.size = size;
-  if (color) menswearActiveFilters.color = color;
-  if (price) menswearActiveFilters.price = price;
-  let filteredProducts = products.filter(p => p.category === "Men's Wear");
-  if (menswearActiveFilters.size) {
-    filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(menswearActiveFilters.size.toLowerCase()));
-  }
-  if (menswearActiveFilters.color) {
-    filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(menswearActiveFilters.color.toLowerCase()));
-  }
-  if (menswearActiveFilters.price) {
-    const [min, max] = menswearActiveFilters.price.split("-").map(Number);
-    filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
-  }
-  generateProducts("menswearContainer", filteredProducts);
-  displayMenswearActiveFilters();
-}
-
-// Display active filters for Men's Wear section
-function displayMenswearActiveFilters() {
-  const activeFilterDisplay = document.getElementById("menswearActiveFilterDisplay");
-  let html = "";
-  if (Object.keys(menswearActiveFilters).length > 0) {
-    html += '<div class="filter-tags">';
-    if (menswearActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('size')">Size: ${menswearActiveFilters.size} <i class="bi bi-x"></i></span>`;
-    if (menswearActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('color')">Color: ${menswearActiveFilters.color} <i class="bi bi-x"></i></span>`;
-    if (menswearActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('price')">Price: ${menswearActiveFilters.price} <i class="bi bi-x"></i></span>`;
-    html += '</div>';
-  }
-  activeFilterDisplay.innerHTML = html;
-}
-
-// Remove filter for Men's Wear section
-function removeMenswearFilter(filterType) {
-  if (filterType === 'size') document.getElementById('menswearFilterSize').value = '';
-  else if (filterType === 'color') document.getElementById('menswearFilterColor').value = '';
-  else if (filterType === 'price') document.getElementById('menswearFilterPrice').value = '';
-  applyMenswearFilters();
-}
-
-// Clear filters for Men's Wear section
-function clearMenswearFilters() {
-  document.getElementById("menswearFilterSize").value = "";
-  document.getElementById("menswearFilterColor").value = "";
-  document.getElementById("menswearFilterPrice").value = "";
-  menswearActiveFilters = {};
-  const menswearProducts = products.filter(p => p.category === "Men's Wear");
-  generateProducts("menswearContainer", menswearProducts);
-  displayMenswearActiveFilters();
-}
-
-// Apply filters for Accessories section
-function applyAccessoriesFilters() {
-  const size = document.getElementById("accessoriesFilterSize").value;
-  const color = document.getElementById("accessoriesFilterColor").value;
-  const price = document.getElementById("accessoriesFilterPrice").value;
-  accessoriesActiveFilters = {};
-  if (size) accessoriesActiveFilters.size = size;
-  if (color) accessoriesActiveFilters.color = color;
-  if (price) accessoriesActiveFilters.price = price;
-  let filteredProducts = products.filter(p => p.category === "Accessories");
-  if (accessoriesActiveFilters.size) {
-    filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(accessoriesActiveFilters.size.toLowerCase()));
-  }
-  if (accessoriesActiveFilters.color) {
-    filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(accessoriesActiveFilters.color.toLowerCase()));
-  }
-  if (accessoriesActiveFilters.price) {
-    const [min, max] = accessoriesActiveFilters.price.split("-").map(Number);
-    filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
-  }
-  generateProducts("accessoriesContainer", filteredProducts);
-  displayAccessoriesActiveFilters();
-}
-
-// Display active filters for Accessories section
-function displayAccessoriesActiveFilters() {
-  const activeFilterDisplay = document.getElementById("accessoriesActiveFilterDisplay");
-  let html = "";
-  if (Object.keys(accessoriesActiveFilters).length > 0) {
-    html += '<div class="filter-tags">';
-    if (accessoriesActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('size')">Size: ${accessoriesActiveFilters.size} <i class="bi bi-x"></i></span>`;
-    if (accessoriesActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('color')">Color: ${accessoriesActiveFilters.color} <i class="bi bi-x"></i></span>`;
-    if (accessoriesActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('price')">Price: ${accessoriesActiveFilters.price} <i class="bi bi-x"></i></span>`;
-    html += '</div>';
-  }
-  activeFilterDisplay.innerHTML = html;
-}
-
-// Remove filter for Accessories section
-function removeAccessoriesFilter(filterType) {
-  if (filterType === 'size') document.getElementById('accessoriesFilterSize').value = '';
-  else if (filterType === 'color') document.getElementById('accessoriesFilterColor').value = '';
-  else if (filterType === 'price') document.getElementById('accessoriesFilterPrice').value = '';
-  applyAccessoriesFilters();
-}
-
-// Clear filters for Accessories section
-function clearAccessoriesFilters() {
-  document.getElementById("accessoriesFilterSize").value = "";
-  document.getElementById("accessoriesFilterColor").value = "";
-  document.getElementById("accessoriesFilterPrice").value = "";
-  accessoriesActiveFilters = {};
-  const accessoriesProducts = products.filter(p => p.category === "Accessories");
-  generateProducts("accessoriesContainer", accessoriesProducts);
-  displayAccessoriesActiveFilters();
-}
-
-// Notify owner
-function notifyOwner(message) {
-  ownerNotifications.push({ message, date: new Date().toLocaleString() });
-  saveData();
-}
-
-// Update notifications
-function updateNotifications() {
-  const notificationsContent = document.getElementById("notificationsContent");
-  if (notifications.length === 0) {
-    notificationsContent.innerHTML = `
-      <div class="col-12 text-center py-5">
-        <i class="bi bi-bell" style="font-size: 3rem; color: #ddd;"></i>
-        <h5 class="mt-3">No Notifications</h5>
-        <p>You're all caught up!</p>
-      </div>
-    `;
-  } else {
-    notificationsContent.innerHTML = "";
-    notifications.slice().reverse().forEach((notif, index) => {
-      const card = `
-        <div class="col-md-6 col-lg-4">
-          <div class="card notification-card ${notif.type}">
-            <div class="card-header">
-              <i class="bi bi-bell-fill notification-icon"></i>
-              ${notif.date}
-            </div>
-            <div class="card-body">
-              <p class="notification-message">${notif.message}</p>
-            </div>
-          </div>
-        </div>
-      `;
-      notificationsContent.innerHTML += card;
-    });
-  }
-}
-
-// Clear all notifications
-function clearNotifications() {
-  if (notifications.length === 0) {
-    showNotification("No notifications to clear.", "info");
-    return;
-  }
-  if (confirm("Are you sure you want to clear all notifications?")) {
-    notifications = [];
-    saveData();
-    updateNotifications();
-    showNotification("All notifications cleared.", "success");
-  }
-}
-
-// Update Seller Dashboard
-function updateSellerDashboard() {
+ // Update menu account details
+             function updateMenuAccountDetails() {
+               const container = document.getElementById("menuAccountDetails");
+               if (currentUser) {
+                 container.innerHTML = `<i class="bi bi-person-circle me-2"></i><h4 class="d-inline">${currentUser.firstName} ${currentUser.lastName}</h4><br><small>${currentUser.email}</small>`;
+                 if (currentUser.email === "tedpole.in@gmail.com") {
+                   document.getElementById("sellerDashboardMenuItem").style.display = "block";
+                   document.getElementById("ownerDashboardMenuItem").style.display = "block";
+                 }
+               } else {
+                 container.innerHTML = `<h4>Welcome Guest</h4>`;
+                 document.getElementById("sellerDashboardMenuItem").style.display = "none";
+                 document.getElementById("ownerDashboardMenuItem").style.display = "none";
+               }
+             }
+         
+             // Logout
+             function logout() {
+               if (currentUser) {
+                 currentUser.isLoggedIn = false;
+                 currentUser.lastActivity = new Date().toISOString();
+               }
+               currentUser = null;
+               showNotification("You have been logged out.", "info");
+               saveData();
+               updateHeaderProfile();
+               updateMenuAccountDetails();
+               showSection("homeSection");
+             }
+         
+             // Header button actions
+             document.getElementById("accountButton").addEventListener("click", () => currentUser ? showSection("accountSection") : showSection("loginSection"));
+             document.getElementById("notificationButton").addEventListener("click", () => showSection("notificationsSection"));
+         
+             // Enhanced search functionality
+         function showSearchSuggestions() {
+           const input = document.getElementById("searchSectionInput").value.toLowerCase();
+           const suggestionsContainer = document.getElementById("searchSuggestions");
+           
+           if (input.length < 2) {
+             suggestionsContainer.style.display = "none";
+             return;
+           }
+           
+           const suggestions = products.filter(product => 
+             product.name.toLowerCase().includes(input) || 
+             product.description.toLowerCase().includes(input) ||
+             product.category.toLowerCase().includes(input)
+           ).slice(0, 5);
+           
+           if (suggestions.length === 0) {
+             suggestionsContainer.style.display = "none";
+             return;
+           }
+           
+           let html = '';
+           suggestions.forEach(product => {
+             html += `
+               <a href="#" class="list-group-item list-group-item-action" 
+                  onclick="event.preventDefault(); document.getElementById('searchSectionInput').value='${product.name}'; suggestionsContainer.style.display='none';">
+                 <div class="d-flex align-items-center">
+                   <img src="${product.images[0]}" alt="${product.name}" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+                   <div>
+                     <h6 class="mb-0">${product.name}</h6>
+                     <small class="text-muted">${product.category}</small>
+                   </div>
+                 </div>
+               </a>
+             `;
+           });
+           
+           suggestionsContainer.innerHTML = html;
+           suggestionsContainer.style.display = "block";
+         }
+         
+         function performSearch() {
+           const query = document.getElementById("searchSectionInput").value.toLowerCase();
+           const category = document.getElementById("searchCategory").value;
+           const priceRange = document.getElementById("searchPrice").value;
+           const minRating = document.getElementById("searchRating").value;
+           const sortBy = document.getElementById("searchSort").value;
+           
+           let filteredProducts = [...products];
+           
+           // Apply search query
+           if (query) {
+             filteredProducts = filteredProducts.filter(p => 
+               p.name.toLowerCase().includes(query) || 
+               p.description.toLowerCase().includes(query)
+           )}
+           
+           // Apply category filter
+           if (category) {
+             filteredProducts = filteredProducts.filter(p => p.category === category);
+           }
+           
+           // Apply price range filter
+           if (priceRange) {
+             const [min, max] = priceRange.split("-").map(Number);
+             filteredProducts = filteredProducts.filter(p => {
+               if (max) return p.price >= min && p.price <= max;
+               return p.price >= min;
+             });
+           }
+           
+           // Apply rating filter
+           if (minRating) {
+             filteredProducts = filteredProducts.filter(p => {
+               const ratingInfo = getProductRating(p.id);
+               return ratingInfo && ratingInfo.average >= minRating;
+             });
+           }
+           
+           // Apply sorting
+           switch(sortBy) {
+             case "price-low":
+               filteredProducts.sort((a, b) => a.price - b.price);
+               break;
+             case "price-high":
+               filteredProducts.sort((a, b) => b.price - a.price);
+               break;
+             case "rating":
+               filteredProducts.sort((a, b) => {
+                 const ratingA = getProductRating(a.id)?.average || 0;
+                 const ratingB = getProductRating(b.id)?.average || 0;
+                 return ratingB - ratingA;
+               });
+               break;
+             case "newest":
+               // Assuming newer products have higher IDs
+               filteredProducts.sort((a, b) => b.id - a.id);
+               break;
+             default:
+               // Relevance - products matching query come first
+               if (query) {
+                 filteredProducts.sort((a, b) => {
+                   const aMatches = a.name.toLowerCase().includes(query) ? 1 : 0;
+                   const bMatches = b.name.toLowerCase().includes(query) ? 1 : 0;
+                   return bMatches - aMatches;
+                 });
+               }
+           }
+           
+           displaySearchResults(filteredProducts);
+           updateSearchActiveFilters(query, category, priceRange, minRating);
+         }
+         
+         function displaySearchResults(results) {
+           const container = document.getElementById("searchResultsContainer");
+           const countElement = document.getElementById("searchResultsCount");
+           
+           countElement.textContent = `${results.length} ${results.length === 1 ? 'product' : 'products'} found`;
+           
+           if (results.length === 0) {
+             container.innerHTML = `
+               <div class="col-12 text-center py-5">
+                 <i class="bi bi-search" style="font-size: 3rem; color: #ccc;"></i>
+                 <h4 class="mt-3">No </h4>
+                 <p>Try adjusting your search or filters</p>
+                 <button class="btn btn-primary" onclick="clearSearchFilters()">Clear all filters</button>
+               </div>
+             `;
+             return;
+           }
+           
+           container.innerHTML = "";
+           results.forEach(product => {
+             const ratingInfo = getProductRating(product.id);
+             const originalPrice = (product.price * 1.2).toFixed(2);
+             const discount = ((originalPrice - product.price) / originalPrice * 100).toFixed(0);
+             
+             const card = `
+               <div class="col-6 col-md-4 col-lg-3 mb-4">
+                 <div class="card h-100 product-card" onclick="showProductDetails(${product.id})">
+                   <div style="position: relative;">
+                     <img src="${product.images[0]}" class="card-img-top" alt="${product.name}" style="height: 200px; object-fit: cover;">
+                     ${discount > 0 ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${discount}% OFF</span>` : ''}
+                     <button class="wishlist-btn position-absolute top-0 end-0 m-2" 
+                             onclick="event.stopPropagation(); addToWishlist(${product.id})">
+                       <i class="bi bi-heart-fill" style="color: ${wishlist.some(p => p.id === product.id) ? 'red' : '#ccc'};"></i>
+                     </button>
+                   </div>
+                   <div class="card-body">
+                     <h5 class="card-title">${product.name}</h5>
+                     <p class="card-text text-muted" style="font-size: 0.9rem;">${product.description}</p>
+                     <div class="d-flex justify-content-between align-items-center">
+                       <div>
+                         <span class="fw-bold">₹${product.price.toFixed(2)}</span>
+                         ${discount > 0 ? `<small class="text-decoration-line-through text-muted ms-1">₹${originalPrice}</small>` : ''}
+                       </div>
+                       ${ratingInfo ? `
+                         <div class="d-flex align-items-center">
+                           <i class="bi bi-star-fill text-warning me-1"></i>
+                           <small>${ratingInfo.average}</small>
+                         </div>
+                       ` : ''}
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             `;
+             container.innerHTML += card;
+           });
+         }
+         
+         function updateSearchActiveFilters(query, category, priceRange, minRating) {
+           const container = document.getElementById("searchActiveFilters");
+           let html = '';
+           
+           if (query) html += `<span class="badge bg-secondary me-2">Search: ${query}</span>`;
+           if (category) html += `<span class="badge bg-primary me-2">Category: ${category}</span>`;
+           if (priceRange) {
+             const label = priceRange === "0-100" ? "Under ₹100" : 
+                          priceRange === "100-200" ? "₹100-₹200" :
+                          priceRange === "200-300" ? "₹200-₹300" : "₹300-₹500";
+             html += `<span class="badge bg-info me-2">Price: ${label}</span>`;
+           }
+           if (minRating) html += `<span class="badge bg-warning me-2">Rating: ${minRating}+</span>`;
+           
+           container.innerHTML = html;
+         }
+         
+         function clearSearchFilters() {
+           document.getElementById("searchSectionInput").value = "";
+           document.getElementById("searchCategory").value = "";
+           document.getElementById("searchPrice").value = "";
+           document.getElementById("searchRating").value = "";
+           document.getElementById("searchSort").value = "relevance";
+           document.getElementById("searchActiveFilters").innerHTML = "";
+           displaySearchResults(products);
+           document.getElementById("searchResultsCount").textContent = `${products.length} `;
+         }
+         
+             // Login form submission
+             document.getElementById("loginForm")?.addEventListener("submit", function(e) {
+                 e.preventDefault();
+               
+                 // Retrieve input values
+                 const email = document.getElementById("loginEmail").value;
+                 const password = document.getElementById("loginPassword").value;
+               
+                 // Check if the user exists and the password matches
+                 const user = users.find(u => u.email === email && u.password === password);
+               
+                 if (user) {
+                   // Set current user and update properties
+                   currentUser = user;
+                   currentUser.isLoggedIn = true;
+                   currentUser.lastActivity = new Date().toISOString();
+               
+                   // Show notification for successful login
+                   showNotification("Login successful!", "success");
+               
+                   // Notify owner about the successful login with user's details
+                   notifyOwner(`User logged in: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})`);
+               
+                   // Persist data and update the UI accordingly
+                   saveData();
+                   updateHeaderProfile();
+                   updateMenuAccountDetails();
+                   showSection("homeSection");
+                 } else {
+                   // Show warning if credentials are invalid
+                   showNotification("Invalid email or password. Please sign up if you don't have an account.", "warning");
+                 }
+               });
+               
+         
+          // Sign up form submission
+     document.getElementById("signupForm")?.addEventListener("submit", function(e) {
+         e.preventDefault();
+       
+         // Retrieve form values
+         const firstName = document.getElementById("firstName").value;
+         const lastName = document.getElementById("lastName").value;
+         const mobile = document.getElementById("mobileNumberSignUp").value;
+         const email = document.getElementById("signupEmail").value;
+         const password = document.getElementById("signupPassword").value;
+         const confirmPassword = document.getElementById("confirmPassword").value;
+       
+         // Validate password matching
+         if (password !== confirmPassword) {
+           showNotification("Passwords do not match!", "warning");
+           return;
+         }
+       
+         // Check if user already exists by email
+         if (users.some(u => u.email === email)) {
+           showNotification("User with this email already exists. Please log in.", "warning");
+           return;
+         }
+       
+         // Create new user object with additional attributes
+         currentUser = { 
+           firstName, 
+           lastName, 
+           email, 
+           mobile, 
+           password, 
+           isLoggedIn: true, 
+           lastActivity: new Date().toISOString(), 
+           location: locations[Math.floor(Math.random() * locations.length)],
+           notifications: [] // Initialize notifications array
+         };
+       
+         // Add user to users array
+         users.push(currentUser);
+       
+         // Notify about the new user sign-up
+         showNotification("Sign Up successful!", "success");
+         notifyOwner(`New user signed up: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})`);
+       
+         // Persist data and update the UI
+         saveData();
+         updateHeaderProfile();
+         updateMenuAccountDetails();
+         showSection("homeSection");
+       });
+             // Contact form submission
+             document.getElementById("contactForm")?.addEventListener("submit", function(e) {
+               e.preventDefault();
+               showNotification("Message was sent", "success");
+               this.reset();
+             });
+         
+              // Apply filters for Shop section
+           function applyFilters() {
+             const size = document.getElementById("filterSize").value;
+             const color = document.getElementById("filterColor").value;
+             const price = document.getElementById("filterPrice").value;
+             activeFilters = {};
+             if (size) activeFilters.size = size;
+             if (color) activeFilters.color = color;
+             if (price) activeFilters.price = price;
+             let filteredProducts = [...products];
+             if (activeFilters.size) {
+               filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(activeFilters.size.toLowerCase()));
+             }
+             if (activeFilters.color) {
+               filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(activeFilters.color.toLowerCase()));
+             }
+             if (activeFilters.price) {
+               const [min, max] = activeFilters.price.split("-").map(Number);
+               filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
+             }
+             generateProducts("shopProductContainer", filteredProducts);
+             displayActiveFilters();
+           }
+         
+           // Display active filters for Shop section
+           function displayActiveFilters() {
+             const activeFilterDisplay = document.getElementById("activeFilterDisplay");
+             let html = "";
+             if (Object.keys(activeFilters).length > 0) {
+               html += '<div class="filter-tags">';
+               if (activeFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('size')">Size: ${activeFilters.size} <i class="bi bi-x"></i></span>`;
+               if (activeFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('color')">Color: ${activeFilters.color} <i class="bi bi-x"></i></span>`;
+               if (activeFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeFilter('price')">Price: ${activeFilters.price} <i class="bi bi-x"></i></span>`;
+               html += '</div>';
+             }
+             activeFilterDisplay.innerHTML = html;
+           }
+         
+           // Remove filter for Shop section
+           function removeFilter(filterType) {
+             if (filterType === 'size') document.getElementById('filterSize').value = '';
+             else if (filterType === 'color') document.getElementById('filterColor').value = '';
+             else if (filterType === 'price') document.getElementById('filterPrice').value = '';
+             applyFilters();
+           }
+         
+           // Clear all filters for Shop section
+           function clearAllFilters() {
+             document.getElementById('filterSize').value = '';
+             document.getElementById('filterColor').value = '';
+             document.getElementById('filterPrice').value = '';
+             activeFilters = {};
+             generateProducts("shopProductContainer", products);
+             displayActiveFilters();
+           }
+         
+            // Apply filters for Men's Wear section
+             function applyMenswearFilters() {
+               const size = document.getElementById("menswearFilterSize").value;
+               const color = document.getElementById("menswearFilterColor").value;
+               const price = document.getElementById("menswearFilterPrice").value;
+               menswearActiveFilters = {};
+               if (size) menswearActiveFilters.size = size;
+               if (color) menswearActiveFilters.color = color;
+               if (price) menswearActiveFilters.price = price;
+               let filteredProducts = products.filter(p => p.category === "Men's Wear");
+               if (menswearActiveFilters.size) {
+                 filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(menswearActiveFilters.size.toLowerCase()));
+               }
+               if (menswearActiveFilters.color) {
+                 filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(menswearActiveFilters.color.toLowerCase()));
+               }
+               if (menswearActiveFilters.price) {
+                 const [min, max] = menswearActiveFilters.price.split("-").map(Number);
+                 filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
+               }
+               generateProducts("menswearContainer", filteredProducts);
+               displayMenswearActiveFilters();
+             }
+         
+             // Display active filters for Men's Wear section
+             function displayMenswearActiveFilters() {
+               const activeFilterDisplay = document.getElementById("menswearActiveFilterDisplay");
+               let html = "";
+               if (Object.keys(menswearActiveFilters).length > 0) {
+                 html += '<div class="filter-tags">';
+                 if (menswearActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('size')">Size: ${menswearActiveFilters.size} <i class="bi bi-x"></i></span>`;
+                 if (menswearActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('color')">Color: ${menswearActiveFilters.color} <i class="bi bi-x"></i></span>`;
+                 if (menswearActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('price')">Price: ${menswearActiveFilters.price} <i class="bi bi-x"></i></span>`;
+                 html += '</div>';
+               }
+               activeFilterDisplay.innerHTML = html;
+             }
+         
+             // Remove filter for Men's Wear section
+             function removeMenswearFilter(filterType) {
+               if (filterType === 'size') document.getElementById('menswearFilterSize').value = '';
+               else if (filterType === 'color') document.getElementById('menswearFilterColor').value = '';
+               else if (filterType === 'price') document.getElementById('menswearFilterPrice').value = '';
+               applyMenswearFilters();
+             }
+         
+             // Clear filters for Men's Wear section
+             function clearMenswearFilters() {
+               document.getElementById("menswearFilterSize").value = "";
+               document.getElementById("menswearFilterColor").value = "";
+               document.getElementById("menswearFilterPrice").value = "";
+               menswearActiveFilters = {};
+               const menswearProducts = products.filter(p => p.category === "Men's Wear");
+               generateProducts("menswearContainer", menswearProducts);
+               displayMenswearActiveFilters();
+             }
+         
+             // Apply filters for Accessories section
+             function applyAccessoriesFilters() {
+               const size = document.getElementById("accessoriesFilterSize").value;
+               const color = document.getElementById("accessoriesFilterColor").value;
+               const price = document.getElementById("accessoriesFilterPrice").value;
+               accessoriesActiveFilters = {};
+               if (size) accessoriesActiveFilters.size = size;
+               if (color) accessoriesActiveFilters.color = color;
+               if (price) accessoriesActiveFilters.price = price;
+               let filteredProducts = products.filter(p => p.category === "Accessories");
+               if (accessoriesActiveFilters.size) {
+                 filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(accessoriesActiveFilters.size.toLowerCase()));
+               }
+               if (accessoriesActiveFilters.color) {
+                 filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(accessoriesActiveFilters.color.toLowerCase()));
+               }
+               if (accessoriesActiveFilters.price) {
+                 const [min, max] = accessoriesActiveFilters.price.split("-").map(Number);
+                 filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
+               }
+               generateProducts("accessoriesContainer", filteredProducts);
+               displayAccessoriesActiveFilters();
+             }
+         
+             // Display active filters for Accessories section
+             function displayAccessoriesActiveFilters() {
+               const activeFilterDisplay = document.getElementById("accessoriesActiveFilterDisplay");
+               let html = "";
+               if (Object.keys(accessoriesActiveFilters).length > 0) {
+                 html += '<div class="filter-tags">';
+                 if (accessoriesActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('size')">Size: ${accessoriesActiveFilters.size} <i class="bi bi-x"></i></span>`;
+                 if (accessoriesActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('color')">Color: ${accessoriesActiveFilters.color} <i class="bi bi-x"></i></span>`;
+                 if (accessoriesActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('price')">Price: ${accessoriesActiveFilters.price} <i class="bi bi-x"></i></span>`;
+                 html += '</div>';
+               }
+               activeFilterDisplay.innerHTML = html;
+             }
+         
+             // Remove filter for Accessories section
+             function removeAccessoriesFilter(filterType) {
+               if (filterType === 'size') document.getElementById('accessoriesFilterSize').value = '';
+               else if (filterType === 'color') document.getElementById('accessoriesFilterColor').value = '';
+               else if (filterType === 'price') document.getElementById('accessoriesFilterPrice').value = '';
+               applyAccessoriesFilters();
+             }
+         
+             // Clear filters for Accessories section
+             function clearAccessoriesFilters() {
+               document.getElementById("accessoriesFilterSize").value = "";
+               document.getElementById("accessoriesFilterColor").value = "";
+               document.getElementById("accessoriesFilterPrice").value = "";
+               accessoriesActiveFilters = {};
+               const accessoriesProducts = products.filter(p => p.category === "Accessories");
+               generateProducts("accessoriesContainer", accessoriesProducts);
+               displayAccessoriesActiveFilters();
+             }
+               // Notify owner
+               function notifyOwner(message) {
+                 ownerNotifications.push({ message, date: new Date().toLocaleString() });
+                 saveData();
+               }
+         
+                // Update notifications
+                function updateNotifications() {
+                 const notificationsContent = document.getElementById("notificationsContent");
+                 if (notifications.length === 0) {
+                   notificationsContent.innerHTML = `
+                     <div class="col-12 text-center py-5">
+                       <i class="bi bi-bell" style="font-size: 3rem; color: #ddd;"></i>
+                       <h5 class="mt-3">No Notifications</h5>
+                       <p>You're all caught up!</p>
+                     </div>
+                   `;
+                 } else {
+                   notificationsContent.innerHTML = "";
+                   notifications.slice().reverse().forEach((notif, index) => {
+                     const card = `
+                       <div class="col-md-6 col-lg-4">
+                         <div class="card notification-card ${notif.type}">
+                           <div class="card-header">
+                             <i class="bi bi-bell-fill notification-icon"></i>
+                             ${notif.date}
+                           </div>
+                           <div class="card-body">
+                             <p class="notification-message">${notif.message}</p>
+                            
+                           </div>
+                         </div>
+                       </div>
+                     `;
+                     notificationsContent.innerHTML += card;
+                   });
+                 }
+               }
+                  // Clear all notifications
+                  function clearNotifications() {
+                   if (notifications.length === 0) {
+                     showNotification("No notifications to clear.", "info");
+                     return;
+                   }
+                   if (confirm("Are you sure you want to clear all notifications?")) {
+                     notifications = [];
+                     saveData();
+                     updateNotifications();
+                     showNotification("All notifications cleared.", "success");
+                   }
+                 }
+                    // Update Seller Dashboard
+                 function updateSellerDashboard() {
   const sellerDashboardContent = document.getElementById("sellerDashboardContent");
   let html = "<h2>Users</h2>";
   if (users.length === 0) {
@@ -5254,10 +5101,10 @@ function updateSellerDashboard() {
                 ` : ''}
               </div>
             </div>
-            <div class="qr-code-container mt-3">
-              <h6>Order QR Code</h6>
-              <div id="qrcode-${index}"></div>
-            </div>
+                  <div class="qr-code-container mt-3">
+  <h6>Order QR Code</h6>
+  <div id="qrcode-${index}"></div>
+</div>
           </div>
           <div class="card-footer text-end">
             <button class="btn btn-primary me-2" onclick="printOrder(${index})">Print</button>
@@ -5267,29 +5114,6 @@ function updateSellerDashboard() {
       `;
     });
   }
-  
-  // Add Feedbacks section
-  html += "<h2 class='mt-4'>Feedbacks</h2>";
-  if (feedbackMessages.length === 0) {
-    html += "<p>No feedbacks yet.</p>";
-  } else {
-    html += '<div class="list-group">';
-    feedbackMessages.forEach(feedback => {
-      html += `
-        <div class="list-group-item">
-          <strong>From: ${feedback.user}</strong><br>
-          <small>Type: ${feedback.type}</small><br>
-          <small>Subject: ${feedback.subject}</small><br>
-          <p>${feedback.message}</p>
-          ${feedback.rating ? `<p>Rating: ${feedback.rating}/5</p>` : ''}
-          <small>Date: ${feedback.date}</small>
-          ${feedback.contactPermission ? '<p>User allows contact</p>' : ''}
-        </div>
-      `;
-    });
-    html += '</div>';
-  }
-
   html += "<h2 class='mt-4'>Notifications</h2>";
   if (ownerNotifications.length === 0) {
     html += "<p>No notifications yet.</p>";
@@ -5309,7 +5133,6 @@ function updateSellerDashboard() {
     html += '</div>';
   }
   sellerDashboardContent.innerHTML = html;
-  
   // Generate QR codes for each order
   orders.forEach((order, index) => {
     const qrDiv = document.getElementById(`qrcode-${index}`);
@@ -5322,56 +5145,65 @@ function updateSellerDashboard() {
     }
   });
 }
-
-// Clear owner notifications
-function clearOwnerNotifications() {
-  if (confirm("Are you sure you want to clear all notifications?")) {
-    ownerNotifications = [];
-    saveData();
-    updateSellerDashboard();
-    showNotification("All notifications cleared.", "info");
-  }
-}
-
-// Function to print order card with QR code
-function printOrder(index) {
-  const orderCards = document.querySelectorAll('.order-card');
-  if (index < 0 || index >= orderCards.length) return;
-  const orderCard = orderCards[index];
-  
-  document.body.classList.add('print-mode');
-  orderCard.classList.add('print-selected');
-  
-  window.print();
-  
-  window.addEventListener('afterprint', function() {
-    document.body.classList.remove('print-mode');
-    orderCard.classList.remove('print-selected');
-  }, { once: true });
-}
-
-// Function to download order card as PNG with QR code
-function downloadOrder(index) {
-  const orderCards = document.querySelectorAll('.order-card');
-  if (index < 0 || index >= orderCards.length) return;
-  const orderCard = orderCards[index];
-  
-  html2canvas(orderCard).then(canvas => {
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = `order_${index + 1}.png`;
-    link.click();
-  }).catch(error => {
-    console.error('Error generating image:', error);
-    showNotification('Failed to generate image for download.', 'danger');
-  });
-}
-
-// Initialize
-loadData();
-
-// Update owner dashboard
-function updateOwnerDashboard() {
+             // Clear owner notifications
+             function clearOwnerNotifications() {
+               if (confirm("Are you sure you want to clear all notifications?")) {
+                 ownerNotifications = [];
+                 saveData();
+                 updateSellerDashboard();
+                 showNotification("All notifications cleared.", "info");
+               }
+             }
+           
+             // Function to print order card with QR code
+             function printOrder(index) {
+               const orderCards = document.querySelectorAll('.order-card');
+               if (index < 0 || index >= orderCards.length) return;
+               const orderCard = orderCards[index];
+               
+               document.body.classList.add('print-mode');
+               orderCard.classList.add('print-selected');
+               
+               window.print();
+               
+               window.addEventListener('afterprint', function() {
+                 document.body.classList.remove('print-mode');
+                 orderCard.classList.remove('print-selected');
+               }, { once: true });
+             }
+           
+             // Function to download order card as PNG with QR code
+             function downloadOrder(index) {
+               const orderCards = document.querySelectorAll('.order-card');
+               if (index < 0 || index >= orderCards.length) return;
+               const orderCard = orderCards[index];
+               
+               html2canvas(orderCard).then(canvas => {
+                 const link = document.createElement('a');
+                 link.href = canvas.toDataURL('image/png');
+                 link.download = `order_${index + 1}.png`;
+                 link.click();
+               }).catch(error => {
+                 console.error('Error generating image:', error);
+                 showNotification('Failed to generate image for download.', 'danger');
+               });
+             }
+           // Initialize
+           loadData();
+           // Update header profile function 
+         function updateHeaderProfile() {
+          const headerProfile = document.getElementById('headerProfile');
+          if (currentUser) {
+            headerProfile.innerHTML = `<i class="bi bi-person-circle"></i> ${currentUser.firstName} ${currentUser.lastName}`;
+          } else {
+            headerProfile.innerHTML = `<i class="bi bi-person-circle"></i> Guest`;
+          }
+         }
+         document.getElementById("sendMessageModal").addEventListener("hidden.bs.modal", function () {
+           document.getElementById("messageText").value = "";
+         });
+         // Update owner dashboard
+ function updateOwnerDashboard() {
   document.getElementById("totalMembers").textContent = users.length;
   document.getElementById("activeUsers").textContent = getActiveUsers();
   document.getElementById("liveUsers").textContent = getLiveUsers();
@@ -5411,48 +5243,59 @@ function updateOwnerDashboard() {
     `;
   });
   document.getElementById("orderDetailsContainer").innerHTML = orderHtml;
-  
-  let locationsHtml = "";
-  users.forEach(user => {
-    locationsHtml += `
-      <div class="card mb-3">
-        <div class="card-body">
-          <p><strong>User:</strong> ${user.firstName} ${user.lastName}</p>
-          <p><strong>Location:</strong> ${user.location}</p>
-        </div>
-      </div>
-    `;
-  });
-  document.getElementById("userLocationsContainer").innerHTML = locationsHtml;
-}
-
-function sendMessageToUser(orderIndex) {
-  console.log("Sending message for order:", orderIndex);
-  const order = orders[orderIndex];
-  const message = prompt("Enter message to send to the user:");
-  if (!message) {
-    showNotification("Message cannot be empty.", "warning");
-    return;
-  }
-  if (message) {
-    const user = users.find(u => u.email === order.buyer.email);
-    if (user) {
-      if (!user.notifications) user.notifications = [];
-      user.notifications.push({
-        message: `Message from Owner: ${message}`,
-        type: "info",
-        title: "Message from Owner",
-        date: new Date().toLocaleString()
-      });
-      showNotification(`Message sent to user: ${user.firstName} ${user.lastName}`, "success");
-      saveData();
-    } else {
-      showNotification("User not found.", "warning");
-    }
-  }
-}
-
-// Reset modal fields when shown
+             
+               let locationsHtml = "";
+               users.forEach(user => {
+                 locationsHtml += `
+                   <div class="card mb-3">
+                     <div class="card-body">
+                       <p><strong>User:</strong> ${user.firstName} ${user.lastName}</p>
+                       <p><strong>Location:</strong> ${user.location}</p>
+                     </div>
+                   </div>
+                 `;
+               });
+               document.getElementById("userLocationsContainer").innerHTML = locationsHtml;
+             }
+             
+               let locationsHtml = "";
+               users.forEach(user => {
+                 locationsHtml += `
+                   <div class="card mb-3">
+                     <div class="card-body">
+                       <p><strong>User:</strong> ${user.firstName} ${user.lastName}</p>
+                       <p><strong>Location:</strong> ${user.location}</p>
+                     </div>
+                   </div>
+                 `;
+               });
+               document.getElementById("userLocationsContainer").innerHTML = locationsHtml;
+               function sendMessageToUser(orderIndex) {
+                 console.log("Sending message for order:", orderIndex);
+                 const order = orders[orderIndex];
+                 const message = prompt("Enter message to send to the user:");
+                 if (!message) {
+                   showNotification("Message cannot be empty.", "warning");
+                   return;
+               }
+                 if (message) {
+                   const user = users.find(u => u.email === order.buyer.email);
+                   if (user) {
+                     if (!user.notifications) user.notifications = []; // Ensure notifications array exists
+                     user.notifications.push({
+                       message: `Message from Owner: ${message}`,
+                       type: "info",
+                       title: "Message from Owner",
+                       date: new Date().toLocaleString()
+                     });
+                     showNotification(`Message sent to user: ${user.firstName} ${user.lastName}`, "success");
+                     saveData();
+                   } else {
+                     showNotification("User not found.", "warning");
+                   }
+                 }
+               }
+               // Reset modal fields when shown
 document.getElementById('buyModal').addEventListener('shown.bs.modal', function () {
   document.getElementById('couponCode').value = '';
   document.getElementById('couponMessage').textContent = '';
@@ -5483,28 +5326,31 @@ document.getElementById('applyCouponButton').addEventListener('click', function 
   document.getElementById('finalPrice').value = totalAmount.toFixed(2);
 });
 
-// Request Product form submission
-document.getElementById("requestProductForm")?.addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const category = document.getElementById("requestCategory").value;
-  const clothType = document.getElementById("requestClothType").value;
-  const size = document.getElementById("requestSize").value;
-  const color = document.getElementById("requestColor").value;
-  const message = document.getElementById("requestMessage").value;
-  
-  const request = {
-    category,
-    clothType,
-    size,
-    color,
-    message,
-    user: currentUser ? `${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})` : "Guest",
-    date: new Date().toLocaleString()
-  };
-  
-  notifyOwner(`New product request: Category - ${category}, Cloth Type - ${clothType}, Size - ${size}, Color - ${color}, Message - ${message
-  }}`);
+          // Request Product form submission
+          document.getElementById("requestProductForm")?.addEventListener("submit", function(e) {
+           e.preventDefault();
+       
+           // Retrieve form values
+           const category = document.getElementById("requestCategory").value;
+           const clothType = document.getElementById("requestClothType").value;
+           const size = document.getElementById("requestSize").value;
+           const color = document.getElementById("requestColor").value;
+           const message = document.getElementById("requestMessage").value;
+       
+           // Create a request object
+           const request = {
+             category,
+             clothType,
+             size,
+             color,
+             message,
+             user: currentUser ? `${currentUser.firstName} ${currentUser.lastName} (${currentUser.email})` : "Guest",
+             date: new Date().toLocaleString()
+           };
+       
+           // Notify the owner
+           notifyOwner(`New product request: Category - ${category}, Cloth Type - ${clothType}, Size - ${size}, Color - ${color}, Message - ${message || 'None'}, From - ${request.user}`);
+       
            // Show notification to the user
            showNotification("Your product request has been sent to the owner.", "success");
        
