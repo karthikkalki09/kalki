@@ -1,4 +1,4 @@
-// Simple hash function for password hashing (for demonstration purposes)
+ // Simple hash function for password hashing (for demonstration purposes)
     function simpleHash(password) {
       let hash = 0;
       for (let i = 0; i < password.length; i++) {
@@ -77,10 +77,7 @@ function loadData() {
   updateHeaderProfile();
   updateMenuAccountDetails();
   updateCartCountBadge();
-  generateProducts("shopProductContainer", products);
-  generateProducts("menswearContainer", products.filter(p => p.category === "Men's Wear"));
-  generateProducts("accessoriesContainer", products.filter(p => p.category === "Accessories"));
-  
+  generateProducts("shopProductContainer", products);  
 }
 function setCurrentOrderIndex(index) {
   currentOrderIndexForMessage = index;
@@ -114,144 +111,146 @@ function confirmSendMessage() {
 const products = [
   {
     id: 1,
-    name: "Baggy Jeans",
+    name: "Oversized T-Shirt",
     description: "Comfortable and stylish men's t-shirt.",
-    category: "Baggy Jeans",
-    price: 19.99,
+    category: "T-Shirts",
+    price: 399.99,
     discount: 10, // 10% discount set by owner
-    size: "S, M, L, XL",
-    color: "Blue, Red, Black",
+    size: "L",
+    color: "Black",
     clothType: "100% Cotton",
-    deliveryTime: "3-5 days",
-    returnPolicy: "10 days return policy",
+    deliveryTime: "1-2 days",
+    returnPolicy: "2 days return policy",
     additionalDetails: "Machine washable, soft and breathable fabric.",
     images: [
-      "https://i.pinimg.com/736x/c0/79/63/c0796394f2fae0e0c33acd60c906d25d.jpg",
-      "https://i.pinimg.com/736x/c6/59/fd/c659fd0e96f0144adb6416e73b2dfd17.jpg"
+      "https://i.pinimg.com/736x/99/df/c6/99dfc6172b5df9a97c22d2af93aac789.jpg",
+       "https://i.pinimg.com/736x/71/ed/b3/71edb347dbbcc9f5708fb2e141b4e6c9.jpg",
+      "https://i.pinimg.com/736x/5e/06/2f/5e062fb9641aeb3558304ee1bb93a1d5.jpg",
     ],
     colorImages: {
-      "White": "https://i.pinimg.com/736x/c0/79/63/c0796394f2fae0e0c33acd60c906d25d.jpg",
-      "Black": "https://i.pinimg.com/736x/c6/59/fd/c659fd0e96f0144adb6416e73b2dfd17.jpg"
+      "Black": "https://i.pinimg.com/736x/99/df/c6/99dfc6172b5df9a97c22d2af93aac789.jpg"
     },
     specifications: {
-      "Material": "100% Cotton",
-      "Fit": "Regular",
-      "Sleeve": "Short Sleeve",
+       "Material": "100% Cotton",
+      "Fit": "Oversized",
+      "Sleeve": "Short",
       "Neck": "Round Neck"
     }
   },
   {
     id: 2,
-    name: "Casual T-Shirt",
-    description: "Elegant formal shirt for office wear.",
+    name: "Oversized T-Shirt",
+    description: "Comfortable and stylish men's T-shirt.",
     category: "T-Shirts",
-    price: 102,
+    price: 349,
     discount: 26, 
-    size: "S, M, L, XL",
-    color: "White, Black",
-    clothType: "Polyester Blend",
-    deliveryTime: "5-7 days",
-    returnPolicy: "15 days return policy",
-    additionalDetails: "Wrinkle-resistant, perfect for business meetings.",
+    size: " L",
+    color: "Black",
+    clothType: "100% Cotton",
+    deliveryTime: "1-2 days",
+    returnPolicy: "2 days return policy",
+    additionalDetails: "Machine washabele and weather proof .",
     images: [
-      "https://i.pinimg.com/736x/50/18/cf/5018cf118ea353dacb59a944bcac12d7.jpg",
-      "https://i.pinimg.com/736x/9c/b7/7b/9cb77b79c868d2330ea7274025f3b5f8.jpg"
-
+      "https://i.pinimg.com/736x/78/3e/39/783e39cca642ba73cd5455ce8be39608.jpg",
+"https://i.pinimg.com/736x/a8/03/b7/a803b71b74c0b3c7f70938556d480111.jpg",
+"https://i.pinimg.com/736x/26/94/be/2694be21bc82399c67208bf6d65068a4.jpg",
+"https://i.pinimg.com/736x/37/a7/e2/37a7e22ccccb2fd9e158db92d9fe094d.jpg",
+"https://i.pinimg.com/736x/ae/36/14/ae36149467f17d37a86ab84051b321f7.jpg"
     ],
     colorImages: {
-      "White": "https://i.pinimg.com/736x/50/18/cf/5018cf118ea353dacb59a944bcac12d7.jpg",
-      "Black": "https://i.pinimg.com/736x/9c/b7/7b/9cb77b79c868d2330ea7274025f3b5f8.jpg"
+      "Black": "https://i.pinimg.com/736x/78/3e/39/783e39cca642ba73cd5455ce8be39608.jpg"
     },
     specifications: {
-      "Material": "Polyester Blend",
-      "Fit": "Slim Fit",
-      "Sleeve": "Long Sleeve",
-      "Neck": "Collared"
+      "Material": "100% Cotton",
+      "Fit": "Oversized",
+      "Sleeve": "Short",
+      "Neck": "Round Neck"
     }
   },
   {
     id: 3,
-    name: "Denim Short",
-    description: "Classic denim jacket for casual outings.",
-    category: "Shorts",
-    price: 49.99,
+    name: "Oversized T-Shirt",
+    description: "Comfortable and stylish T-shirt.",
+    category: "T-Shirts",
+    price: 349,
     discount: 20, // 20% discount set by owner
-    size: "S, M, L, XL",
-    color: "Blue, Black",
-    clothType: "Denim",
-    deliveryTime: "4-6 days",
-    returnPolicy: "10 days return policy",
-    additionalDetails: "Durable and stylish, perfect for layering.",
+    size: "L",
+    color: " Black",
+    clothType: "Cotton",
+    deliveryTime: "1-2 days",
+    returnPolicy: "2 days return policy",
+    additionalDetails: "weather proof.",
     images: [
-      "https://i.pinimg.com/736x/c2/64/12/c26412543ccd465cb9d9db89a5b6002d.jpg",
-      "https://i.pinimg.com/736x/0f/d6/37/0fd63743655c7ed790042180d7f4ae02.jpg"
+      "https://i.pinimg.com/736x/22/3e/6e/223e6ec6ab0a025177a6502a10d4cceb.jpg",
+      "https://i.pinimg.com/736x/1f/f9/3e/1ff93ece8aa88d219e7f653815af9968.jpg",
+      "https://i.pinimg.com/736x/0a/71/e1/0a71e1b76821af8f9ef8ceb1d843a1b7.jpg",
+      "https://i.pinimg.com/736x/ad/35/e2/ad35e2b64522a040c6fc3d0c64e8c09f.jpg"
     ],
     colorImages: {
-      "Blue": "https://i.pinimg.com/736x/c2/64/12/c26412543ccd465cb9d9db89a5b6002d.jpg",
-      "Black": "https://i.pinimg.com/736x/0f/d6/37/0fd63743655c7ed790042180d7f4ae02.jpg"
+      "Black": "https://i.pinimg.com/736x/22/3e/6e/223e6ec6ab0a025177a6502a10d4cceb.jpg"
     },
     specifications: {
-      "Material": "Denim",
-      "Fit": "Regular Fit",
-      "Sleeve": "Long Sleeve",
-      "Neck": "Collared"
+      "Material": "100% Cotton",
+      "Fit": "Oversized",
+      "Sleeve": "Short",
+      "Neck": "Round Neck"
     }
   },
   {
     id: 4,
-    name: "Polo T-Shirt",
-    description: "Premium leather jacket for a rugged look.",
-    category: "Polos",
-    price: 199.99,
+    name: "Sweat T-Shirt",
+    description: "Stylish and comfortable to wear.",
+    category: "sweat T-Shirts",
+    price: 399.99,
     discount: 15, // 15% discount set by owner
-    size: "S, M, L, XL",
-    color: "Black, Brown",
-    clothType: "Genuine Leather",
-    deliveryTime: "7-10 days",
-    returnPolicy: "20 days return policy",
-    additionalDetails: "High-quality leather, perfect for winter.",
+    size: " XL, XXL",
+    color: "white",
+    clothType: "100% cotton",
+    deliveryTime: "1-2 days",
+    returnPolicy: "2 days return policy",
+    additionalDetails: "High-quality cotton , perfect for winter.",
     images: [
-      "https://i.pinimg.com/736x/90/79/7d/90797dac16803d3bd0464ebdd166aade.jpg",
-      "https://i.pinimg.com/736x/7c/90/f8/7c90f87bb0ace951d5ddfeab6e2f1696.jpg"
+      "https://i.pinimg.com/736x/f1/4f/81/f14f81d82a4cc1f45abc6f0a9f5deffe.jpg",
+      "https://i.pinimg.com/736x/59/d6/df/59d6dfb5a69485201487e9f650bac9c6.jpg"
     ],
     colorImages: {
-      "Black": "https://i.pinimg.com/736x/7c/90/f8/7c90f87bb0ace951d5ddfeab6e2f1696.jpg",
-      "Brown": "https://i.pinimg.com/736x/90/79/7d/90797dac16803d3bd0464ebdd166aade.jpg"
+      "white": "https://i.pinimg.com/736x/f1/4f/81/f14f81d82a4cc1f45abc6f0a9f5deffe.jpg",
+
     },
     specifications: {
-      "Material": "Genuine Leather",
+      "Material": "100% cotton",
       "Fit": "Slim Fit",
       "Sleeve": "Long Sleeve",
-      "Neck": "Collared"
+      "Neck": "Collareless"
     }
   },
   {
     id: 5,
-    name: "Hoodie",
-    description: "Lightweight sports jacket for active wear.",
-    category: "Hoodies",
-    price: 89.99,
+    name: "Sweat T-Shirt",
+    description: "Weather proof.",
+    category: "sweat T-Shirts",
+    price: 449.99,
     discount: 12, // 12% discount set by owner
-    size: "S, M, L, XL",
-    color: "Navy Blue, Grey",
-    clothType: "Polyester Blend",
-    deliveryTime: "3-5 days",
-    returnPolicy: "10 days return policy",
-    additionalDetails: "Breathable fabric, ideal for workouts.",
+    size: " XL, XXL",
+    color: "Black ",
+    clothType: "100% Cotton ",
+    deliveryTime: "1-2 days",
+    returnPolicy: "2 days return policy",
+    additionalDetails: "Breathable fabric,Comfortable to wear.",
     images: [
-      "https://i.pinimg.com/736x/78/c0/9d/78c09d558eaeb838f233cf62357b7e3b.jpg",
-      "https://i.pinimg.com/736x/d3/56/49/d35649b12350830f0741122cc0d49511.jpg"
+          "https://i.pinimg.com/736x/c3/26/a2/c326a23d51642d14c551f2774980800a.jpg",
+      "https://i.pinimg.com/736x/68/41/79/684179f8e602a855fc3a87695ed47d76.jpg",
+      "https://i.pinimg.com/736x/64/9d/c4/649dc4076a63908f72622af350bf6554.jpg"
 
     ],
     colorImages: {
-      "Navy Blue": "https://i.pinimg.com/736x/78/c0/9d/78c09d558eaeb838f233cf62357b7e3b.jpg",
-      "Grey": "https://i.pinimg.com/736x/d3/56/49/d35649b12350830f0741122cc0d49511.jpg"
+      "Black": "https://i.pinimg.com/736x/68/41/79/684179f8e602a855fc3a87695ed47d76.jpg",
     },
     specifications: {
-      "Material": "Polyester Blend",
+      "Material": "100% cotton",
       "Fit": "Regular Fit",
       "Sleeve": "Long Sleeve",
-      "Neck": "Collared"
+      "Neck": "Collarless"
     }
   }
 ];
@@ -889,7 +888,7 @@ function generateRecommendedProducts(recommendations) {
           <div class="card-body">
             <h5 class="card-title">${product.name}</h5>
             <p class="card-text">
-              ${discount > 0 ? `<s>₹${originalPrice}</s> ` : ''}₹${product.price.toFixed(2)}
+              ${discount > 0 ? ` ₹${originalPrice}  ` : ''}₹${product.price.toFixed(2)}
             </p>
           </div>
         </div>
@@ -1073,6 +1072,7 @@ function addToCartWithSelection(productId) {
 }
 
 // Buy product with selection
+// Buy product with selection
 function buyProductWithSelection(productId) {
   if (!currentUser) {
     showNotification("Please log in or sign up before placing an order.", "warning");
@@ -1101,12 +1101,77 @@ function buyProductWithSelection(productId) {
     document.getElementById("modalProductPrice").textContent = product.price.toFixed(2);
     document.getElementById("modalDeliveryTime").textContent = formattedDate;
     document.getElementById("modalTotalAmount").textContent = (product.price + 5).toFixed(2); // Assuming +5 for shipping
-    document.getElementById("buyForm").reset();
+    
+    // Fill hidden fields for EmailJS
+    document.getElementById("emailProduct").value = product.name;
+    document.getElementById("emailPrice").value = product.price.toFixed(2);
+    document.getElementById("emailSize").value = selectedSize;
+    document.getElementById("emailColor").value = selectedColor;
+
+    // Clear user fields
+    const form = document.getElementById("buyForm");
+    if (form) {
+      form.reset();
+    }
+
+    // Show modal
     const buyModal = new bootstrap.Modal(document.getElementById("buyModal"));
     buyModal.show();
   }
 }
+// EmailJS integration for Buy Now modal order form
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize EmailJS
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init("uNU6LHQHe2zyexNEo"); // Your EmailJS public key
+  }
 
+  const buyFormModal = document.getElementById("buyForm");
+  if (buyFormModal) {
+    buyFormModal.addEventListener("submit", function (e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      // Get form values
+      const address = document.getElementById("shippingAddress").value;
+      const mobile = document.getElementById("mobileNumber").value;
+      const details = document.getElementById("additionalDetails").value;
+      const product = currentProductForPurchase;
+ // Send form via EmailJS with proper parameters for BUY NOW
+      emailjs.send("service_t95u5og", "template_ciqxjv9", {
+        address: address,
+        phone: mobile,
+        details: details,
+        product: product.name,
+        price: product.price.toFixed(2),
+        size: product.selectedSize,
+        color: product.selectedColor,
+        buyer_name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : "Guest",
+        buyer_email: currentUser ? currentUser.email : "No email provided",
+        message_type: "new_order"
+      })
+        .then(function () {
+          showNotification("✅ Order placed successfully! You will receive a confirmation email.", "success");
+          buyFormModal.reset();
+          const modal = bootstrap.Modal.getInstance(document.getElementById("buyModal"));
+          if (modal) modal.hide();
+        }, function (error) {
+          showNotification("❌ Failed to send order. Please try again.", "danger");
+          console.error("EmailJS Error:", error);
+        })
+        .finally(function() {
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+    });
+  }
+});
 // Buy form submission with enhanced thank-you card
 document.getElementById("buyForm").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -1225,7 +1290,7 @@ function updateCartSection() {
               <h5 class="card-title">${item.name}</h5>
               <p class="card-text">${item.description}</p>
               <p class="card-text">Size: ${item.selectedSize}, Color: ${item.selectedColor}</p>
-              <p class="card-text"><small class="text-muted">${item.category} | <s>₹${(item.price * 1.2).toFixed(2)}</s> ₹${item.price.toFixed(2)}</small></p>
+              <p class="card-text"><small class="text-muted">${item.category} |  ₹${(item.price * 1.2).toFixed(2)}₹${item.price.toFixed(2)}</small></p>
               <button class="btn btn-sm btn-danger" onclick="event.stopPropagation(); removeFromCart(${index})"><i class="bi bi-trash me-1"></i> Remove</button>
             </div>
           </div>
@@ -1382,7 +1447,7 @@ function updateOrdersList(filter = currentOrdersFilter) {
               <p class="mb-1">Size: ${order.product.selectedSize}, Color: ${order.product.selectedColor}</p>
               <p class="mb-1">Qty: 1</p>
               <p class="fw-bold">₹${order.product.price.toFixed(2)}</p>
-              ${discount > 0 ? `<p class="text-muted"><s>₹${originalPrice}</s> (${discount}% off)</p>` : ''}
+              ${discount > 0 ? `<p class="text-muted"> ₹${originalPrice}  (${discount}% off)</p>` : ''}
             </div>
           </div>
         </div>
@@ -1436,8 +1501,6 @@ function generateTrackBar(order) {
   html += '</div>';
   return html;
 }
-
-// Show order detail page with track bar
 function showOrderDetailPage(orderIndex) {
   currentOrderIndex = orderIndex;
   const order = orders[orderIndex];
@@ -1445,6 +1508,36 @@ function showOrderDetailPage(orderIndex) {
     order.product.images[0] :
     'https://via.placeholder.com/400x300?text=' + encodeURIComponent(order.product.name);
 
+  // Parse dates for comparison
+  const estimatedDeliveryDate = new Date(order.estimatedDelivery);
+  const currentDate = new Date();
+  const isPastEstimatedDelivery = currentDate > estimatedDeliveryDate;
+  const product = order.product;
+
+  // Cancel button logic: disable if past estimated delivery
+  let cancelDisabled = '';
+  if (isPastEstimatedDelivery) {
+    cancelDisabled = 'disabled';
+  }
+
+  // Return button logic: disable if no return allowed or past return deadline
+  let returnDisabled = '';
+  if (order.received) {
+    const allowsReturn = /\d+ days return policy/.test(product.returnPolicy);
+    if (!allowsReturn) {
+      returnDisabled = 'disabled';
+    } else {
+      const returnDays = parseInt(product.returnPolicy.match(/\d+/)[0]);
+      const receivedDate = new Date(order.receivedDate);
+      const returnDeadline = new Date(receivedDate);
+      returnDeadline.setDate(receivedDate.getDate() + returnDays);
+      if (currentDate > returnDeadline) {
+        returnDisabled = 'disabled';
+      }
+    }
+  }
+
+  // Delete button for cancelled or returned orders
   let deleteButton = '';
   if (order.cancelled || order.returned) {
     deleteButton = `
@@ -1454,6 +1547,7 @@ function showOrderDetailPage(orderIndex) {
     `;
   }
 
+  // Status badge logic
   let statusBadgeClass, statusText;
   if (order.cancelled) {
     statusBadgeClass = 'order-status-cancelled';
@@ -1472,6 +1566,7 @@ function showOrderDetailPage(orderIndex) {
     statusText = 'Confirmed';
   }
 
+  // Timeline items
   let timelineItems = [];
   if (order.cancelled) {
     timelineItems = [
@@ -1525,6 +1620,7 @@ function showOrderDetailPage(orderIndex) {
     `;
   });
 
+  // Action buttons with dynamic disabling
   let actionButtons = '';
   if (!order.cancelled && !order.received && !order.returned) {
     actionButtons += `
@@ -1534,7 +1630,8 @@ function showOrderDetailPage(orderIndex) {
         </button>
         <button class="btn btn-outline-danger flex-grow-1"
                 data-bs-toggle="modal"
-                data-bs-target="#cancelOrderModal">
+                data-bs-target="#cancelOrderModal"
+                ${cancelDisabled}>
           <i class="bi bi-x-circle me-1"></i> Cancel Order
         </button>
       </div>
@@ -1542,7 +1639,7 @@ function showOrderDetailPage(orderIndex) {
   }
   if (order.received && !order.returned) {
     actionButtons += `
-      <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#returnOrderModal">
+      <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#returnOrderModal" ${returnDisabled}>
         <i class="bi bi-arrow-return-left me-1"></i> Return Order
       </button>
     `;
@@ -1563,6 +1660,7 @@ function showOrderDetailPage(orderIndex) {
 
   const trackBarHtml = generateTrackBar(order);
 
+  // Full detail content
   const detailContent = `
     <div class="row">
       <div class="col-md-8">
@@ -1648,7 +1746,6 @@ function showOrderDetailPage(orderIndex) {
   document.getElementById("orderDetailPage").innerHTML = detailContent;
   showSection("orderDetailSection");
 }
-
 // Delete order
 function deleteOrder(orderIndex) {
   if (confirm("Are you sure you want to delete this order? This action cannot be undone.")) {
@@ -1672,6 +1769,10 @@ function markAsReceived(orderIndex) {
 function confirmCancelOrder() {
   const reasonSelect = document.getElementById('cancelReason');
   const otherReason = document.getElementById('otherReason');
+  const address = document.getElementById('cancelAddress').value;
+  const mobile = document.getElementById('cancelMobile').value;
+  const details = document.getElementById('cancelDetails').value;
+  
   let reason = reasonSelect.value;
 
   if (reason === '') {
@@ -1687,23 +1788,82 @@ function confirmCancelOrder() {
     }
   }
 
-  orders[currentOrderIndex].cancelled = true;
-  orders[currentOrderIndex].cancellationReason = reason;
-  orders[currentOrderIndex].cancellationDate = new Date().toLocaleString();
+  if (!address.trim()) {
+    showNotification('Please enter your address', 'warning');
+    return;
+  }
 
-  notifyOwner(`Order #${currentOrderIndex + 1} cancelled by: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email}) for product: ${orders[currentOrderIndex].product.name} with reason: ${reason}`);
+  if (!mobile.trim()) {
+    showNotification('Please enter your mobile number', 'warning');
+    return;
+  }
 
-  showNotification('Order has been cancelled', 'info');
-  saveData();
+  // Show loading state
+  const submitBtn = document.querySelector('#cancelOrderModal .btn-danger');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
 
-  const modal = bootstrap.Modal.getInstance(document.getElementById('cancelOrderModal'));
-  modal.hide();
+  const order = orders[currentOrderIndex];
+  const product = order.product;
+  // Send cancellation request via EmailJS with CANCEL template
+  emailjs.send("service_t95u5og", "template_yalbgw5", {
+    address: address,
+    phone: mobile,
+    details: details,
+    product: product.name,
+    price: product.price.toFixed(2),
+    size: product.selectedSize,
+    color: product.selectedColor,
+    buyer_name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : "Guest",
+    buyer_email: currentUser ? currentUser.email : "No email provided",
+    cancellation_reason: reason,
+    order_id: currentOrderIndex + 1,
+    message_type: "cancellation_request"
+  })
+    .then(function () {
+      showNotification("✅ Cancellation request sent successfully! You will receive a confirmation email.", "success");
+      
+      // Update order status
+      orders[currentOrderIndex].cancelled = true;
+      orders[currentOrderIndex].cancellationReason = reason;
+      orders[currentOrderIndex].cancellationDate = new Date().toLocaleString();
+      orders[currentOrderIndex].cancellationAddress = address;
+      orders[currentOrderIndex].cancellationMobile = mobile;
+      orders[currentOrderIndex].cancellationDetails = details;
 
-  setTimeout(() => {
-    showOrderDetailPage(currentOrderIndex);
-    updateOrdersList(currentOrdersFilter);
-  }, 500);
+      notifyOwner(`Order #${currentOrderIndex + 1} cancellation requested by: ${currentUser.firstName} ${currentUser.lastName} (${currentUser.email}) for product: ${product.name} with reason: ${reason}`);
+
+      saveData();
+
+      const modal = bootstrap.Modal.getInstance(document.getElementById('cancelOrderModal'));
+      modal.hide();
+
+      setTimeout(() => {
+        showOrderDetailPage(currentOrderIndex);
+        updateOrdersList(currentOrdersFilter);
+      }, 500);
+    }, function (error) {
+      showNotification("❌ Failed to send cancellation request. Please try again.", "danger");
+      console.error("EmailJS Error:", error);
+    })
+    .finally(function() {
+      // Reset button state
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
 }
+
+
+// Handle cancel reason select change
+document.getElementById('cancelReason')?.addEventListener('change', function() {
+  const otherReasonContainer = document.getElementById('otherReasonContainer');
+  if (this.value === 'Other') {
+    otherReasonContainer.style.display = 'block';
+  } else {
+    otherReasonContainer.style.display = 'none';
+  }
+});
 
 // Initialize rating when review modal is shown
 document.getElementById('reviewOrderModal')?.addEventListener('show.bs.modal', function() {
@@ -2279,120 +2439,6 @@ document.getElementById("feedbackForm")?.addEventListener("submit", function(e) 
              generateProducts("shopProductContainer", products);
              displayActiveFilters();
            }
-         
-            // Apply filters for Men's Wear section
-             function applyMenswearFilters() {
-               const size = document.getElementById("menswearFilterSize").value;
-               const color = document.getElementById("menswearFilterColor").value;
-               const price = document.getElementById("menswearFilterPrice").value;
-               menswearActiveFilters = {};
-               if (size) menswearActiveFilters.size = size;
-               if (color) menswearActiveFilters.color = color;
-               if (price) menswearActiveFilters.price = price;
-               let filteredProducts = products.filter(p => p.category === "Men's Wear");
-               if (menswearActiveFilters.size) {
-                 filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(menswearActiveFilters.size.toLowerCase()));
-               }
-               if (menswearActiveFilters.color) {
-                 filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(menswearActiveFilters.color.toLowerCase()));
-               }
-               if (menswearActiveFilters.price) {
-                 const [min, max] = menswearActiveFilters.price.split("-").map(Number);
-                 filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
-               }
-               generateProducts("menswearContainer", filteredProducts);
-               displayMenswearActiveFilters();
-             }
-         
-             // Display active filters for Men's Wear section
-             function displayMenswearActiveFilters() {
-               const activeFilterDisplay = document.getElementById("menswearActiveFilterDisplay");
-               let html = "";
-               if (Object.keys(menswearActiveFilters).length > 0) {
-                 html += '<div class="filter-tags">';
-                 if (menswearActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('size')">Size: ${menswearActiveFilters.size} <i class="bi bi-x"></i></span>`;
-                 if (menswearActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('color')">Color: ${menswearActiveFilters.color} <i class="bi bi-x"></i></span>`;
-                 if (menswearActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeMenswearFilter('price')">Price: ${menswearActiveFilters.price} <i class="bi bi-x"></i></span>`;
-                 html += '</div>';
-               }
-               activeFilterDisplay.innerHTML = html;
-             }
-         
-             // Remove filter for Men's Wear section
-             function removeMenswearFilter(filterType) {
-               if (filterType === 'size') document.getElementById('menswearFilterSize').value = '';
-               else if (filterType === 'color') document.getElementById('menswearFilterColor').value = '';
-               else if (filterType === 'price') document.getElementById('menswearFilterPrice').value = '';
-               applyMenswearFilters();
-             }
-         
-             // Clear filters for Men's Wear section
-             function clearMenswearFilters() {
-               document.getElementById("menswearFilterSize").value = "";
-               document.getElementById("menswearFilterColor").value = "";
-               document.getElementById("menswearFilterPrice").value = "";
-               menswearActiveFilters = {};
-               const menswearProducts = products.filter(p => p.category === "Men's Wear");
-               generateProducts("menswearContainer", menswearProducts);
-               displayMenswearActiveFilters();
-             }
-         
-             // Apply filters for Accessories section
-             function applyAccessoriesFilters() {
-               const size = document.getElementById("accessoriesFilterSize").value;
-               const color = document.getElementById("accessoriesFilterColor").value;
-               const price = document.getElementById("accessoriesFilterPrice").value;
-               accessoriesActiveFilters = {};
-               if (size) accessoriesActiveFilters.size = size;
-               if (color) accessoriesActiveFilters.color = color;
-               if (price) accessoriesActiveFilters.price = price;
-               let filteredProducts = products.filter(p => p.category === "Accessories");
-               if (accessoriesActiveFilters.size) {
-                 filteredProducts = filteredProducts.filter(p => p.size.split(",").map(s => s.trim().toLowerCase()).includes(accessoriesActiveFilters.size.toLowerCase()));
-               }
-               if (accessoriesActiveFilters.color) {
-                 filteredProducts = filteredProducts.filter(p => p.color.split(",").map(c => c.trim().toLowerCase()).includes(accessoriesActiveFilters.color.toLowerCase()));
-               }
-               if (accessoriesActiveFilters.price) {
-                 const [min, max] = accessoriesActiveFilters.price.split("-").map(Number);
-                 filteredProducts = filteredProducts.filter(p => p.price >= min && p.price <= max);
-               }
-               generateProducts("accessoriesContainer", filteredProducts);
-               displayAccessoriesActiveFilters();
-             }
-         
-             // Display active filters for Accessories section
-             function displayAccessoriesActiveFilters() {
-               const activeFilterDisplay = document.getElementById("accessoriesActiveFilterDisplay");
-               let html = "";
-               if (Object.keys(accessoriesActiveFilters).length > 0) {
-                 html += '<div class="filter-tags">';
-                 if (accessoriesActiveFilters.size) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('size')">Size: ${accessoriesActiveFilters.size} <i class="bi bi-x"></i></span>`;
-                 if (accessoriesActiveFilters.color) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('color')">Color: ${accessoriesActiveFilters.color} <i class="bi bi-x"></i></span>`;
-                 if (accessoriesActiveFilters.price) html += `<span class="badge bg-primary me-2" style="cursor: pointer;" onclick="removeAccessoriesFilter('price')">Price: ${accessoriesActiveFilters.price} <i class="bi bi-x"></i></span>`;
-                 html += '</div>';
-               }
-               activeFilterDisplay.innerHTML = html;
-             }
-         
-             // Remove filter for Accessories section
-             function removeAccessoriesFilter(filterType) {
-               if (filterType === 'size') document.getElementById('accessoriesFilterSize').value = '';
-               else if (filterType === 'color') document.getElementById('accessoriesFilterColor').value = '';
-               else if (filterType === 'price') document.getElementById('accessoriesFilterPrice').value = '';
-               applyAccessoriesFilters();
-             }
-         
-             // Clear filters for Accessories section
-             function clearAccessoriesFilters() {
-               document.getElementById("accessoriesFilterSize").value = "";
-               document.getElementById("accessoriesFilterColor").value = "";
-               document.getElementById("accessoriesFilterPrice").value = "";
-               accessoriesActiveFilters = {};
-               const accessoriesProducts = products.filter(p => p.category === "Accessories");
-               generateProducts("accessoriesContainer", accessoriesProducts);
-               displayAccessoriesActiveFilters();
-             }
                // Notify owner
                function notifyOwner(message) {
                  ownerNotifications.push({ message, date: new Date().toLocaleString() });
@@ -2443,127 +2489,7 @@ document.getElementById("feedbackForm")?.addEventListener("submit", function(e) 
                      updateNotifications();
                      showNotification("All notifications cleared.", "success");
                    }
-                 }
-                 // Update seller dashboard
-           function updateSellerDashboard() {
-  const sellerDashboardContent = document.getElementById("sellerDashboardContent");
-  let html = "<h2>Users</h2>";
-  if (users.length === 0) {
-    html += "<p>No users yet.</p>";
-  } else {
-    html += '<div class="list-group">';
-    users.forEach(user => {
-      html += `
-        <div class="list-group-item">
-          <strong>${user.firstName} ${user.lastName}</strong><br>
-          <small>${user.email}</small><br>
-          <small>Mobile: ${user.mobile || "Not provided"}</small>
-        </div>
-      `;
-    });
-    html += '</div>';
-  }
-  html += "<h2 class='mt-4'>Orders</h2>";
-  if (orders.length === 0) {
-    html += "<p>No orders yet.</p>";
-  } else {
-    orders.forEach((order, index) => {
-      const productImage = order.product.images && order.product.images.length > 0 ? order.product.images[0] : 'https://via.placeholder.com/100x100?text=No+Image';
-      let statusText = order.cancelled ? 'Cancelled' : order.returned ? 'Returned' : order.received ? 'Delivered' : order.shipped ? 'Shipped' : 'Active';
-      html += `
-        <div class="card mb-3 shadow-sm order-card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <div>
-              <img src="https://i.pinimg.com/736x/d5/e5/4e/d5e54e8444e36458688888e4c84b5419.jpg" alt="NXew Logo" style="width: 100px; height: 50px; margin-right: 10px;">
-              <span>Order #${index + 1} - ${order.date}</span>
-            </div>
-            <span>NXew</span>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <h6>Buyer Information</h6>
-                <p><strong>Name:</strong> ${order.buyer.firstName} ${order.buyer.lastName}</p>
-                <p><strong>Email:</strong> ${order.buyer.email}</p>
-                <p><strong>Mobile:</strong> ${order.mobile}</p>
-              </div>
-              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <h6>Product Information</h6>
-                <img src="${productImage}" alt="${order.product.name}" class="img-fluid mb-2" style="max-width:100px; max-height:100px;">
-                <p><strong>Name:</strong> ${order.product.name}</p>
-                <p><strong>Description:</strong> ${order.product.description}</p>
-                <p><strong>Size:</strong> ${order.product.selectedSize}</p>
-                <p><strong>Color:</strong> ${order.product.selectedColor}</p>
-               <p><strong>Price:</strong> ₹${order.product.price.toFixed(2)}</p>
-                <p><strong>Category:</strong> ${order.product.category}</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h6>Shipping Information</h6>
-                <p><strong>Address:</strong> ${order.address}</p>
-                <p><strong>Payment Method:</strong> ${order.payment}</p>
-                <p><strong>Status:</strong> ${statusText}</p>
-                ${order.cancelled ? `<p><strong>Cancellation Reason:</strong> ${order.cancellationReason}</p>` : ''}
-                ${order.returned ? `
-                  <p><strong>Return Reason:</strong> ${order.returnReason}</p>
-                  ${order.returnComments ? `<p><strong>Comments:</strong> ${order.returnComments}</p>` : ''}
-                  <p><strong>Returned on:</strong> ${order.returnDate}</p>
-                ` : ''}
-              </div>
-            </div>
-            <div class="qr-code-container mt-3">
-              <h6>Order QR Code</h6>
-              <div id="qrcode-${index}"></div>
-            </div>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary me-2" onclick="printOrder(${index})">Print</button>
-            <button class="btn btn-secondary" onclick="downloadOrder(${index})">Download</button>
-          </div>
-        </div>
-      `;
-    });
-  }
-  html += "<h2 class='mt-4'>Notifications</h2>";
-  if (ownerNotifications.length === 0) {
-    html += "<p>No notifications yet.</p>";
-  } else {
-    html += `<div class="d-flex justify-content-end mb-3">
-               <button class="btn btn-danger btn-sm" onclick="clearOwnerNotifications()">Clear Notifications</button>
-             </div>`;
-    html += '<div class="list-group">';
-    ownerNotifications.slice().reverse().forEach(notif => {
-      html += `
-        <div class="list-group-item">
-          <i class="bi bi-bell-fill me-2"></i>
-          <strong>${notif.date}</strong>: ${notif.message}
-        </div>
-      `;
-    });
-    html += '</div>';
-  }
-  sellerDashboardContent.innerHTML = html;
-  // Generate QR codes for each order
-  orders.forEach((order, index) => {
-    const qrDiv = document.getElementById(`qrcode-${index}`);
-    if (qrDiv) {
-      new QRCode(qrDiv, {
-        text: order.qrData,
-        width: 128,
-        height: 128
-      });
-    }
-  });
-}
-             // Clear owner notifications
-             function clearOwnerNotifications() {
-               if (confirm("Are you sure you want to clear all notifications?")) {
-                 ownerNotifications = [];
-                 saveData();
-                 updateSellerDashboard();
-                 showNotification("All notifications cleared.", "info");
-               }
-             }
-           
+                 }       
              // Function to print order card with QR code
              function printOrder(index) {
                const orderCards = document.querySelectorAll('.order-card');
@@ -2611,99 +2537,6 @@ document.getElementById("feedbackForm")?.addEventListener("submit", function(e) 
          document.getElementById("sendMessageModal").addEventListener("hidden.bs.modal", function () {
            document.getElementById("messageText").value = "";
          });
-         // Update owner dashboard
- function updateOwnerDashboard() {
-  document.getElementById("totalMembers").textContent = users.length;
-  document.getElementById("activeUsers").textContent = getActiveUsers();
-  document.getElementById("liveUsers").textContent = getLiveUsers();
-
-  const totalOrders = orders.length;
-  const activeOrders = orders.filter(order => !order.cancelled && !order.received && !order.returned).length;
-  const cancelledOrders = orders.filter(order => order.cancelled).length;
-  const receivedOrders = orders.filter(order => order.received && !order.returned).length;
-  const returnedOrders = orders.filter(order => order.returned).length;
-
-  document.getElementById("totalOrders").textContent = totalOrders;
-  document.getElementById("activeOrders").textContent = activeOrders;
-  document.getElementById("cancelledOrders").textContent = cancelledOrders;
-  document.getElementById("receivedOrders").textContent = receivedOrders;
-  document.getElementById("returnedOrders").textContent = returnedOrders;
-
-  let orderHtml = "";
-  orders.forEach((order, index) => {
-    let statusText = order.cancelled ? "Cancelled" : order.returned ? "Returned" : order.received ? "Received" : order.shipped ? "Shipped" : "Active";
-    orderHtml += `
-      <div class="card mb-3 shadow-sm order-card">
-        <div class="card-header">Order #${index + 1}</div>
-        <div class="card-body">
-          <p><strong>Product:</strong> ${order.product.name}</p>
-          <p><strong>Buyer:</strong> ${order.buyer.firstName} ${order.buyer.lastName}</p>
-          <p><strong>Status:</strong> ${statusText}</p>
-          ${order.returned ? `
-            <p><strong>Return Reason:</strong> ${order.returnReason}</p>
-            ${order.returnComments ? `<p><strong>Comments:</strong> ${order.returnComments}</p>` : ''}
-            <p><strong>Returned on:</strong> ${order.returnDate}</p>
-          ` : ''}
-          <p><strong>Address:</strong> ${order.address}</p>
-          <p><strong>Mobile:</strong> ${order.mobile}</p>
-          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#sendMessageModal" onclick="setCurrentOrderIndex(${index})">Send Message</button>
-        </div>
-      </div>
-    `;
-  });
-  document.getElementById("orderDetailsContainer").innerHTML = orderHtml;
-             
-               let locationsHtml = "";
-               users.forEach(user => {
-                 locationsHtml += `
-                   <div class="card mb-3">
-                     <div class="card-body">
-                       <p><strong>User:</strong> ${user.firstName} ${user.lastName}</p>
-                       <p><strong>Location:</strong> ${user.location}</p>
-                     </div>
-                   </div>
-                 `;
-               });
-               document.getElementById("userLocationsContainer").innerHTML = locationsHtml;
-             }
-             
-               let locationsHtml = "";
-               users.forEach(user => {
-                 locationsHtml += `
-                   <div class="card mb-3">
-                     <div class="card-body">
-                       <p><strong>User:</strong> ${user.firstName} ${user.lastName}</p>
-                       <p><strong>Location:</strong> ${user.location}</p>
-                     </div>
-                   </div>
-                 `;
-               });
-               document.getElementById("userLocationsContainer").innerHTML = locationsHtml;
-               function sendMessageToUser(orderIndex) {
-                 console.log("Sending message for order:", orderIndex);
-                 const order = orders[orderIndex];
-                 const message = prompt("Enter message to send to the user:");
-                 if (!message) {
-                   showNotification("Message cannot be empty.", "warning");
-                   return;
-               }
-                 if (message) {
-                   const user = users.find(u => u.email === order.buyer.email);
-                   if (user) {
-                     if (!user.notifications) user.notifications = []; // Ensure notifications array exists
-                     user.notifications.push({
-                       message: `Message from Owner: ${message}`,
-                       type: "info",
-                       title: "Message from Owner",
-                       date: new Date().toLocaleString()
-                     });
-                     showNotification(`Message sent to user: ${user.firstName} ${user.lastName}`, "success");
-                     saveData();
-                   } else {
-                     showNotification("User not found.", "warning");
-                   }
-                 }
-               }
                // Reset modal fields when shown
 document.getElementById('buyModal').addEventListener('shown.bs.modal', function () {
   document.getElementById('couponCode').value = '';
@@ -2932,7 +2765,7 @@ function generateProducts(containerId, productList) {
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
               <p class="card-text">
-                <s>₹${originalPrice}</s> ₹${product.price.toFixed(2)} 
+                 ₹${originalPrice} ₹${product.price.toFixed(2)} 
                 <span class="badge bg-success">${discount}% off</span>
               </p>
               ${ratingInfo ? `
